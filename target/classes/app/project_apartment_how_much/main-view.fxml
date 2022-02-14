@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
+         <left>
+            <AnchorPane minHeight="850.0" minWidth="500.0" prefHeight="850.0" prefWidth="500.0" style="-fx-background-color: #e9dac1;" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <AnchorPane minHeight="850.0" minWidth="1420.0" prefHeight="850.0" prefWidth="1420.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="80.0" prefWidth="1920.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane minWidth="500.0" prefHeight="80.0" prefWidth="500.0">
+                     <children>
+                        <Button layoutX="28.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="LOGIN" />
+                        <Button layoutX="190.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="LOGOUT" />
+                        <Button layoutX="353.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="SIGNUP" />
+                     </children>
+                  </AnchorPane>
+                  <Text fill="#2e4c6d" layoutX="788.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is status display field" textAlignment="RIGHT" wrappingWidth="1111.818359375">
+                     <font>
+                        <Font name="Arial Bold" size="30.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+         </bottom>
+         <top>
+            <AnchorPane prefHeight="150.0" prefWidth="1920.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="#2e4c6d" layoutX="14.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APARTMENT" textAlignment="CENTER" wrappingWidth="259.818359375">
+                     <font>
+                        <Font name="Arial Bold" size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#2e4c6d" layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW MUCH" textAlignment="CENTER" wrappingWidth="239.818359375">
+                     <font>
+                        <Font name="Arial Bold" size="40.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane layoutX="500.0" minHeight="150.0" minWidth="1420.0" prefHeight="120.0" prefWidth="1420.0" style="-fx-background-color: #e9dac1;">
+                     <children>
+                        <Text fill="#2e4c6d" layoutX="14.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Guest !!" wrappingWidth="904.818359375">
+                           <font>
+                              <Font name="Arial Bold" size="30.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="14.0" layoutY="90.0" prefHeight="46.0" prefWidth="1393.0" promptText="sharch:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="274.0" layoutY="101.0" prefHeight="41.0" prefWidth="208.0" text="- dpcalfola@gmail.com" textFill="#2e4c6d">
+                     <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
