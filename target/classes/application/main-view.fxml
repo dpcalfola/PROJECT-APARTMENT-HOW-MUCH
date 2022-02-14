@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <BorderPane minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
+      <BorderPane fx:id="mainPane" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
          <left>
             <AnchorPane minHeight="850.0" minWidth="500.0" prefHeight="850.0" prefWidth="500.0" style="-fx-background-color: #e9dac1;" BorderPane.alignment="CENTER" />
          </left>
@@ -23,9 +23,9 @@
                   <AnchorPane minWidth="500.0" prefHeight="80.0" prefWidth="500.0" />
                   <AnchorPane layoutX="500.0" minHeight="80.0" minWidth="1420.0" prefHeight="80.0" prefWidth="1420.0" style="-fx-background-color: #e9dac1;">
                      <children>
-                        <Text fx:id="statusDisplayText" fill="#2e4c6d" layoutX="275.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is status display field" textAlignment="RIGHT" wrappingWidth="1111.818359375">
+                        <Text fx:id="statusDisplayText" fill="#2e4c6d" layoutX="278.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is status display field" textAlignment="RIGHT" wrappingWidth="1111.818359375">
                            <font>
-                              <Font name="Arial Bold" size="30.0" />
+                              <Font name="Arial Bold" size="24.0" />
                            </font>
                         </Text>
                      </children>

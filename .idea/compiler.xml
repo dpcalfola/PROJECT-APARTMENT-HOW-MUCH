@@ -9,8 +9,5 @@
         <module name="PROJECT_APARTMENT_HOW_MUCH" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="PROJECT_APARTMENT_HOW_MUCH" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
