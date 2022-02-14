@@ -1,6 +1,7 @@
-package app.project_apartment_how_much;
+package application;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -9,8 +10,8 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Parent root = FXMLLoader.load(Application.class.getResource("main-view.fxml"));
+        Scene scene = new Scene(root);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

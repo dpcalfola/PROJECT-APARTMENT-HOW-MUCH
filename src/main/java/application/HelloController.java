@@ -1,4 +1,4 @@
-package app.project_apartment_how_much;
+package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

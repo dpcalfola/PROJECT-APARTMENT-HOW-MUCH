@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
       <BorderPane minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
          <left>
@@ -20,18 +20,16 @@
          <bottom>
             <AnchorPane prefHeight="80.0" prefWidth="1920.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane minWidth="500.0" prefHeight="80.0" prefWidth="500.0">
+                  <AnchorPane minWidth="500.0" prefHeight="80.0" prefWidth="500.0" />
+                  <AnchorPane layoutX="500.0" minHeight="80.0" minWidth="1420.0" prefHeight="80.0" prefWidth="1420.0" style="-fx-background-color: #e9dac1;">
                      <children>
-                        <Button layoutX="28.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="LOGIN" />
-                        <Button layoutX="190.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="LOGOUT" />
-                        <Button layoutX="353.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="SIGNUP" />
+                        <Text fx:id="statusDisplayText" fill="#2e4c6d" layoutX="275.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is status display field" textAlignment="RIGHT" wrappingWidth="1111.818359375">
+                           <font>
+                              <Font name="Arial Bold" size="30.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
-                  <Text fill="#2e4c6d" layoutX="788.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is status display field" textAlignment="RIGHT" wrappingWidth="1111.818359375">
-                     <font>
-                        <Font name="Arial Bold" size="30.0" />
-                     </font>
-                  </Text>
                </children></AnchorPane>
          </bottom>
          <top>
@@ -59,6 +57,26 @@
                               <Font size="25.0" />
                            </font>
                         </TextField>
+                        <Button layoutX="1307.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Sign Up" textFill="#2e4c6d" AnchorPane.rightAnchor="30.0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="1223.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleLogoutButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Logout" textFill="#2e4c6d" AnchorPane.rightAnchor="120.0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="1127.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Login" textFill="#2e4c6d" AnchorPane.rightAnchor="210.0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="1038.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Search" textFill="#2e4c6d" AnchorPane.rightAnchor="300.0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                   <Label layoutX="274.0" layoutY="101.0" prefHeight="41.0" prefWidth="208.0" text="- dpcalfola@gmail.com" textFill="#2e4c6d">
