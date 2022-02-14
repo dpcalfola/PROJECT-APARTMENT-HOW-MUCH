@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <BorderPane minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
+      <BorderPane fx:id="mainPane" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
          <left>
             <AnchorPane minHeight="850.0" minWidth="500.0" prefHeight="850.0" prefWidth="500.0" style="-fx-background-color: #e9dac1;" BorderPane.alignment="CENTER" />
          </left>
