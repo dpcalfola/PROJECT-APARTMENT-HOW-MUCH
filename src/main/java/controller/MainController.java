@@ -2,7 +2,10 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -10,6 +13,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+
+    @FXML
+    private BorderPane mainPane;
 
     @FXML
     private Text statusDisplayText;
@@ -25,6 +31,8 @@ public class MainController implements Initializable {
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
         System.out.println("Login Button clicked !!");
         statusDisplayText.setText("Login Button clicked");
+        Pane view = FXMLLoader.load(getClass().getResource("login-view.fxml"));
+        mainPane.setCenter(view);
     }
 
     @FXML
@@ -40,12 +48,9 @@ public class MainController implements Initializable {
     }
 
 
-
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
     }
 }
