@@ -13,13 +13,13 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @FXML
-    private void handleLoginButtonAction(ActionEvent event) {
+    private void handleLoginViewLoginButtonAction(ActionEvent event) {
         System.out.println("login-view login button clicked");
 
     }
 
     @FXML
-    private void handleSignUpButtonAction(ActionEvent event) {
+    private void handleLoginViewSignUpButtonAction(ActionEvent event) {
         System.out.println("login-view sign up button clicked");
     }
 

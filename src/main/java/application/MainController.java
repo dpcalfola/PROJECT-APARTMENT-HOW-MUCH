@@ -1,11 +1,11 @@
 package application;
 
-import com.sun.tools.javac.Main;
+import databaseClass.testConnection.TestConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -25,6 +25,12 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        TestConnection t1 = new TestConnection();
+        t1.testConnect();
+
+
+
 
     }
 
@@ -58,32 +64,32 @@ public class MainController implements Initializable {
     }
 
 
-    // login view button
-
-    @FXML
-    private void handleLoginViewLoginButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Login view - Login View Button Clicked");
-
-    }
-
-    @FXML
-    private void handleLoginViewSignUpButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Login view - Sign View Button Clicked");
-
-
-
-    }
-
-    @FXML
-    private void goToSearch(ActionEvent event) throws IOException {
-        System.out.println("goToSearch clicked");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
-        Parent root = loader.load();
-        MainController mController = loader.getController();
-        Pane view = FXMLLoader.load(getClass().getResource("search-view.fxml"));
-        mController.statusDisplayText.setText("12345");
-        mController.mainPane.setCenter(view);
-    }
+    // login view button (test - control everthing in MainController
+//
+//    @FXML
+//    private void handleLoginViewLoginButtonAction(ActionEvent event) throws IOException {
+//        System.out.println("Login view - Login View Button Clicked");
+//
+//    }
+//
+//    @FXML
+//    private void handleLoginViewSignUpButtonAction(ActionEvent event) throws IOException {
+//        System.out.println("Login view - Sign View Button Clicked");
+//
+//
+//
+//    }
+//
+//    @FXML
+//    private void goToSearch(ActionEvent event) throws IOException {
+//        System.out.println("goToSearch clicked");
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+//        Parent root = loader.load();
+//        MainController mController = loader.getController();
+//        Pane view = FXMLLoader.load(getClass().getResource("search-view.fxml"));
+////        mController.statusDisplayText.setText("12345");
+//        mController.mainPane.setCenter(view);
+//    }
 
 
 }
