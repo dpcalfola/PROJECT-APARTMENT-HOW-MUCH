@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="850.0" minWidth="1420.0" prefHeight="850.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="850.0" minWidth="1420.0" prefHeight="850.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <AnchorPane minHeight="850.0" minWidth="1420.0" prefHeight="850.0" prefWidth="1420.0" style="-fx-background-color: #f7ecde;">
          <children>
@@ -40,14 +40,14 @@
                         <Font name="Arial Bold" size="25.0" />
                      </font>
                   </Text>
-                  <Button layoutX="302.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Sign Up" textFill="#2e4c6d">
+                  <Button layoutX="302.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleLoginViewSignUpButtonAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Sign Up" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button layoutX="213.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
+            <Button layoutX="213.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleLoginViewLoginButtonAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>

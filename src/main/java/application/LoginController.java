@@ -26,9 +26,6 @@ public class LoginController implements Initializable {
     @FXML
     private void goToSearch(ActionEvent event){
         System.out.println("goToSearch clicked");
-        MainController m1 = new MainController();
-
-
     }
 
 

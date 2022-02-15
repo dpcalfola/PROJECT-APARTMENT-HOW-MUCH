@@ -52,7 +52,7 @@
                               <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="14.0" layoutY="90.0" prefHeight="46.0" prefWidth="1393.0" promptText="sharch:" style="-fx-background-color: #f7ecde;">
+                        <TextField layoutX="14.0" layoutY="90.0" prefHeight="45.0" prefWidth="1393.0" promptText="search:" style="-fx-background-color: #f7ecde;">
                            <font>
                               <Font size="25.0" />
                            </font>
