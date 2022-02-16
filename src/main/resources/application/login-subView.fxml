@@ -15,17 +15,17 @@
          <children>
             <VBox layoutX="66.0" layoutY="247.0" prefHeight="201.0" prefWidth="486.0">
                <children>
-                  <TextField prefHeight="40.0" prefWidth="479.0" promptText="ID" style="-fx-background-color: #e9dac1;">
+                  <TextField fx:id="idLgSbTextField" prefHeight="40.0" prefWidth="479.0" promptText="ID" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
                         <Insets bottom="25.0" top="11.0" />
                      </VBox.margin>
                   </TextField>
-                  <PasswordField minHeight="40.0" prefHeight="30.0" promptText="password" style="-fx-background-color: #e9dac1;">
+                  <PasswordField fx:id="pwLgSbPasswordField" minHeight="40.0" prefHeight="30.0" promptText="password" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
                         <Insets bottom="25.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#handleLoginViewLoginButtonAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
+                  <Button mnemonicParsing="false" onAction="#handleLoginButtonLgSbViewAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Button layoutX="266.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleLoginViewSignUpButtonAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Sign Up" textFill="#2e4c6d">
+                  <Button layoutX="266.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleSignUpButtonLgSbViewAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Sign Up" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>

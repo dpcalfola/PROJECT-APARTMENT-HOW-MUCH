@@ -1,6 +1,7 @@
 package application;
 
 import databaseClass.testConnection.TestConnection;
+import databaseClass.user.UserLoginConfirm;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,10 +23,13 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // DB connection test
         TestConnection t1 = new TestConnection();
         t1.testConnect();
 
+        // login confirm test
+        UserLoginConfirm c1 = new UserLoginConfirm();
+        c1.confirmUser();
 
     }
 
