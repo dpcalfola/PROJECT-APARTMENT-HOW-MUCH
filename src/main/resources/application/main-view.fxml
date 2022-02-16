@@ -94,8 +94,13 @@
          <left>
             <AnchorPane minHeight="550.0" minWidth="300.0" prefHeight="550.0" prefWidth="300.0" style="-fx-background-color: #e9dac1;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutX="19.0" layoutY="40.0" prefHeight="475.0" prefWidth="260.0">
+                  <VBox layoutX="20.0" layoutY="32.0" prefHeight="487.0" prefWidth="260.0">
                      <children>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="260.0" text="제약조건" textAlignment="CENTER" textFill="#2e4c6d">
+                           <font>
+                              <Font name="Arial Bold" size="28.0" />
+                           </font>
+                        </Label>
                         <Label prefHeight="33.0" prefWidth="126.0" text="거래금액" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
@@ -153,7 +158,7 @@
                               <Font name="Arial Bold" size="18.0" />
                            </font>
                         </Label>
-                        <HBox prefHeight="60.0" prefWidth="200.0">
+                        <HBox prefHeight="27.0" prefWidth="260.0">
                            <children>
                               <TextField fx:id="minFloorTextField" prefHeight="25.0" prefWidth="110.0" />
                               <Label alignment="CENTER" prefHeight="17.0" prefWidth="48.0" text="~" textAlignment="CENTER" />

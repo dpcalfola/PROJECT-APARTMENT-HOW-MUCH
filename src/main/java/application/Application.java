@@ -7,17 +7,30 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class Application extends javafx.application.Application {
+
+    static MainController mainControllerHandle;
+
+
     @Override
-    public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Application.class.getResource("main-view.fxml"));
+    public void start(Stage primaryStage) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
+        Parent root = loader.load();
+
+        // make controller static
+        mainControllerHandle = (MainController) loader.getController();
+
         Scene scene = new Scene(root);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setTitle("Apartment How Much");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
         launch();
     }
+
+
 }

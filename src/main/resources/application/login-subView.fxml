@@ -23,7 +23,8 @@
                   <PasswordField minHeight="40.0" prefHeight="30.0" promptText="password" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
                         <Insets bottom="25.0" />
-                     </VBox.margin></PasswordField>
+                     </VBox.margin>
+                  </PasswordField>
                   <Button mnemonicParsing="false" onAction="#handleLoginViewLoginButtonAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
