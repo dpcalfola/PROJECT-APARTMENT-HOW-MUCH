@@ -38,16 +38,20 @@ public class MainController implements Initializable {
     private void handleSearchButtonAction(ActionEvent event) throws IOException {
         System.out.println("Search Button clicked !!");
         statusDisplayText.setText("Search Button clicked");
-        Pane view = FXMLLoader.load(getClass().getResource("search-view.fxml"));
-        mainPane.setCenter(view);
+    }
+
+    @FXML
+    private void handleTableButtonAction(ActionEvent event) throws IOException{
+        System.out.println("Table button clicked !!");
+        statusDisplayText.setText("Table Button clicked");
     }
 
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
         System.out.println("Login Button clicked !!");
         statusDisplayText.setText("Login Button clicked");
-        Pane view = FXMLLoader.load(getClass().getResource("login-view.fxml"));
-        mainPane.setCenter(view);
+//        Pane view = FXMLLoader.load(getClass().getResource("login-view.fxml"));
+//        mainPane.setCenter(view);
 
     }
 
