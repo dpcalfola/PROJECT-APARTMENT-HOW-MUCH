@@ -9,50 +9,56 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="850.0" minWidth="1420.0" prefHeight="850.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
-      <AnchorPane minHeight="850.0" minWidth="1420.0" prefHeight="850.0" prefWidth="1420.0" style="-fx-background-color: #f7ecde;">
+      <AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
          <children>
-            <VBox layoutX="213.0" layoutY="425.0" prefHeight="179.0" prefWidth="486.0">
+            <VBox layoutX="66.0" layoutY="247.0" prefHeight="201.0" prefWidth="486.0">
                <children>
-                  <TextField prefHeight="45.0" prefWidth="479.0" promptText="ID" style="-fx-background-color: #e9dac1;">
+                  <TextField prefHeight="40.0" prefWidth="479.0" promptText="ID" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
-                        <Insets bottom="41.0" top="11.0" />
+                        <Insets bottom="25.0" top="11.0" />
                      </VBox.margin>
                   </TextField>
-                  <PasswordField minHeight="45.0" prefHeight="45.0" promptText="password" style="-fx-background-color: #e9dac1;" />
+                  <PasswordField minHeight="40.0" prefHeight="30.0" promptText="password" style="-fx-background-color: #e9dac1;">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin></PasswordField>
+                  <Button mnemonicParsing="false" onAction="#handleLoginViewLoginButtonAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
-            <AnchorPane layoutX="213.0" layoutY="99.0" prefHeight="269.0" prefWidth="896.0">
+            <AnchorPane layoutX="66.0" layoutY="23.0" prefHeight="224.0" prefWidth="896.0">
                <children>
                   <Text fill="#2e4c6d" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to the How Much Apartment">
                      <font>
-                        <Font name="Arial Bold" size="40.0" />
+                        <Font name="Arial Bold" size="30.0" />
                      </font>
                   </Text>
-                  <Text fill="#2e4c6d" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark and compare data you interested in">
+                  <Text fill="#2e4c6d" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark and compare data you interested in">
                      <font>
-                        <Font name="Arial Bold" size="25.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Text fill="#2e4c6d" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
+                  <Text fill="#2e4c6d" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
                      <font>
-                        <Font name="Arial Bold" size="25.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Button layoutX="302.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleLoginViewSignUpButtonAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Sign Up" textFill="#2e4c6d">
+                  <Button layoutX="266.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleLoginViewSignUpButtonAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Sign Up" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button layoutX="213.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleLoginViewLoginButtonAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
-               <font>
-                  <Font name="Arial Bold" size="16.0" />
-               </font>
-            </Button>
-            <Button layoutX="820.0" layoutY="604.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #e9dac1;" text="goToSearch" textFill="#2e4c6d">
+            <Button layoutX="810.0" layoutY="470.0" mnemonicParsing="false" onAction="#goToSearch" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #e9dac1;" text="Go To Table" textFill="#2e4c6d">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>

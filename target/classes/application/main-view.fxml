@@ -81,7 +81,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Label layoutX="136.0" layoutY="91.0" prefHeight="26.0" prefWidth="158.0" text="- dpcalfola@gmail.com" textFill="#2e4c6d">
+                  <Label layoutX="136.0" layoutY="91.0" prefHeight="33.0" prefWidth="158.0" text="- dpcalfola@gmail.com" textFill="#2e4c6d">
                      <font>
                         <Font name="SansSerif Regular" size="15.0" />
                      </font>

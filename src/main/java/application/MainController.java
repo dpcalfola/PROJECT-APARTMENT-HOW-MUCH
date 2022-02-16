@@ -50,8 +50,8 @@ public class MainController implements Initializable {
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
         System.out.println("Login Button clicked !!");
         statusDisplayText.setText("Login Button clicked");
-//        Pane view = FXMLLoader.load(getClass().getResource("login-view.fxml"));
-//        mainPane.setCenter(view);
+        Pane view = FXMLLoader.load(getClass().getResource("login-view.fxml"));
+        mainPane.setCenter(view);
 
     }
 
