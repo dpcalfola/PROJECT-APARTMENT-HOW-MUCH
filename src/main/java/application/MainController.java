@@ -1,12 +1,11 @@
 package application;
 
 import databaseClass.testConnection.TestConnection;
-import databaseClass.user.UserLoginConfirm;
+import databaseClass.user.UserLoginConfirmTest;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
@@ -29,11 +28,11 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // DB connection test
-        TestConnection t1 = new TestConnection();
-        t1.testConnect();
+//        TestConnection t1 = new TestConnection();
+//        t1.testConnect();
 
         // login confirm test
-        UserLoginConfirm c1 = new UserLoginConfirm();
+        UserLoginConfirmTest c1 = new UserLoginConfirmTest();
         c1.confirmUser();
 
     }
@@ -66,6 +65,8 @@ public class MainController implements Initializable {
     private void handleSignUpButtonAction(ActionEvent event) throws IOException {
         System.out.println("SignUp Button clicked !!");
         statusDisplayText.setText("SignUp Button clicked");
+        PrimaryModel p1 = new PrimaryModel();
+        p1.changeBorderPaneCenter("signup-subView.fxml");
     }
 
     @FXML

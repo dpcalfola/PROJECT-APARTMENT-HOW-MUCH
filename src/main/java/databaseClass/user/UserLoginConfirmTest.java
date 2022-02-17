@@ -1,6 +1,6 @@
 package databaseClass.user;
 
-public class UserLoginConfirm {
+public class UserLoginConfirmTest {
 
     public void confirmUser() {
 
