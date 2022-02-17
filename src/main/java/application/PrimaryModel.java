@@ -14,6 +14,14 @@ public class PrimaryModel {
         mainControllerHandle.getMainPane().setCenter(view);
     }
 
+    void changeGreetingTextField(String text) throws IOException{
+        mainControllerHandle.getGreetingTextField().setText("Hello " + text + " !!");
+    }
+
+    void changeStatusDisplayText(String text){
+        mainControllerHandle.getStatusDisplayText().setText(text);
+    }
+
 }
 
 

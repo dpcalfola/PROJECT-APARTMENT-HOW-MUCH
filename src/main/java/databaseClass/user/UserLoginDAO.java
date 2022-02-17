@@ -27,7 +27,7 @@ public class UserLoginDAO {
 
             resultSet = checkUpUser.executeQuery();
 
-            // 일치하는 user_id 가 있다면
+            // if user_id exist in database
             if (resultSet.next()){
                 String getUserIdFromDB = resultSet.getString("user_id");
                 String getUserPwFromDB = resultSet.getString("user_pw");
@@ -36,7 +36,7 @@ public class UserLoginDAO {
                 System.out.println("loginDAO getId " + getUserIdFromDB);
                 System.out.println("loginDAO userID " + userID);
 
-                // userVO 생성자를 통해 userInfo 생성
+                // return userInfo through UserVO constructor
                 if(getUserIdFromDB.equals(userID) && getUserPwFromDB.equals(userPW)){
                     userInfo = new UserVO(getUserPrimaryKey, getUserIdFromDB, getUserPwFromDB, true);
                     return userInfo;
@@ -45,7 +45,9 @@ public class UserLoginDAO {
                     return userInfo;
                 }
             }else{
-                userInfo = new UserVO(0, "Doesn't exist userID", "Doesn't exist user ID", false);
+                // if user ID doesn't exist, return userPrimaryKey as -1
+                // Use this value when SignUp situation
+                userInfo = new UserVO(-1, "Doesn't exist userID", "Doesn't exist user ID", false);
             }
 
         }catch (Exception e){

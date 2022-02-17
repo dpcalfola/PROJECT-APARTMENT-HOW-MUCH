@@ -47,7 +47,7 @@
                   </Text>
                   <AnchorPane layoutX="300.0" minHeight="130.0" minWidth="1050.0" prefHeight="130.0" prefWidth="1050.0" style="-fx-background-color: #e9dac1;">
                      <children>
-                        <Text fill="#2e4c6d" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Guest !!" wrappingWidth="904.818359375">
+                        <Text fx:id="greetingTextField" fill="#2e4c6d" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Guest !!" wrappingWidth="904.818359375">
                            <font>
                               <Font name="Arial Bold" size="30.0" />
                            </font>
@@ -96,12 +96,12 @@
                <children>
                   <VBox layoutX="20.0" layoutY="32.0" prefHeight="487.0" prefWidth="260.0">
                      <children>
-                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="260.0" text="제약조건" textAlignment="CENTER" textFill="#2e4c6d">
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="260.0" text="Constraints" textAlignment="CENTER" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="33.0" prefWidth="126.0" text="거래금액" textFill="#2e4c6d">
+                        <Label prefHeight="33.0" prefWidth="126.0" text="Trade price" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -117,7 +117,7 @@
                               <TextField fx:id="maxPriceTextField" prefHeight="25.0" prefWidth="110.0" />
                            </children>
                         </HBox>
-                        <Label prefHeight="33.0" prefWidth="126.0" text="전용면적(㎡)" textFill="#2e4c6d">
+                        <Label prefHeight="33.0" prefWidth="259.0" text="Exclusive Using Area(㎡)" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -129,7 +129,7 @@
                               <TextField fx:id="maxAreaTextField" prefHeight="25.0" prefWidth="110.0" />
                            </children>
                         </HBox>
-                        <Label prefHeight="33.0" prefWidth="126.0" text="계약년월" textFill="#2e4c6d">
+                        <Label prefHeight="33.0" prefWidth="126.0" text="Contract date" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -141,7 +141,7 @@
                               <TextField fx:id="maxContractDateTextField" prefHeight="25.0" prefWidth="110.0" />
                            </children>
                         </HBox>
-                        <Label prefHeight="33.0" prefWidth="126.0" text="건축년도" textFill="#2e4c6d">
+                        <Label prefHeight="33.0" prefWidth="261.0" text="Construction year" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -153,7 +153,7 @@
                               <TextField fx:id="maxConstructYearTextField" prefHeight="25.0" prefWidth="110.0" />
                            </children>
                         </HBox>
-                        <Label prefHeight="33.0" prefWidth="126.0" text="층" textFill="#2e4c6d">
+                        <Label prefHeight="33.0" prefWidth="126.0" text="Floor" textFill="#2e4c6d">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>

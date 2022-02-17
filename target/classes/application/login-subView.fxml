@@ -25,7 +25,7 @@
                         <Insets bottom="25.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#handleLoginButtonLgSbViewAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
+                  <Button mnemonicParsing="false" onAction="#handleLoginButtonLgSbViewAction" onKeyPressed="#enterKeyPressed" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Login" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -64,6 +64,11 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Button>
+            <Text fx:id="loginConsequenceTextLgSbView" fill="#2e4c6d" layoutX="66.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LoginConsequenceText" wrappingWidth="465.341796875">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

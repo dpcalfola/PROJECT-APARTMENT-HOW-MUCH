@@ -7,9 +7,9 @@ import java.sql.Statement;
 
 public class ConnDB {
 
-    String url = "jdbc:mysql://localhost:3306/real_estate_kor";
-    String user = "fola";
-    String password = "123456789";
+    final String url = "jdbc:mysql://localhost:3306/real_estate_kor";
+    final String user = "fola";
+    final String password = "123456789";
 
     public Connection conn;
     private Statement statement;
