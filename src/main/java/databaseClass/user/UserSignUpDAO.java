@@ -12,19 +12,19 @@ public class UserSignUpDAO {
 
         Connection connection = null;
         PreparedStatement signUpQuery = null;
-        ResultSet resultSet = null ;
+        ResultSet resultSet = null;
 
         UserVO userInfo = new UserVO(0, "initial value", "initial value", false);
 
 
         try {
             connection = DriverManager.getConnection(url, user, password);
-            signUpQuery = connection.prepareStatement("INSERT INTO real_estate_kor.user (user_id, user_pw)\n" +
-                    "VALUES ('asd','asd')" );
-//            signUpQuery.setString(1, userID);
-//            signUpQuery.setString(2, userPW);
+            signUpQuery = connection.prepareStatement("INSERT INTO user (user_id, user_pw)" +
+                    "VALUES (?,?)");
+            signUpQuery.setString(1, userID);
+            signUpQuery.setString(2, userPW);
 
-            signUpQuery.executeQuery();
+            signUpQuery.execute();
 
 
         } catch (Exception e) {
