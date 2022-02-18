@@ -35,12 +35,10 @@ public class TableController implements Initializable {
     private TableColumn<TableVO, String> floor;
     @FXML
     private TableColumn<TableVO, String> contractDate;
-    ObservableList<TableVO> listM;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
 
         tradeId.setCellValueFactory(new PropertyValueFactory<TableVO, Integer>("tradeID"));
@@ -62,9 +60,6 @@ public class TableController implements Initializable {
             observableList.add(data);
             tableView.setItems(observableList);
         }
-
-
-
 
 
     }

@@ -36,7 +36,7 @@ public class TableDAO extends ConnDB {
                 String price = resultSet.getString("trade_price_10000won");
                 String area = resultSet.getString("area_m^2");
                 String constructionYear = resultSet.getString("construction_year");
-                String floor = resultSet.getString("contract_year_month");
+                String floor = resultSet.getString("floor");
                 String contractDate = resultSet.getString("contract_year_month") + resultSet.getString(
                         "contract_date");
                 TableVO data = new TableVO(tradeID, apartGroup, addressRoad, addressDetailed, price, area,
