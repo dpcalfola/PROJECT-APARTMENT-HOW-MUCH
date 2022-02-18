@@ -38,16 +38,18 @@ public class LoginController implements Initializable {
 
         System.out.println("ID: " + getID + "\nPW: " + getPW);
 
-        // 로그인 시도
+        // try login
         UserLoginDAO dao = new UserLoginDAO();
         UserVO userInfo = dao.loginUser(getID, getPW);
-        // 로그인 성공 or 실패
-        if (userInfo.isCorrectUserInfo() && getID != null && getPW != null) {
+
+
+        // find userVO in database -> userInfo.isCorrectUserInfo == true
+        if (userInfo.isCorrectUserInfo() && !Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
             System.out.println("Logged in Successfully");
 
             PrimaryModel p1 = new PrimaryModel();
             p1.changeGreetingTextField(getID);
-            p1.changeStatusDisplayText(getID + "Logged in");
+            p1.changeStatusDisplayText(getID + " Logged in");
 
             loginConsequenceTextLgSbView.setText("Hello " + getID + " !! You logged in Successfully");
             loginConsequenceTextLgSbView.setVisible(true);
