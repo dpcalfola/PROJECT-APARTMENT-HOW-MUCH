@@ -30,9 +30,6 @@ public class UserLoginDAO extends ConnDB {
                 String getUserPwFromDB = resultSet.getString("user_pw");
                 int getUserPrimaryKey = resultSet.getInt("user_primaryKey");
 
-                System.out.println("loginDAO getId " + getUserIdFromDB);
-                System.out.println("loginDAO userID " + userID);
-
                 // return userInfo through UserVO constructor
                 if (getUserIdFromDB.equals(userID) && getUserPwFromDB.equals(userPW)) {
                     userInfo = new UserVO(getUserPrimaryKey, getUserIdFromDB, getUserPwFromDB, true);

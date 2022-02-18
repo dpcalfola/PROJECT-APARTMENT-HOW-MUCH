@@ -6,19 +6,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableController">
    <children>
-      <TableView layoutX="29.0" layoutY="25.0" prefHeight="200.0" prefWidth="990.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <TableView fx:id="tableView" layoutX="29.0" layoutY="25.0" prefHeight="200.0" prefWidth="990.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columns>
-          <TableColumn prefWidth="61.0" text="거래번호" />
-          <TableColumn prefWidth="248.0" text="아파트명" />
-            <TableColumn prefWidth="132.0" text="도로명주소" />
-            <TableColumn prefWidth="120.0" text="동 / 면 / 읍" />
-            <TableColumn prefWidth="123.0" text="거래가(만원)" />
-            <TableColumn prefWidth="78.0" text="전용면적(㎡)" />
-            <TableColumn prefWidth="76.0" text="건축년도" />
-            <TableColumn prefWidth="51.0" text="층" />
-            <TableColumn prefWidth="120.0" text="거래일" />
+          <TableColumn fx:id="tradeId" prefWidth="61.0" text="거래번호" />
+          <TableColumn fx:id="apartGroup" prefWidth="248.0" text="아파트명" />
+            <TableColumn fx:id="addressRoad" prefWidth="132.0" text="도로명주소" />
+            <TableColumn fx:id="addressDetailed" prefWidth="120.0" text="동 / 면 / 읍" />
+            <TableColumn fx:id="price" prefWidth="123.0" text="거래가(만원)" />
+            <TableColumn fx:id="area" prefWidth="78.0" text="전용면적(㎡)" />
+            <TableColumn fx:id="constructionYear" prefWidth="76.0" text="건축년도" />
+            <TableColumn fx:id="floor" prefWidth="51.0" text="층" />
+            <TableColumn fx:id="contractDate" prefWidth="120.0" text="거래일" />
         </columns>
       </TableView>
       <Text fill="#2e4c6d" layoutX="790.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Table View test">
