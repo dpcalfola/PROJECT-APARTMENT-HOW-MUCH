@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController extends PrimaryModel implements Initializable {
 
 
     //Field
@@ -42,15 +42,13 @@ public class MainController implements Initializable {
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
         System.out.println("Table button clicked !!");
-        PrimaryModel p1 = new PrimaryModel();
-        p1.changeBorderPaneCenter("table-subView.fxml");
+        changeBorderPaneCenter("table-subView.fxml");
     }
 
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
         System.out.println("Login Button clicked !!");
-        PrimaryModel p1 = new PrimaryModel();
-        p1.changeBorderPaneCenter("login-subView.fxml");
+        changeBorderPaneCenter("login-subView.fxml");
     }
 
     @FXML
@@ -61,8 +59,7 @@ public class MainController implements Initializable {
     @FXML
     private void handleSignUpButtonAction(ActionEvent event) throws IOException {
         System.out.println("SignUp Button clicked !!");
-        PrimaryModel p1 = new PrimaryModel();
-        p1.changeBorderPaneCenter("signup-subView.fxml");
+        changeBorderPaneCenter("signup-subView.fxml");
     }
 
     @FXML
@@ -75,11 +72,9 @@ public class MainController implements Initializable {
     public BorderPane getMainPane() {
         return mainPane;
     }
-
     public Text getGreetingTextField() {
         return greetingTextField;
     }
-
     public Text getStatusDisplayText() {
         return statusDisplayText;
     }

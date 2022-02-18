@@ -7,8 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -17,7 +15,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 
-public class LoginController implements Initializable {
+public class LoginController extends PrimaryModel implements Initializable {
 
     @FXML
     TextField idLgSbTextField;
@@ -45,11 +43,10 @@ public class LoginController implements Initializable {
 
         // find userVO in database -> userInfo.isCorrectUserInfo == true
         if (userInfo.isCorrectUserInfo() && !Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
-            System.out.println("Logged in Successfully");
 
-            PrimaryModel p1 = new PrimaryModel();
-            p1.changeGreetingTextField(getID);
-            p1.changeStatusDisplayText(getID + " Logged in");
+            System.out.println("Logged in Successfully");
+            changeGreetingTextField(getID);
+            changeStatusDisplayText(getID + " Logged in");
 
             loginConsequenceTextLgSbView.setText("Hello " + getID + " !! You logged in Successfully");
             loginConsequenceTextLgSbView.setVisible(true);
@@ -73,8 +70,7 @@ public class LoginController implements Initializable {
     @FXML
     private void goToSearch(ActionEvent event) throws IOException {
         System.out.println("Login-subView Go To Table clicked");
-        PrimaryModel p1 = new PrimaryModel();
-        p1.changeBorderPaneCenter("table-subView.fxml");
+        changeBorderPaneCenter("table-subView.fxml");
     }
 
     @Override

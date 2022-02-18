@@ -25,6 +25,7 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(root);
         primaryStage.setTitle("Apartment How Much");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

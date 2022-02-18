@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserLoginDAO {
+public class UserLoginDAO extends ConnDB {
 
     public UserVO loginUser(String userID, String userPW) {
         ResultSet resultSet = null;
@@ -16,10 +16,10 @@ public class UserLoginDAO {
         UserVO userInfo = new UserVO(0, "initial value", "initial value", false);
 
         try {
-            ConnDB loginConn = new ConnDB();
-            loginConn.connDB();
 
-            checkUpUser = loginConn.conn.prepareStatement("SELECT * FROM user WHERE user_id = ?");
+            connDB();
+
+            checkUpUser = conn.prepareStatement("SELECT * FROM user WHERE user_id = ?");
             checkUpUser.setString(1, userID);
 
             resultSet = checkUpUser.executeQuery();

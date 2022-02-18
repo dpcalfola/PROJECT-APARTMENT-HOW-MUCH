@@ -5,21 +5,20 @@ import databaseClass.ConnDB;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class TestConnectionDAO {
+public class TestConnectionDAO extends ConnDB {
 
     private ResultSet resultSet;
 
-    public ArrayList<TestConnectionVO> testConnectionList(){
+    public ArrayList<TestConnectionVO> testConnectionList() {
         ArrayList<TestConnectionVO> list = new ArrayList<>();
 
-        try{
-            ConnDB testConn = new ConnDB();
-            testConn.connDB();
+        try {
+            connDB();
 
             String query = "SELECT * FROM user";
-            resultSet = testConn.getStatement().executeQuery(query);
+            resultSet = getStatement().executeQuery(query);
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
 
                 int userPrimaryKey = resultSet.getInt("user_primaryKey");
                 String userID = resultSet.getString("user_id");
@@ -29,8 +28,16 @@ public class TestConnectionDAO {
                 list.add(data);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         return list;

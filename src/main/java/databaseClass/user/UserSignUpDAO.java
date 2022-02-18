@@ -1,34 +1,37 @@
 package databaseClass.user;
 
+import databaseClass.ConnDB;
+
 import java.sql.*;
 
-public class UserSignUpDAO {
+public class UserSignUpDAO extends ConnDB {
 
-    final String url = "jdbc:mysql://localhost:3306/real_estate_kor";
-    final String user = "fola";
-    final String password = "123456789";
 
-    public UserVO SignUpUser(String userID, String userPW) {
+    public boolean SignUpUser(String userID, String userPW) {
 
-        Connection connection = null;
         PreparedStatement signUpQuery = null;
-        ResultSet resultSet = null;
-
-        UserVO userInfo = new UserVO(0, "initial value", "initial value", false);
-
+        boolean isSucceed = false;
 
         try {
-            connection = DriverManager.getConnection(url, user, password);
-            signUpQuery = connection.prepareStatement("INSERT INTO user (user_id, user_pw)" +
+            connDB();
+
+            // make query
+            signUpQuery = conn.prepareStatement("INSERT INTO user (user_id, user_pw)" +
                     "VALUES (?,?)");
             signUpQuery.setString(1, userID);
             signUpQuery.setString(2, userPW);
 
+
+            // -----> warning : '.executeQuery()' use for SELECT query. NOT INSERT or UPDATE query<-----
+            // -----> USE .execute() <-----
             signUpQuery.execute();
+            isSucceed = true;
 
 
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+
         } finally {
             if (signUpQuery != null) {
                 try {
@@ -39,7 +42,7 @@ public class UserSignUpDAO {
             }
         }
 
-        return userInfo;
+        return isSucceed;
 
 
     }

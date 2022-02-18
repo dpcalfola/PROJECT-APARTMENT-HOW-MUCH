@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignUpController implements Initializable {
+public class SignUpController extends PrimaryModel implements Initializable {
 
 
     // field
@@ -39,6 +39,7 @@ public class SignUpController implements Initializable {
         if (!getPW1.equals(getPW2)) {
             signUpConsequenceTextSuSbView.setText("Those password didn't match");
             signUpConsequenceTextSuSbView.setVisible(true);
+
         } else {
 
             System.out.println("Those password match");
@@ -52,9 +53,20 @@ public class SignUpController implements Initializable {
                 signUpConsequenceTextSuSbView.setVisible(true);
             }else{
                 UserSignUpDAO signUpDAO = new UserSignUpDAO();
-                UserVO userInfo = signUpDAO.SignUpUser(getID, getPW1);
-                String newUserID = userInfo.getUserID();
-                System.out.println(newUserID + " made successfully");
+                boolean isSignUpSucceed = signUpDAO.SignUpUser(getID, getPW1);
+
+                if(isSignUpSucceed){
+                    System.out.println(getID + " user created");
+                    signUpConsequenceTextSuSbView.setText(getID + " user created");
+                    signUpConsequenceTextSuSbView.setVisible(true);
+                    changeStatusDisplayText("User created successfully (user: " + getID + ")");
+                }else{
+                    System.out.println("User create failed");
+                    signUpConsequenceTextSuSbView.setText("User create failed");
+                    signUpConsequenceTextSuSbView.setVisible(true);
+
+                }
+
             }
 
         }
