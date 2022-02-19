@@ -8,8 +8,8 @@
    <children>
       <TableView fx:id="tableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="550.0" prefWidth="1050.0" styleClass="table" stylesheets="@tableStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn id="tableColumn" fx:id="tradeId" prefWidth="59.0" styleClass="tableStyle.css" text="거래번호" />
-          <TableColumn fx:id="apartGroup" prefWidth="182.0" text="아파트명" />
+          <TableColumn id="tableColumn" fx:id="tradeId" prefWidth="75.0" styleClass="tableStyle.css" text="거래번호" />
+          <TableColumn fx:id="apartGroup" prefWidth="166.0" text="아파트명" />
             <TableColumn fx:id="addressRoad" prefWidth="154.0" text="도로명주소" />
             <TableColumn fx:id="addressDetailed" prefWidth="167.0" text="동 / 면 / 읍" />
             <TableColumn fx:id="price" prefWidth="111.0" text="거래가(만원)" />

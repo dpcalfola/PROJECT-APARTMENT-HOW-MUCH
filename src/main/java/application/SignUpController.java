@@ -39,37 +39,37 @@ public class SignUpController extends PrimaryModel implements Initializable {
         if (!getPW1.equals(getPW2)) {
             signUpConsequenceTextSuSbView.setText("Those password didn't match");
             signUpConsequenceTextSuSbView.setVisible(true);
+            return;
+        }
 
+
+        UserLoginDAO loginDAO = new UserLoginDAO();
+        UserVO existUserInfo = loginDAO.loginUser(getID, getPW1);
+
+        // check whether ID exists in the database
+        // userInfo.getUserPrimaryKey() == -1 -> getID can be new user ID
+        if (existUserInfo.getUserPrimaryKey() != -1) {
+            signUpConsequenceTextSuSbView.setText("ID already exists.");
+            signUpConsequenceTextSuSbView.setVisible(true);
+            return;
+        }
+
+        UserSignUpDAO signUpDAO = new UserSignUpDAO();
+        boolean isSignUpSucceed = signUpDAO.SignUpUser(getID, getPW1);
+
+        if (isSignUpSucceed) {
+            System.out.println(getID + " user created");
+            signUpConsequenceTextSuSbView.setText(getID + " user created");
+            signUpConsequenceTextSuSbView.setVisible(true);
+            changeStatusDisplayText("User created successfully (user: " + getID + ")");
         } else {
-
-            System.out.println("Those password match");
-            UserLoginDAO loginDAO = new UserLoginDAO();
-            UserVO existUserInfo = loginDAO.loginUser(getID, getPW1);
-
-            // check whether ID exists in the database
-            // userInfo.getUserPrimaryKey() == -1 -> getID can be new user ID
-            if (existUserInfo.getUserPrimaryKey() != -1){
-                signUpConsequenceTextSuSbView.setText("ID already exists.");
-                signUpConsequenceTextSuSbView.setVisible(true);
-            }else{
-                UserSignUpDAO signUpDAO = new UserSignUpDAO();
-                boolean isSignUpSucceed = signUpDAO.SignUpUser(getID, getPW1);
-
-                if(isSignUpSucceed){
-                    System.out.println(getID + " user created");
-                    signUpConsequenceTextSuSbView.setText(getID + " user created");
-                    signUpConsequenceTextSuSbView.setVisible(true);
-                    changeStatusDisplayText("User created successfully (user: " + getID + ")");
-                }else{
-                    System.out.println("User create failed");
-                    signUpConsequenceTextSuSbView.setText("User create failed");
-                    signUpConsequenceTextSuSbView.setVisible(true);
-
-                }
-
-            }
+            System.out.println("User create failed");
+            signUpConsequenceTextSuSbView.setText("User create failed");
+            signUpConsequenceTextSuSbView.setVisible(true);
 
         }
+
+
     }
 
 
