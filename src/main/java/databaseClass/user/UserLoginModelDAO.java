@@ -6,14 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserLoginDAO extends ConnDB {
+public class UserLoginModelDAO extends ConnDB {
 
-    public UserVO loginUser(String userID, String userPW) {
+    public UserModelVO loginUser(String userID, String userPW) {
         ResultSet resultSet = null;
         PreparedStatement checkUpUser = null;
 
 
-        UserVO userInfo = new UserVO(0, "initial value", "initial value", false);
+        UserModelVO userInfo = new UserModelVO(0, "initial value", "initial value", false);
 
         try {
 
@@ -32,16 +32,16 @@ public class UserLoginDAO extends ConnDB {
 
                 // return userInfo through UserVO constructor
                 if (getUserIdFromDB.equals(userID) && getUserPwFromDB.equals(userPW)) {
-                    userInfo = new UserVO(getUserPrimaryKey, getUserIdFromDB, getUserPwFromDB, true);
+                    userInfo = new UserModelVO(getUserPrimaryKey, getUserIdFromDB, getUserPwFromDB, true);
                     return userInfo;
                 } else {
-                    userInfo = new UserVO(getUserPrimaryKey, getUserIdFromDB, "WRONGPASSWORD", false);
+                    userInfo = new UserModelVO(getUserPrimaryKey, getUserIdFromDB, "WRONGPASSWORD", false);
                     return userInfo;
                 }
             } else {
                 // if user ID doesn't exist, return userPrimaryKey as -1
                 // Use this value when SignUp situation
-                userInfo = new UserVO(-1, "Doesn't exist userID", "Doesn't exist user ID", false);
+                userInfo = new UserModelVO(-1, "Doesn't exist userID", "Doesn't exist user ID", false);
             }
 
         } catch (Exception e) {

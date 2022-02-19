@@ -1,7 +1,7 @@
 package application;
 
-import databaseClass.user.UserLoginDAO;
-import databaseClass.user.UserVO;
+import databaseClass.user.UserLoginModelDAO;
+import databaseClass.user.UserModelVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,8 +37,8 @@ public class LoginController extends PrimaryModel implements Initializable {
         System.out.println("ID: " + getID + "\nPW: " + getPW);
 
         // try login
-        UserLoginDAO dao = new UserLoginDAO();
-        UserVO userInfo = dao.loginUser(getID, getPW);
+        UserLoginModelDAO dao = new UserLoginModelDAO();
+        UserModelVO userInfo = dao.loginUser(getID, getPW);
 
 
         // find userVO in database -> userInfo.isCorrectUserInfo == true

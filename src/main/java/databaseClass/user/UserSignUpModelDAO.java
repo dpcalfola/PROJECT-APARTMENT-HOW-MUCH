@@ -4,7 +4,7 @@ import databaseClass.ConnDB;
 
 import java.sql.*;
 
-public class UserSignUpDAO extends ConnDB {
+public class UserSignUpModelDAO extends ConnDB {
 
     public boolean SignUpUser(String userID, String userPW) {
 

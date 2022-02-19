@@ -1,13 +1,13 @@
-package databaseClass.transactionTable;
+package databaseClass.table;
 
-public class TableVO {
+public class TableModelVO {
 
     private Integer tradeID;
     private String apartGroup, addressRoad, addressDetailed, price, area, constructionYear, floor, contractDate;
 
     //constructor
-    public TableVO(Integer tradeID, String apartGroup, String addressRoad, String addressDetailed, String price,
-                   String area, String constructionYear, String floor, String contractDate) {
+    public TableModelVO(Integer tradeID, String apartGroup, String addressRoad, String addressDetailed, String price,
+                        String area, String constructionYear, String floor, String contractDate) {
         this.tradeID = tradeID;
         this.apartGroup = apartGroup;
         this.addressRoad = addressRoad;

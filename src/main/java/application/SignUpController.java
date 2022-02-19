@@ -1,8 +1,8 @@
 package application;
 
-import databaseClass.user.UserLoginDAO;
-import databaseClass.user.UserSignUpDAO;
-import databaseClass.user.UserVO;
+import databaseClass.user.UserLoginModelDAO;
+import databaseClass.user.UserSignUpModelDAO;
+import databaseClass.user.UserModelVO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -42,8 +42,8 @@ public class SignUpController extends PrimaryModel implements Initializable {
         }
 
 
-        UserLoginDAO loginDAO = new UserLoginDAO();
-        UserVO existUserInfo = loginDAO.loginUser(getID, getPW1);
+        UserLoginModelDAO loginDAO = new UserLoginModelDAO();
+        UserModelVO existUserInfo = loginDAO.loginUser(getID, getPW1);
 
         // check whether ID exists in the database
         // userInfo.getUserPrimaryKey() == -1 -> getID can be new user ID
@@ -53,7 +53,7 @@ public class SignUpController extends PrimaryModel implements Initializable {
             return;
         }
 
-        UserSignUpDAO signUpDAO = new UserSignUpDAO();
+        UserSignUpModelDAO signUpDAO = new UserSignUpModelDAO();
         boolean isSignUpSucceed = signUpDAO.SignUpUser(getID, getPW1);
 
         if (isSignUpSucceed) {
