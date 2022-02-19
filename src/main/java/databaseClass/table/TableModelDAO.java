@@ -1,17 +1,20 @@
-package databaseClass.transactionTable;
+package databaseClass.table;
 
 import databaseClass.ConnDB;
-
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class TableDAO extends ConnDB {
+
+// DAO == Data Access Object
+// VO == Value Object
+
+public class TableModelDAO extends ConnDB {
 
 
-    public ArrayList<TableVO> tableList() {
-        ArrayList<TableVO> list = new ArrayList<>();
+    public ArrayList<TableModelVO> tableList() {
+        ArrayList<TableModelVO> list = new ArrayList<>();
 
         ResultSet resultSet = null;
         PreparedStatement getTableStmt = null;
@@ -23,7 +26,7 @@ public class TableDAO extends ConnDB {
                     "SELECT " +
                             "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
                             "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
-                            "FROM apartment_price LIMIT 30000"
+                            "FROM apartment_price LIMIT 10000"
             );
 
             resultSet = getTableStmt.executeQuery();
@@ -39,7 +42,7 @@ public class TableDAO extends ConnDB {
                 String floor = resultSet.getString("floor");
                 String contractDate = resultSet.getString("contract_year_month") + resultSet.getString(
                         "contract_date");
-                TableVO data = new TableVO(tradeID, apartGroup, addressRoad, addressDetailed, price, area,
+                TableModelVO data = new TableModelVO(tradeID, apartGroup, addressRoad, addressDetailed, price, area,
                         constructionYear, floor, contractDate);
 
                 list.add(data);

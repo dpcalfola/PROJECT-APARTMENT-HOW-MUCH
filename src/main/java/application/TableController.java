@@ -1,7 +1,7 @@
 package application;
 
-import databaseClass.transactionTable.TableDAO;
-import databaseClass.transactionTable.TableVO;
+import databaseClass.table.TableModelDAO;
+import databaseClass.table.TableModelVO;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -18,56 +18,56 @@ import java.util.ResourceBundle;
 public class TableController extends PrimaryModel implements Initializable {
 
     @FXML
-    private TableView<TableVO> tableView;
+    private TableView<TableModelVO> tableView;
     @FXML
-    private TableColumn<TableVO, Integer> tradeId;
+    private TableColumn<TableModelVO, Integer> tradeId;
     @FXML
-    private TableColumn<TableVO, String> apartGroup;
+    private TableColumn<TableModelVO, String> apartGroup;
     @FXML
-    private TableColumn<TableVO, String> addressRoad;
+    private TableColumn<TableModelVO, String> addressRoad;
     @FXML
-    private TableColumn<TableVO, String> addressDetailed;
+    private TableColumn<TableModelVO, String> addressDetailed;
     @FXML
-    private TableColumn<TableVO, String> price;
+    private TableColumn<TableModelVO, String> price;
     @FXML
-    private TableColumn<TableVO, String> area;
+    private TableColumn<TableModelVO, String> area;
     @FXML
-    private TableColumn<TableVO, String> constructionYear;
+    private TableColumn<TableModelVO, String> constructionYear;
     @FXML
-    private TableColumn<TableVO, String> floor;
+    private TableColumn<TableModelVO, String> floor;
     @FXML
-    private TableColumn<TableVO, String> contractDate;
+    private TableColumn<TableModelVO, String> contractDate;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        tradeId.setCellValueFactory(new PropertyValueFactory<TableVO, Integer>("tradeID"));
-        apartGroup.setCellValueFactory(new PropertyValueFactory<TableVO, String>("apartGroup"));
-        addressRoad.setCellValueFactory(new PropertyValueFactory<TableVO, String>("addressRoad"));
-        addressDetailed.setCellValueFactory(new PropertyValueFactory<TableVO, String>("addressDetailed"));
-        price.setCellValueFactory(new PropertyValueFactory<TableVO, String>("price"));
-        area.setCellValueFactory(new PropertyValueFactory<TableVO, String>("area"));
-        constructionYear.setCellValueFactory(new PropertyValueFactory<TableVO, String>("constructionYear"));
-        floor.setCellValueFactory(new PropertyValueFactory<TableVO, String>("floor"));
-        contractDate.setCellValueFactory(new PropertyValueFactory<TableVO, String>("contractDate"));
+        tradeId.setCellValueFactory(new PropertyValueFactory<TableModelVO, Integer>("tradeID"));
+        apartGroup.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("apartGroup"));
+        addressRoad.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("addressRoad"));
+        addressDetailed.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("addressDetailed"));
+        price.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("price"));
+        area.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("area"));
+        constructionYear.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("constructionYear"));
+        floor.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("floor"));
+        contractDate.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("contractDate"));
 
-        TableDAO tableDAO = new TableDAO();
-        ArrayList<TableVO> tableVOS = tableDAO.tableList();
-        ObservableList<TableVO> observableTableList = tableView.getItems();
+        TableModelDAO tableModelDAO = new TableModelDAO();
+        ArrayList<TableModelVO> tableModelVOS = tableModelDAO.tableList();
+        ObservableList<TableModelVO> observableTableList = tableView.getItems();
 
-        for (int i = 0; i < tableVOS.size(); i++) {
-            TableVO data = tableVOS.get(i);
+        for (int i = 0; i < tableModelVOS.size(); i++) {
+            TableModelVO data = tableModelVOS.get(i);
             observableTableList.add(data);
             tableView.setItems(observableTableList);
         }
 
         if (observableTableList != null) {
 
-            FilteredList<TableVO> filteredData = new FilteredList<>(observableTableList, b -> true);
+            FilteredList<TableModelVO> filteredData = new FilteredList<>(observableTableList, b -> true);
             getSearchTextField().textProperty().addListener((observable, oldValue, newValue) -> {
 
-                filteredData.setPredicate(tableVO -> {
+                filteredData.setPredicate(tableModelVO -> {
 
                     // if no value on searchTextField, no changes
                     if (newValue.isEmpty() || newValue.isBlank()) {
@@ -77,21 +77,21 @@ public class TableController extends PrimaryModel implements Initializable {
                     String searchKeyword = newValue.toLowerCase();
 
 
-                    if (tableVO.getApartGroup().toLowerCase().contains(searchKeyword)) {
+                    if (tableModelVO.getApartGroup().toLowerCase().contains(searchKeyword)) {
                         return true;
-                    } else if (tableVO.getAddressDetailed().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getAddressDetailed().toLowerCase().contains(searchKeyword)) {
                         return true;
-                    } else if (tableVO.getAddressRoad().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getAddressRoad().toLowerCase().contains(searchKeyword)) {
                         return true;
-                    } else if (tableVO.getConstructionYear().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getConstructionYear().toLowerCase().contains(searchKeyword)) {
                         return true;
-                    } else if (tableVO.getContractDate().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getContractDate().toLowerCase().contains(searchKeyword)) {
                         return true;
-                    } else if (tableVO.getFloor().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getFloor().toLowerCase().contains(searchKeyword)) {
                         return true;
-                    } else if (tableVO.getPrice().toLowerCase().replace(",", "").contains(searchKeyword)) {
-                        return true;
-                    } else if (tableVO.getPrice().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getPrice().toLowerCase().replace(",", "").contains(searchKeyword)) {
+                        return true; // it helps find price without "," keyword
+                    } else if (tableModelVO.getPrice().toLowerCase().contains(searchKeyword)) {
                         return true;
                     } else {
                         // no match found
@@ -100,7 +100,7 @@ public class TableController extends PrimaryModel implements Initializable {
                 });
             });
 
-            SortedList<TableVO> sortedData = new SortedList<>(filteredData);
+            SortedList<TableModelVO> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(tableView.comparatorProperty());
             tableView.setItems(sortedData);
         }
@@ -109,39 +109,39 @@ public class TableController extends PrimaryModel implements Initializable {
     }
 
 
-    public TableColumn<TableVO, Integer> getTradeId() {
+    public TableColumn<TableModelVO, Integer> getTradeId() {
         return tradeId;
     }
 
-    public TableColumn<TableVO, String> getApartGroup() {
+    public TableColumn<TableModelVO, String> getApartGroup() {
         return apartGroup;
     }
 
-    public TableColumn<TableVO, String> getAddressRoad() {
+    public TableColumn<TableModelVO, String> getAddressRoad() {
         return addressRoad;
     }
 
-    public TableColumn<TableVO, String> getAddressDetailed() {
+    public TableColumn<TableModelVO, String> getAddressDetailed() {
         return addressDetailed;
     }
 
-    public TableColumn<TableVO, String> getPrice() {
+    public TableColumn<TableModelVO, String> getPrice() {
         return price;
     }
 
-    public TableColumn<TableVO, String> getArea() {
+    public TableColumn<TableModelVO, String> getArea() {
         return area;
     }
 
-    public TableColumn<TableVO, String> getConstructionYear() {
+    public TableColumn<TableModelVO, String> getConstructionYear() {
         return constructionYear;
     }
 
-    public TableColumn<TableVO, String> getFloor() {
+    public TableColumn<TableModelVO, String> getFloor() {
         return floor;
     }
 
-    public TableColumn<TableVO, String> getContractDate() {
+    public TableColumn<TableModelVO, String> getContractDate() {
         return contractDate;
     }
 
