@@ -1,7 +1,7 @@
 package databaseClass.transactionTable;
 
 import databaseClass.ConnDB;
-import javafx.collections.ObservableList;
+
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +23,7 @@ public class TableDAO extends ConnDB {
                     "SELECT " +
                             "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
                             "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
-                            "FROM apartment_price LIMIT 100"
+                            "FROM apartment_price LIMIT 30000"
             );
 
             resultSet = getTableStmt.executeQuery();

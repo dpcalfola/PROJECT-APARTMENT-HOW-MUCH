@@ -5,17 +5,14 @@ import databaseClass.user.UserLoginConfirmTest;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static application.Application.mainControllerHandle;
 
 public class MainController extends PrimaryModel implements Initializable {
 
@@ -27,6 +24,9 @@ public class MainController extends PrimaryModel implements Initializable {
     private BorderPane mainPane;
     @FXML
     private Text statusDisplayText;
+    @FXML
+    private TextField searchTextField;
+
 
     //
     @Override
@@ -38,15 +38,6 @@ public class MainController extends PrimaryModel implements Initializable {
         // login confirm test
         UserLoginConfirmTest c1 = new UserLoginConfirmTest();
         c1.confirmUser();
-
-        Pane view;
-        try {
-            view = FXMLLoader.load(getClass().getResource("table-subView.fxml"));
-            mainPane.setCenter(view);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 
 
@@ -91,5 +82,9 @@ public class MainController extends PrimaryModel implements Initializable {
 
     public Text getStatusDisplayText() {
         return statusDisplayText;
+    }
+
+    public TextField getSearchTextField() {
+        return searchTextField;
     }
 }

@@ -42,6 +42,7 @@ public class LoginController extends PrimaryModel implements Initializable {
 
 
         // find userVO in database -> userInfo.isCorrectUserInfo == true
+        // need refactoring
         if (userInfo.isCorrectUserInfo() && !Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
 
             System.out.println("Logged in Successfully");

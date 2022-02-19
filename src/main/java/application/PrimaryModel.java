@@ -1,6 +1,8 @@
 package application;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
 
@@ -20,6 +22,11 @@ public class PrimaryModel {
 
     void changeStatusDisplayText(String text){
         mainControllerHandle.getStatusDisplayText().setText(text);
+    }
+
+    @FXML
+    TextField getSearchTextField () {
+        return mainControllerHandle.getSearchTextField();
     }
 
 }
