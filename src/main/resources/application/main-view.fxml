@@ -52,9 +52,9 @@
                               <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="14.0" layoutY="88.0" minHeight="30.0" minWidth="916.0" prefHeight="30.0" prefWidth="931.0" promptText="search:" style="-fx-background-color: #f7ecde;">
+                        <TextField fx:id="searchTextField" layoutX="14.0" layoutY="88.0" minHeight="30.0" minWidth="916.0" prefHeight="30.0" prefWidth="931.0" promptText="목록 내 재검색:" style="-fx-background-color: #f7ecde;">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="14.0" />
                            </font>
                         </TextField>
                         <Button layoutX="1307.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Sign Up" textFill="#2e4c6d" AnchorPane.rightAnchor="15.0">

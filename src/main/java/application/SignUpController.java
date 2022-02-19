@@ -31,7 +31,6 @@ public class SignUpController extends PrimaryModel implements Initializable {
     private void handleSubmitButtonSuSbViewAction() {
 
         System.out.println("Sign up subView : submit button clicked");
-
         String getID = idSuSbTextField.getText();
         String getPW1 = pwSuSbPasswordField.getText();
         String getPW2 = confirmPwSuSbPasswordField.getText();
