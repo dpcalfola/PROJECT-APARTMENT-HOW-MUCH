@@ -1,5 +1,6 @@
 package application;
 
+import databaseClass.table.ConstraintModelVO;
 import databaseClass.testConnection.TestConnection;
 import databaseClass.user.UserLoginConfirmTest;
 
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +28,11 @@ public class MainController extends PrimaryModel implements Initializable {
     private Text statusDisplayText;
     @FXML
     private TextField searchTextField;
+    @FXML
+    private TextField keywordTextField;
 
+
+    ConstraintModelVO mainControllerConstraintModelVO;
 
     //
     @Override
@@ -45,7 +51,10 @@ public class MainController extends PrimaryModel implements Initializable {
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
         System.out.println("Table button clicked !!");
-        changeBorderPaneCenter("table-subView.fxml");
+        String getKeywordTextField = keywordTextField.getText();
+        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
+        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
+
     }
 
     @FXML
@@ -68,10 +77,17 @@ public class MainController extends PrimaryModel implements Initializable {
     @FXML
     private void handleSearchButtonAction(ActionEvent event) throws IOException {
         System.out.println("Search Button clicked !!");
+        String getKeywordTextField = keywordTextField.getText();
+        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
+        System.out.println("chaek num 1: " + mainControllerConstraintModelVO.getConstraintKeyword());
+        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
+
+//        System.out.println("getKeywordTextField: " + getKeywordTextField);
+
     }
 
 
-    // getter
+    // FXML getter
     public BorderPane getMainPane() {
         return mainPane;
     }
@@ -86,5 +102,10 @@ public class MainController extends PrimaryModel implements Initializable {
 
     public TextField getSearchTextField() {
         return searchTextField;
+    }
+
+    // getter
+    public ConstraintModelVO getMainControllerConstraintModelVO() {
+        return mainControllerConstraintModelVO;
     }
 }

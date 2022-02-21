@@ -1,5 +1,6 @@
 package application;
 
+import databaseClass.table.ConstraintModelVO;
 import databaseClass.table.TableModelDAO;
 import databaseClass.table.TableModelVO;
 import javafx.collections.ObservableList;
@@ -38,7 +39,6 @@ public class TableController extends PrimaryModel implements Initializable {
     @FXML
     private TableColumn<TableModelVO, String> contractDate;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -53,7 +53,20 @@ public class TableController extends PrimaryModel implements Initializable {
         contractDate.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("contractDate"));
 
         TableModelDAO tableModelDAO = new TableModelDAO();
-        ArrayList<TableModelVO> tableModelVOS = tableModelDAO.tableList();
+        ArrayList<TableModelVO> tableModelVOS;
+        ConstraintModelVO tableControllerConstraintModelVO = getPrimaryModelConstraintModelVO();
+        String testCode3 = tableControllerConstraintModelVO.getConstraintKeyword();
+        System.out.println("testCode3: " + testCode3);
+
+
+        if (tableControllerConstraintModelVO.getConstraintKeyword().isEmpty()) {
+            System.out.println("testCode 4");
+            tableModelVOS = tableModelDAO.initialTableList();
+        } else {
+            tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
+            System.out.println("TableController : " + tableControllerConstraintModelVO.getConstraintKeyword());
+        }
+
         ObservableList<TableModelVO> observableTableList = tableView.getItems();
 
         for (int i = 0; i < tableModelVOS.size(); i++) {
@@ -108,7 +121,7 @@ public class TableController extends PrimaryModel implements Initializable {
 
     }
 
-
+    // TableColumn getter
     public TableColumn<TableModelVO, Integer> getTradeId() {
         return tradeId;
     }
@@ -144,6 +157,5 @@ public class TableController extends PrimaryModel implements Initializable {
     public TableColumn<TableModelVO, String> getContractDate() {
         return contractDate;
     }
-
 
 }

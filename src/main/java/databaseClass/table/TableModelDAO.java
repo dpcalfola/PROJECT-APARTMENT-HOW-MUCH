@@ -12,22 +12,64 @@ import java.util.ArrayList;
 
 public class TableModelDAO extends ConnDB {
 
+    // clicked table button without constraints
+    public ArrayList<TableModelVO> initialTableList() {
 
-    public ArrayList<TableModelVO> tableList() {
+
+        String query = "SELECT " +
+                "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
+                "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
+                "FROM apartment_price ORDER BY contract_year_month + contract_date " +
+                "DESC LIMIT 5000";
+
+        return getTableList(query);
+    }
+
+    // overloading
+    public ArrayList<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO) {
+
+        String keyword = constraintModelVO.getConstraintKeyword();
+
+
+        String query = "SELECT " +
+                "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
+                "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
+                "FROM apartment_price ";
+
+        if (!keyword.isEmpty()) {
+            // %% mean % literal in String.format
+            String keywordQuery = String.format("""
+                    WHERE address_detailed LIKE '%%%s%%'
+                    OR apart_group LIKE '%%%s%%'
+                    OR trade_price_10000won LIKE '%%%s%%'
+                    OR construction_year LIKE '%%%s%%'
+                    OR address_road LIKE '%%%s%%'
+                    OR expire_date LIKE '%%%s%%'
+                    OR floor LIKE '%s'
+                    OR agency_region LIKE '%%%s%%'""", keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword);
+            query += keywordQuery;
+        }
+
+        String queryOrderBy = "ORDER BY contract_year_month + contract_date DESC ";
+        String queryLimit = "LIMIT 5000";
+
+        query += queryOrderBy;
+        query += queryLimit;
+
+        return getTableList(query);
+    }
+
+
+    private ArrayList<TableModelVO> getTableList(String query) {
+
         ArrayList<TableModelVO> list = new ArrayList<>();
-
         ResultSet resultSet = null;
         PreparedStatement getTableStmt = null;
 
         try {
             connDB();
 
-            getTableStmt = conn.prepareStatement(
-                    "SELECT " +
-                            "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
-                            "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
-                            "FROM apartment_price LIMIT 10000"
-            );
+            getTableStmt = conn.prepareStatement(query);
 
             resultSet = getTableStmt.executeQuery();
 

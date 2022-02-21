@@ -2,10 +2,10 @@ package databaseClass.user;
 
 public class UserModelVO {
 
-    private int userPrimaryKey;
-    private String userID ;
-    private String userPW ;
-    private boolean isCorrectUserInfo ;
+    final int userPrimaryKey;
+    final String userID;
+    final String userPW;
+    final boolean isCorrectUserInfo;
 
     public UserModelVO(int userPrimaryKey, String userID, String userPW, boolean isCorrectUserInfo) {
         this.userPrimaryKey = userPrimaryKey;

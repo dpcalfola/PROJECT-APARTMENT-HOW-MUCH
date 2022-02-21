@@ -1,13 +1,12 @@
 
+.table-view {
+    -fx-background-color: e9dac1;
 
-.table-view{
-     -fx-background-color: transparent;
-
-     /* 테이블 뷰 보더 굵기 : 모두 0 */
-     -fx-border-width: 0 0.1 0.1 0.1;
+    /* 테이블 뷰 보더 굵기 : 모두 0 */
+    -fx-border-width: 0 0.1 0.1 0.1;
 
 
- }
+}
 
 .table-column {
     -fx-alignment: CENTER_RIGHT;
@@ -21,15 +20,15 @@
     -fx-background-color: -fx-table-cell-border-color, #e9dac1;
 }
 
-.table-view .table-cell{
+.table-view .table-cell {
     -fx-border-color: black;
     -fx-border-width: 0 0 0.1 0.1;
     -fx-text-fill: black;
 }
 
-.table-view .column-header{
+.table-view .column-header {
     -fx-alignment: CENTER_RIGHT;
-    -fx-background-color: e9dac1 ;
+    -fx-background-color: e9dac1;
     -fx-border-color: black;
     -fx-border-width: 0 0 0.1 0.1;
 }
