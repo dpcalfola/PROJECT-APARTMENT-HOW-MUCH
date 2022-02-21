@@ -77,12 +77,19 @@ public class MainController extends PrimaryModel implements Initializable {
     @FXML
     private void handleSearchButtonAction(ActionEvent event) throws IOException {
         System.out.println("Search Button clicked !!");
-        String getKeywordTextField = keywordTextField.getText();
-        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
-        System.out.println("chaek num 1: " + mainControllerConstraintModelVO.getConstraintKeyword());
-        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
 
-//        System.out.println("getKeywordTextField: " + getKeywordTextField);
+        // 1 step : keyword TextField
+        String getKeywordTextField = keywordTextField.getText();
+
+        // put data into ConstraingtModelVO
+        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
+
+        // testCode
+        System.out.println("chaek num 1: " + mainControllerConstraintModelVO.getConstraintKeyword());
+        //
+
+        //call primary changeBorderPaneCenterSearch method
+        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
 
     }
 

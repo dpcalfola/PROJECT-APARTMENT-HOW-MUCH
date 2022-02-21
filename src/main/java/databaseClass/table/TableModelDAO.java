@@ -12,30 +12,20 @@ import java.util.ArrayList;
 
 public class TableModelDAO extends ConnDB {
 
-    // clicked table button without constraints
-    public ArrayList<TableModelVO> initialTableList() {
-
-
-        String query = "SELECT " +
-                "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
-                "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
-                "FROM apartment_price ORDER BY contract_year_month + contract_date " +
-                "DESC LIMIT 5000";
-
-        return getTableList(query);
-    }
-
-    // overloading
+    // make TableModelVo list
     public ArrayList<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO) {
 
-        String keyword = constraintModelVO.getConstraintKeyword();
-
-
+        // base query
         String query = "SELECT " +
                 "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
                 "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
                 "FROM apartment_price ";
+        
 
+        // element of constraints area start
+        String keyword = constraintModelVO.getConstraintKeyword();
+
+        // keyword
         if (!keyword.isEmpty()) {
             // %% mean % literal in String.format
             String keywordQuery = String.format("""
@@ -50,16 +40,22 @@ public class TableModelDAO extends ConnDB {
             query += keywordQuery;
         }
 
+
+        // get item order by latest contract date
         String queryOrderBy = "ORDER BY contract_year_month + contract_date DESC ";
+        // limit getting number of items at once
         String queryLimit = "LIMIT 5000";
 
         query += queryOrderBy;
         query += queryLimit;
 
+
+        // call database conn method (parmeter : query)
         return getTableList(query);
     }
 
 
+    // get items from database
     private ArrayList<TableModelVO> getTableList(String query) {
 
         ArrayList<TableModelVO> list = new ArrayList<>();
@@ -105,4 +101,6 @@ public class TableModelDAO extends ConnDB {
 
         return list;
     }
+
+
 }

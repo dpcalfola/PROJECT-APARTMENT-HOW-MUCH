@@ -54,19 +54,17 @@ public class TableController extends PrimaryModel implements Initializable {
 
         TableModelDAO tableModelDAO = new TableModelDAO();
         ArrayList<TableModelVO> tableModelVOS;
+
         ConstraintModelVO tableControllerConstraintModelVO = getPrimaryModelConstraintModelVO();
+        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
+        
+
+        //test Code 3 
         String testCode3 = tableControllerConstraintModelVO.getConstraintKeyword();
         System.out.println("testCode3: " + testCode3);
+        System.out.println("TableController : " + tableControllerConstraintModelVO.getConstraintKeyword());
 
-
-        if (tableControllerConstraintModelVO.getConstraintKeyword().isEmpty()) {
-            System.out.println("testCode 4");
-            tableModelVOS = tableModelDAO.initialTableList();
-        } else {
-            tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
-            System.out.println("TableController : " + tableControllerConstraintModelVO.getConstraintKeyword());
-        }
-
+        // draw table start
         ObservableList<TableModelVO> observableTableList = tableView.getItems();
 
         for (int i = 0; i < tableModelVOS.size(); i++) {

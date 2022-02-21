@@ -21,17 +21,22 @@ public class PrimaryModel {
         mainControllerHandle.getMainPane().setCenter(view);
     }
 
+    // change whole table
     void changeBorderPaneCenterSearch(String fxmlFile, ConstraintModelVO ConstraintModelVo) throws IOException {
+
+        // put into static VO
         primaryModelConstraintModelVO = ConstraintModelVo;
-        Pane view;
-        view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
 
 
+        // testCode 2
         String testCode2 = primaryModelConstraintModelVO.getConstraintKeyword();
         System.out.println("testCode2: " + testCode2);
 
-
+        // draw center
+        Pane view;
+        view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
         mainControllerHandle.getMainPane().setCenter(view);
+
     }
 
     void changeGreetingTextField(String text) {
