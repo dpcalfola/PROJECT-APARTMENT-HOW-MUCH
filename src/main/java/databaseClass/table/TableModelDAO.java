@@ -18,9 +18,9 @@ public class TableModelDAO extends ConnDB {
         // base query
         String query = "SELECT " +
                 "trade_id, apart_group, address_road, address_detailed, trade_price_10000won, " +
-                "`area_m^2`, construction_year, floor, contract_year_month, contract_date " +
+                "area_mSquare, construction_year, floor, contract_year_month, LPAD(contract_date, 2, 0) " +
                 "FROM apartment_price ";
-        
+
 
         // element of constraints area start
         String keyword = constraintModelVO.getConstraintKeyword();
@@ -68,18 +68,18 @@ public class TableModelDAO extends ConnDB {
             getTableStmt = conn.prepareStatement(query);
 
             resultSet = getTableStmt.executeQuery();
-
+            
             while (resultSet.next()) {
                 Integer tradeID = resultSet.getInt("trade_id");
                 String apartGroup = resultSet.getString("apart_group");
                 String addressRoad = resultSet.getString("address_road");
                 String addressDetailed = resultSet.getString("address_detailed");
                 String price = resultSet.getString("trade_price_10000won");
-                String area = resultSet.getString("area_m^2");
+                String area = resultSet.getString("area_mSquare");
                 String constructionYear = resultSet.getString("construction_year");
                 String floor = resultSet.getString("floor");
                 String contractDate = resultSet.getString("contract_year_month") + resultSet.getString(
-                        "contract_date");
+                        "LPAD(contract_date, 2, 0)");
                 TableModelVO data = new TableModelVO(tradeID, apartGroup, addressRoad, addressDetailed, price, area,
                         constructionYear, floor, contractDate);
 

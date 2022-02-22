@@ -57,7 +57,7 @@ public class TableController extends PrimaryModel implements Initializable {
 
         ConstraintModelVO tableControllerConstraintModelVO = getPrimaryModelConstraintModelVO();
         tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
-        
+
 
         //test Code 3 
         String testCode3 = tableControllerConstraintModelVO.getConstraintKeyword();
@@ -73,6 +73,7 @@ public class TableController extends PrimaryModel implements Initializable {
             tableView.setItems(observableTableList);
         }
 
+        // search filter
         if (observableTableList != null) {
 
             FilteredList<TableModelVO> filteredData = new FilteredList<>(observableTableList, b -> true);
@@ -103,6 +104,8 @@ public class TableController extends PrimaryModel implements Initializable {
                     } else if (tableModelVO.getPrice().toLowerCase().replace(",", "").contains(searchKeyword)) {
                         return true; // it helps find price without "," keyword
                     } else if (tableModelVO.getPrice().toLowerCase().contains(searchKeyword)) {
+                        return true;
+                    } else if (tableModelVO.getArea().toLowerCase().contains(searchKeyword)) {
                         return true;
                     } else {
                         // no match found

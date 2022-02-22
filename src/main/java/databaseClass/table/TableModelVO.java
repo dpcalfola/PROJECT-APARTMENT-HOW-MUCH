@@ -2,6 +2,9 @@ package databaseClass.table;
 
 public class TableModelVO {
 
+    // need refactoring : change type String to Integer : constructionYear, floor, contractDate
+    // need refactoring : change type String to double : area
+    // check up whether price data possible to change type String to Integer because it has comma
     private Integer tradeID;
     private String apartGroup, addressRoad, addressDetailed, price, area, constructionYear, floor, contractDate;
 
