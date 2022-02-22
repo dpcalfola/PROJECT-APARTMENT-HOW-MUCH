@@ -153,7 +153,7 @@
                         </Label>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="minConstructionYearTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
+                              <TextField fx:id="minConstructYearTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
                               <Label alignment="CENTER" prefHeight="17.0" prefWidth="48.0" text="~" textAlignment="CENTER" />
                               <TextField fx:id="maxConstructYearTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
                            </children>

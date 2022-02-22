@@ -39,6 +39,20 @@ public class UserSignUpModelDAO extends ConnDB {
                     e.printStackTrace();
                 }
             }
+            if (signUpQuery != null) {
+                try {
+                    signUpQuery.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         return isSucceed;

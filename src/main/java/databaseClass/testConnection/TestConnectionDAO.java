@@ -2,7 +2,9 @@ package databaseClass.testConnection;
 
 import databaseClass.ConnDB;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TestConnectionDAO extends ConnDB {
@@ -11,12 +13,14 @@ public class TestConnectionDAO extends ConnDB {
 
     public ArrayList<TestConnectionVO> testConnectionList() {
         ArrayList<TestConnectionVO> list = new ArrayList<>();
+        PreparedStatement getAllUserInfo = null;
 
         try {
             connDB();
 
             String query = "SELECT * FROM user";
-            resultSet = getStatement().executeQuery(query);
+            getAllUserInfo = conn.prepareStatement(query);
+            resultSet = getAllUserInfo.executeQuery();
 
             while (resultSet.next()) {
 
@@ -34,6 +38,20 @@ public class TestConnectionDAO extends ConnDB {
             if (resultSet != null) {
                 try {
                     resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (getAllUserInfo != null) {
+                try {
+                    getAllUserInfo.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

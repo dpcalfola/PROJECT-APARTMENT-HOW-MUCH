@@ -28,11 +28,36 @@ public class MainController extends PrimaryModel implements Initializable {
     private Text statusDisplayText;
     @FXML
     private TextField searchTextField;
+
+
+    // Constraints text fields
     @FXML
     private TextField keywordTextField;
+    // Constraints text fields (Integer input)
+    @FXML
+    private TextField minPriceTextField;
+    @FXML
+    private TextField maxPriceTextField;
+    @FXML
+    private TextField minAreaTextField;
+    @FXML
+    private TextField maxAreaTextField;
+    @FXML
+    private TextField minContractDateTextField;
+    @FXML
+    private TextField maxContractDateTextField;
+    @FXML
+    private TextField minConstructYearTextField;
+    @FXML
+    private TextField maxConstructYearTextField;
+    @FXML
+    private TextField minFloorTextField;
+    @FXML
+    private TextField maxFloorTextField;
 
 
     ConstraintModelVO mainControllerConstraintModelVO;
+
 
     //
     @Override
@@ -44,18 +69,62 @@ public class MainController extends PrimaryModel implements Initializable {
         // login confirm test
         UserLoginConfirmTest c1 = new UserLoginConfirmTest();
         c1.confirmUser();
+
+        // restrict the input to numbers
+        minPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            minPriceTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        maxPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            maxPriceTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        minAreaTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            minAreaTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        maxAreaTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            maxAreaTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        minContractDateTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            minContractDateTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        maxContractDateTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            maxContractDateTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        minConstructYearTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            minConstructYearTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        maxConstructYearTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            maxConstructYearTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        minFloorTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            minFloorTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+        maxFloorTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.matches("\\d*")) return;
+            maxFloorTextField.setText(newValue.replaceAll("[^\\d]", ""));
+        });
+
     }
 
 
     //Button
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Table button clicked !!");
-        String getKeywordTextField = keywordTextField.getText();
-        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
-        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
+//        System.out.println("Table button clicked !!");
+//        String getKeywordTextField = keywordTextField.getText();
+//        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
+//        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
 
     }
+
 
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
@@ -78,11 +147,8 @@ public class MainController extends PrimaryModel implements Initializable {
     private void handleSearchButtonAction(ActionEvent event) throws IOException {
         System.out.println("Search Button clicked !!");
 
-        // 1 step : keyword TextField
-        String getKeywordTextField = keywordTextField.getText();
-
         // put data into ConstraingtModelVO
-        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
+        mainControllerConstraintModelVO = getConstraintInfo();
 
         // testCode
         System.out.println("chaek num 1: " + mainControllerConstraintModelVO.getConstraintKeyword());
@@ -91,6 +157,30 @@ public class MainController extends PrimaryModel implements Initializable {
         //call primary changeBorderPaneCenterSearch method
         changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
 
+    }
+
+
+    // get information of constraints and return ConstraintModelVo using constructor
+    private ConstraintModelVO getConstraintInfo() throws NumberFormatException {
+
+
+        String getKeywordTextField = keywordTextField.getText();
+        String getMinPriceTextField = minPriceTextField.getText();
+        String getMaxPriceTextField = maxPriceTextField.getText();
+        String getMinAreaTextField = minAreaTextField.getText();
+        String getMaxAreaTextField = maxAreaTextField.getText();
+        String getMinContractDateTextField = minContractDateTextField.getText();
+        String getMaxContractDateTextField = maxContractDateTextField.getText();
+        String getMinConstructYearTextField = minConstructYearTextField.getText();
+        String getMaxConstructYearTextField = maxConstructYearTextField.getText();
+        String getMinFloorTextField = minFloorTextField.getText();
+        String getMaxFloorTextField = maxFloorTextField.getText();
+
+
+        ConstraintModelVO constraintInfo = new ConstraintModelVO(getKeywordTextField, getMinPriceTextField, getMaxPriceTextField, getMinAreaTextField, getMaxAreaTextField, getMinContractDateTextField, getMaxContractDateTextField, getMinConstructYearTextField, getMaxConstructYearTextField, getMinFloorTextField, getMaxFloorTextField);
+
+
+        return constraintInfo;
     }
 
 

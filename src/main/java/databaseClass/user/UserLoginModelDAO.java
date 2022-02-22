@@ -61,6 +61,13 @@ public class UserLoginModelDAO extends ConnDB {
                     e.printStackTrace();
                 }
             }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
         }
 

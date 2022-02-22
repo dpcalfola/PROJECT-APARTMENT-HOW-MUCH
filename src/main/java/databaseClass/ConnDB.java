@@ -12,11 +12,6 @@ public class ConnDB {
     final String password = "123456789";
 
     public Connection conn;
-    private Statement statement;
-
-    public Statement getStatement() {
-        return statement;
-    }
 
 
     // 여기서 데이터베이스 닫을 경우 다른 곳에서 사용 못함
@@ -25,8 +20,6 @@ public class ConnDB {
         try {
             conn = DriverManager.getConnection(url, user, password);
             System.out.println("Connected with MySQL database successfully");
-            statement = conn.createStatement();
-            System.out.println("Create Statement Successfully");
 
         } catch (Exception e) {
             e.printStackTrace();
