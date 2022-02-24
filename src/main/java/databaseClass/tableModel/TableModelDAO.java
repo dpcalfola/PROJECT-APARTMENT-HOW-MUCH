@@ -36,13 +36,6 @@ public class TableModelDAO extends ConnDB {
         //
 
 
-        // parsing YYYYMM and DD
-        String minContractYearMonth = getYearMonth(minContractYearMonthDate);
-        String minContractDate = getDate(minContractYearMonthDate);
-        String maxContractYearMonth = getYearMonth(maxContractYearMonthDate);
-        String maxContractDate = getDate(maxContractYearMonthDate);
-
-
         // if all constraint TextField are empty, do not add "WHERE"
         if (!keyword.isEmpty() || !minPrice.isEmpty() || !maxPrice.isEmpty() || !minArea.isEmpty() || !maxArea.isEmpty() || !minContractYearMonthDate.isEmpty() || !maxContractYearMonthDate.isEmpty() || !minConstructYear.isEmpty() || !maxConstructYear.isEmpty() || !minFloor.isEmpty() || !maxFloor.isEmpty()) {
             query += " WHERE ";
@@ -72,22 +65,22 @@ public class TableModelDAO extends ConnDB {
 
         // if minPrice is exsist
         if (!minPrice.isEmpty()) {
-            String minPriceQuery = String.format("AND trade_price_10000won > %s ", minPrice);
+            String minPriceQuery = String.format("AND trade_price_10000won >= %s ", minPrice);
             query += minPriceQuery;
         }
         // if maxPrice is exsist
         if (!maxPrice.isEmpty()) {
-            String maxPriceQuery = String.format("AND trade_price_10000won < %s ", maxPrice);
+            String maxPriceQuery = String.format("AND trade_price_10000won <= %s ", maxPrice);
             query += maxPriceQuery;
         }
         // if minArea is exsist
         if (!minArea.isEmpty()) {
-            String minAreaQuery = String.format("AND area_mSquare > %s ", minArea);
+            String minAreaQuery = String.format("AND area_mSquare >= %s ", minArea);
             query += minAreaQuery;
         }
         // if maxArea is exsist
         if (!maxArea.isEmpty()) {
-            String maxAreaQuery = String.format("AND area_mSquare < %s ", maxArea);
+            String maxAreaQuery = String.format("AND area_mSquare <= %s ", maxArea);
             query += maxAreaQuery;
         }
 
@@ -99,34 +92,49 @@ public class TableModelDAO extends ConnDB {
 
         // if minContractDate is exsist
         if (!minContractYearMonthDate.isEmpty()) {
-            String minContractDateQuery = String.format("AND contract_year_month + LPAD(contract_date, 2, 0) > %s ", minContractYearMonthDate);
+
+            // parsing YYYYMM and DD
+            String minContractYearMonth = getYearMonth(minContractYearMonthDate);
+            String minContractDate = getDate(minContractYearMonthDate);
+            // insert query
+            String minContractYearMonthQuery = String.format("AND contract_year_month >= %s\n", minContractYearMonth);
+            String minContractDateQuery = String.format("AND LPAD(contract_date, 2, 0) >= %s\n", minContractDate);
+            query += minContractYearMonthQuery;
             query += minContractDateQuery;
+
         }
         // if maxContractDate is exsist
         if (!maxContractYearMonthDate.isEmpty()) {
-            String maxContractDateQuery = String.format("AND contract_year_month + LPAD(contract_date, 2, 0) < %s ", maxContractYearMonthDate);
+            // parsing YYYYMM and DD
+            String maxContractYearMonth = getYearMonth(maxContractYearMonthDate);
+            String maxContractDate = getDate(maxContractYearMonthDate);
+            // insert query
+            String maxContractYearMonthQuery = String.format("AND contract_year_month <= %s\n", maxContractYearMonth);
+            String maxContractDateQuery = String.format("AND LPAD(contract_date, 2, 0) <= %s\n", maxContractDate);
+            query += maxContractYearMonthQuery;
             query += maxContractDateQuery;
+
         }
 
 
         // if minConstructYear is exsist
         if (!minConstructYear.isEmpty()) {
-            String minConstructYearQuery = String.format("AND construction_year > %s ", minConstructYear);
+            String minConstructYearQuery = String.format("AND construction_year >= %s ", minConstructYear);
             query += minConstructYearQuery;
         }
         // if maxConstructYear is exsist
         if (!maxConstructYear.isEmpty()) {
-            String maxConstructYearQuery = String.format("AND construction_year < %s ", maxConstructYear);
+            String maxConstructYearQuery = String.format("AND construction_year <= %s ", maxConstructYear);
             query += maxConstructYearQuery;
         }
         // if minFloor is exsist
         if (!minFloor.isEmpty()) {
-            String minFloorQuery = String.format("AND floor > %s ", minFloor);
+            String minFloorQuery = String.format("AND floor >= %s ", minFloor);
             query += minFloorQuery;
         }
         // if maxFloor is exsist
         if (!maxFloor.isEmpty()) {
-            String maxFloorQuery = String.format("AND floor < %s ", maxFloor);
+            String maxFloorQuery = String.format("AND floor <= %s ", maxFloor);
             query += maxFloorQuery;
         }
 

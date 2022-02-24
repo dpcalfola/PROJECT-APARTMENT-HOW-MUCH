@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.lang.annotation.Retention;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -163,20 +164,32 @@ public class MainController extends PrimaryModel implements Initializable {
     // get information of constraints and return ConstraintModelVo using constructor
     private ConstraintModelVO getConstraintInfo() throws NumberFormatException {
 
-
+        // don't need length checker
         String getKeywordTextField = keywordTextField.getText();
         String getMinPriceTextField = minPriceTextField.getText();
         String getMaxPriceTextField = maxPriceTextField.getText();
         String getMinAreaTextField = minAreaTextField.getText();
         String getMaxAreaTextField = maxAreaTextField.getText();
-
         //
-        String getMinContractDateTextField = minContractDateTextField.getText();
-        String getMaxContractDateTextField = maxContractDateTextField.getText();
 
-        //
-        String getMinConstructYearTextField = minConstructYearTextField.getText();
-        String getMaxConstructYearTextField = maxConstructYearTextField.getText();
+
+        // lengthChecker method (_: String, _: int)
+        // If the input doesn't match with digit return null-string,
+        // otherwise it returns parameter String
+
+        // *and set warning messsage (unembodiment)
+
+        // ContractDateTextField should be 8 digit
+        String getMinContractDateTextField = lengthChecker(minContractDateTextField.getText(), 8);
+        String getMaxContractDateTextField = lengthChecker(maxContractDateTextField.getText(), 8);
+
+
+        // ConstructYearTextField should be 4 digit
+        String getMinConstructYearTextField = lengthChecker(minConstructYearTextField.getText(), 4);
+        String getMaxConstructYearTextField = lengthChecker(maxConstructYearTextField.getText(), 4);
+
+
+        // Floor doesn't need lengthChecker
         String getMinFloorTextField = minFloorTextField.getText();
         String getMaxFloorTextField = maxFloorTextField.getText();
 
@@ -185,6 +198,11 @@ public class MainController extends PrimaryModel implements Initializable {
 
 
         return constraintInfo;
+    }
+
+
+    private String lengthChecker(String s, int digit) {
+        return s.length() == digit ? s : "";
     }
 
 
