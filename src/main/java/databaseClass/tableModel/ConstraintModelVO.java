@@ -1,4 +1,4 @@
-package databaseClass.table;
+package databaseClass.tableModel;
 
 public class ConstraintModelVO {
 
@@ -7,7 +7,9 @@ public class ConstraintModelVO {
             constraintMinContractDate, constraintMaxContractDate, constraintMinConstructYear,
             constraintMaxConstructYear, constraintMinFloor, constraintMaxFloor;
 
-    public ConstraintModelVO(String constraintKeyword, String constraintMinPrice, String constraintMaxPrice, String constraintMinArea, String constraintMaxArea, String constraintMinContractDate, String constraintMaxContractDate, String constraintMinConstructYear, String constraintMaxConstructYear, String constraintMinFloor, String constraintMaxFloor) {
+    public ConstraintModelVO(String constraintKeyword, String constraintMinPrice, String constraintMaxPrice, String constraintMinArea,
+                             String constraintMaxArea, String constraintMinContractDate, String constraintMaxContractDate, String constraintMinConstructYear,
+                             String constraintMaxConstructYear, String constraintMinFloor, String constraintMaxFloor) {
         this.constraintKeyword = constraintKeyword;
         this.constraintMinPrice = constraintMinPrice;
         this.constraintMaxPrice = constraintMaxPrice;

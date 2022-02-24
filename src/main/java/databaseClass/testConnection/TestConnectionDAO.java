@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestConnectionDAO extends ConnDB {
 
     private ResultSet resultSet;
 
-    public ArrayList<TestConnectionVO> testConnectionList() {
+    public List<TestConnectionVO> testConnectionList() {
         ArrayList<TestConnectionVO> list = new ArrayList<>();
         PreparedStatement getAllUserInfo = null;
 

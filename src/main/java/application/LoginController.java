@@ -1,7 +1,7 @@
 package application;
 
-import databaseClass.user.UserLoginModelDAO;
-import databaseClass.user.UserModelVO;
+import databaseClass.userModel.UserLoginModelDAO;
+import databaseClass.userModel.UserModelVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +23,6 @@ public class LoginController extends PrimaryModel implements Initializable {
     PasswordField pwLgSbPasswordField;
     @FXML
     Text loginConsequenceTextLgSbView;
-
 
 
     // *LgSbView == Login-subView

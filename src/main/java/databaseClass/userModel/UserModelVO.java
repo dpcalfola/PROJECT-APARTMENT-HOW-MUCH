@@ -1,4 +1,4 @@
-package databaseClass.user;
+package databaseClass.userModel;
 
 public class UserModelVO {
 

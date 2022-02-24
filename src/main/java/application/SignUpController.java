@@ -1,8 +1,8 @@
 package application;
 
-import databaseClass.user.UserLoginModelDAO;
-import databaseClass.user.UserSignUpModelDAO;
-import databaseClass.user.UserModelVO;
+import databaseClass.userModel.UserLoginModelDAO;
+import databaseClass.userModel.UserSignUpModelDAO;
+import databaseClass.userModel.UserModelVO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;

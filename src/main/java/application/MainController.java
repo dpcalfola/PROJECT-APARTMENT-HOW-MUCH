@@ -1,8 +1,8 @@
 package application;
 
-import databaseClass.table.ConstraintModelVO;
+import databaseClass.tableModel.ConstraintModelVO;
 import databaseClass.testConnection.TestConnection;
-import databaseClass.user.UserLoginConfirmTest;
+import databaseClass.userModel.UserLoginConfirmTest;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -169,8 +169,12 @@ public class MainController extends PrimaryModel implements Initializable {
         String getMaxPriceTextField = maxPriceTextField.getText();
         String getMinAreaTextField = minAreaTextField.getText();
         String getMaxAreaTextField = maxAreaTextField.getText();
+
+        //
         String getMinContractDateTextField = minContractDateTextField.getText();
         String getMaxContractDateTextField = maxContractDateTextField.getText();
+
+        //
         String getMinConstructYearTextField = minConstructYearTextField.getText();
         String getMaxConstructYearTextField = maxConstructYearTextField.getText();
         String getMinFloorTextField = minFloorTextField.getText();

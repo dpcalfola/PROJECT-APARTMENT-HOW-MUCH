@@ -1,8 +1,8 @@
 package application;
 
-import databaseClass.table.ConstraintModelVO;
-import databaseClass.table.TableModelDAO;
-import databaseClass.table.TableModelVO;
+import databaseClass.tableModel.ConstraintModelVO;
+import databaseClass.tableModel.TableModelDAO;
+import databaseClass.tableModel.TableModelVO;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class TableController extends PrimaryModel implements Initializable {
@@ -53,7 +54,7 @@ public class TableController extends PrimaryModel implements Initializable {
         contractDate.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("contractDate"));
 
         TableModelDAO tableModelDAO = new TableModelDAO();
-        ArrayList<TableModelVO> tableModelVOS;
+        List<TableModelVO> tableModelVOS;
 
         ConstraintModelVO tableControllerConstraintModelVO = getPrimaryModelConstraintModelVO();
         tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);

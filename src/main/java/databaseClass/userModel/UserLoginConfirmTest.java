@@ -1,4 +1,4 @@
-package databaseClass.user;
+package databaseClass.userModel;
 
 public class UserLoginConfirmTest {
 
@@ -10,7 +10,6 @@ public class UserLoginConfirmTest {
         UserLoginModelDAO dao = new UserLoginModelDAO();
         UserModelVO userInfo = dao.loginUser("ezen1", "1234");
 
-//        System.out.println("Confirm user ID: " + userInfo.getUserID());
-//        System.out.println("Confirm user Pw: " + userInfo.getUserPW());
+
     }
 }

@@ -1,4 +1,4 @@
-package databaseClass.table;
+package databaseClass.tableModel;
 
 public class TableModelVO {
 
