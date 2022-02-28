@@ -19,7 +19,7 @@ public class TestConnectionDAO extends ConnDB {
         try {
             connDB();
 
-            String query = "SELECT * FROM user";
+            String query = "SELECT * FROM users";
             getAllUserInfo = conn.prepareStatement(query);
             resultSet = getAllUserInfo.executeQuery();
 
