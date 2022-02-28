@@ -37,7 +37,7 @@ public class UserLoginModelDAO extends ConnDB {
                     userInfo = new UserModelVO(getUserPrimaryKey, getUserIdFromDB, getUserPwFromDB, true);
                     return userInfo;
                 } else {
-                    userInfo = new UserModelVO(getUserPrimaryKey, getUserIdFromDB, "WRONGPASSWORD", false);
+                    userInfo = new UserModelVO(getUserPrimaryKey, getUserIdFromDB, "WRONG-PASSWORD", false);
                     return userInfo;
                 }
             } else {

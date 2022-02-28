@@ -59,9 +59,11 @@ public class MainController extends PrimaryModel implements Initializable {
     ConstraintModelVO mainControllerConstraintModelVO;
 
 
-    //
+    // Application starts form here !!
+    // and this initializing method run only once
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         // DB connection test
         TestConnection t1 = new TestConnection();
         t1.testConnect();
@@ -70,6 +72,105 @@ public class MainController extends PrimaryModel implements Initializable {
         UserLoginConfirmTest c1 = new UserLoginConfirmTest();
         c1.confirmUser();
 
+        // make constraints text field be gotten only numbers ( without keyword )
+        restrictInputValueOnConstraintTextField();
+
+        // -1 means guest
+        setLoggedInUserKey(-1);
+
+    }
+
+
+    // Buttons located top pane
+    @FXML
+    private void handleTableButtonAction(ActionEvent event) throws IOException {
+
+        // put data into ConstraintModelVO
+        mainControllerConstraintModelVO = getConstraintInfo();
+
+        //call primary changeBorderPaneCenterSearch method
+        drawDataTableOnCenter(mainControllerConstraintModelVO);
+    }
+
+    @FXML
+    private void handleLoginButtonAction(ActionEvent event) throws IOException {
+        changeBorderPaneCenter("login-subView.fxml");
+    }
+
+    @FXML
+    private void handleLogoutButtonAction(ActionEvent event) throws IOException {
+        System.out.println("Logout Button clicked !!");
+    }
+
+    @FXML
+    private void handleSignUpButtonAction(ActionEvent event) throws IOException {
+        changeBorderPaneCenter("signup-subView.fxml");
+    }
+
+
+    // This button located bottom of constraints field
+    @FXML
+    private void handleSearchButtonAction(ActionEvent event) throws IOException {
+
+        // put data into ConstraintModelVO
+        mainControllerConstraintModelVO = getConstraintInfo();
+
+        // Call method form primaryModel
+        // Throw ConstraintModelVO to PrimaryModel
+        drawDataTableOnCenter(mainControllerConstraintModelVO);
+
+    }
+
+
+    // get information of constraints and return ConstraintModelVo using constructor
+    private ConstraintModelVO getConstraintInfo() throws NumberFormatException {
+
+        // don't need length checker
+        String getKeywordTextField = keywordTextField.getText();
+        String getMinPriceTextField = minPriceTextField.getText();
+        String getMaxPriceTextField = maxPriceTextField.getText();
+        String getMinAreaTextField = minAreaTextField.getText();
+        String getMaxAreaTextField = maxAreaTextField.getText();
+        //
+
+
+        // lengthChecker method (_: String, _: int)
+        // If the input doesn't match with digit return null-string,
+        // otherwise it returns parameter String
+
+        // *and set warning message (개발 예정)
+
+        // ContractDateTextField should be 8 digit
+        String getMinContractDateTextField = lengthChecker(minContractDateTextField.getText(), 8);
+        String getMaxContractDateTextField = lengthChecker(maxContractDateTextField.getText(), 8);
+
+
+        // ConstructYearTextField should be 4 digit
+        String getMinConstructYearTextField = lengthChecker(minConstructYearTextField.getText(), 4);
+        String getMaxConstructYearTextField = lengthChecker(maxConstructYearTextField.getText(), 4);
+
+
+        // Floor doesn't need lengthChecker
+        String getMinFloorTextField = minFloorTextField.getText();
+        String getMaxFloorTextField = maxFloorTextField.getText();
+
+
+        return new ConstraintModelVO(
+                getKeywordTextField,
+                getMinPriceTextField,
+                getMaxPriceTextField,
+                getMinAreaTextField,
+                getMaxAreaTextField,
+                getMinContractDateTextField,
+                getMaxContractDateTextField,
+                getMinConstructYearTextField,
+                getMaxConstructYearTextField,
+                getMinFloorTextField,
+                getMaxFloorTextField);
+    }
+
+
+    private void restrictInputValueOnConstraintTextField() {
         // restrict the input to numbers
         minPriceTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.matches("\\d*")) return;
@@ -111,95 +212,6 @@ public class MainController extends PrimaryModel implements Initializable {
             if (newValue.matches("\\d*")) return;
             maxFloorTextField.setText(newValue.replaceAll("[^\\d]", ""));
         });
-
-    }
-
-
-    // Buttons located top pane
-    @FXML
-    private void handleTableButtonAction(ActionEvent event) throws IOException {
-
-        // put data into ConstraintModelVO
-        mainControllerConstraintModelVO = getConstraintInfo();
-
-        //call primary changeBorderPaneCenterSearch method
-        changeBorderPaneCenterDataTable("table-subView.fxml", mainControllerConstraintModelVO);
-    }
-
-    @FXML
-    private void handleLoginButtonAction(ActionEvent event) throws IOException {
-        changeBorderPaneCenter("login-subView.fxml");
-    }
-
-    @FXML
-    private void handleLogoutButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Logout Button clicked !!");
-    }
-
-    @FXML
-    private void handleSignUpButtonAction(ActionEvent event) throws IOException {
-        changeBorderPaneCenter("signup-subView.fxml");
-    }
-
-
-    // This button located bottom of constraints field
-    @FXML
-    private void handleSearchButtonAction(ActionEvent event) throws IOException {
-
-        // put data into ConstraintModelVO
-        mainControllerConstraintModelVO = getConstraintInfo();
-
-        //call primary changeBorderPaneCenterSearch method
-        changeBorderPaneCenterDataTable("table-subView.fxml", mainControllerConstraintModelVO);
-
-    }
-
-
-    // get information of constraints and return ConstraintModelVo using constructor
-    private ConstraintModelVO getConstraintInfo() throws NumberFormatException {
-
-        // don't need length checker
-        String getKeywordTextField = keywordTextField.getText();
-        String getMinPriceTextField = minPriceTextField.getText();
-        String getMaxPriceTextField = maxPriceTextField.getText();
-        String getMinAreaTextField = minAreaTextField.getText();
-        String getMaxAreaTextField = maxAreaTextField.getText();
-        //
-
-
-        // lengthChecker method (_: String, _: int)
-        // If the input doesn't match with digit return null-string,
-        // otherwise it returns parameter String
-
-        // *and set warning messsage (unembodiment)
-
-        // ContractDateTextField should be 8 digit
-        String getMinContractDateTextField = lengthChecker(minContractDateTextField.getText(), 8);
-        String getMaxContractDateTextField = lengthChecker(maxContractDateTextField.getText(), 8);
-
-
-        // ConstructYearTextField should be 4 digit
-        String getMinConstructYearTextField = lengthChecker(minConstructYearTextField.getText(), 4);
-        String getMaxConstructYearTextField = lengthChecker(maxConstructYearTextField.getText(), 4);
-
-
-        // Floor doesn't need lengthChecker
-        String getMinFloorTextField = minFloorTextField.getText();
-        String getMaxFloorTextField = maxFloorTextField.getText();
-
-
-        return new ConstraintModelVO(
-                getKeywordTextField,
-                getMinPriceTextField,
-                getMaxPriceTextField,
-                getMinAreaTextField,
-                getMaxAreaTextField,
-                getMinContractDateTextField,
-                getMaxContractDateTextField,
-                getMinConstructYearTextField,
-                getMaxConstructYearTextField,
-                getMinFloorTextField,
-                getMaxFloorTextField);
     }
 
 

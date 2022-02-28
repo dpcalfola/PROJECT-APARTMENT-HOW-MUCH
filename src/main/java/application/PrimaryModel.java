@@ -13,8 +13,14 @@ import static application.Application.mainControllerHandle;
 
 public class PrimaryModel {
 
-    static ConstraintModelVO primaryModelConstraintModelVO;
 
+    // Static field
+    static ConstraintModelVO staticConstraintModelVO;
+
+    // loggedInUserKey has some value always
+    // -1 : guest
+    // ect : userPrimaryKey from MySQL
+    static int loggedInUserKey;
 
     // Method which changes center pane
     void changeBorderPaneCenter(String fxmlFile) throws IOException {
@@ -35,17 +41,20 @@ public class PrimaryModel {
 
     // static void
     // get constraint values -> setting static field "primaryModelConstraintModelVO" and...
-    // 제약 조건의 데이터를 읽어서 static field 인 primaryModelConstraintModelVO 에 셋팅한다. 그리고
-    // Change center pane
-    static void changeBorderPaneCenterDataTable(String fxmlFile, ConstraintModelVO constraintModelVO) throws IOException {
+    // Draw data table on center pane
+    static void drawDataTableOnCenter(ConstraintModelVO constraintModelVO) throws IOException {
 
-        // put into static VO
-        primaryModelConstraintModelVO = constraintModelVO;
 
-        // draw center
+        // Set static property
+        staticConstraintModelVO = constraintModelVO;
+
+        // draw center data table
         Pane view;
-        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource(fxmlFile)));
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource("table-subView.fxml")));
         mainControllerHandle.getMainPane().setCenter(view);
+
+        // After center pane is loaded by this method,
+        // TableController will call TableModelDAO
 
     }
 
@@ -56,10 +65,19 @@ public class PrimaryModel {
         return mainControllerHandle.getSearchTextField();
     }
 
-
     // TableController use this method
-    public ConstraintModelVO getPrimaryModelConstraintModelVO() {
-        return primaryModelConstraintModelVO;
+    public ConstraintModelVO getStaticModelConstraintModelVO() {
+        return staticConstraintModelVO;
+    }
+
+
+    // LoggedInUserKey getter and setter
+    public static int getLoggedInUserKey() {
+        return loggedInUserKey;
+    }
+
+    public static void setLoggedInUserKey(int loggedInUserKey) {
+        PrimaryModel.loggedInUserKey = loggedInUserKey;
     }
 
 

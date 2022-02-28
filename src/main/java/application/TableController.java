@@ -13,7 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -43,6 +43,16 @@ public class TableController extends PrimaryModel implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // 현재 로그인 된 유저의 정보를 가져와서
+        // TableModelDAO 애 던진다.
+
+        TableModelDAO tableModelDAO = new TableModelDAO();
+        List<TableModelVO> tableModelVOS;
+
+        ConstraintModelVO tableControllerConstraintModelVO = getStaticModelConstraintModelVO();
+        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
+
+
         tradeId.setCellValueFactory(new PropertyValueFactory<TableModelVO, Integer>("tradeID"));
         apartGroup.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("apartGroup"));
         addressRoad.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("addressRoad"));
@@ -52,24 +62,10 @@ public class TableController extends PrimaryModel implements Initializable {
         constructionYear.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("constructionYear"));
         floor.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("floor"));
         contractDate.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("contractDate"));
-
-        TableModelDAO tableModelDAO = new TableModelDAO();
-        List<TableModelVO> tableModelVOS;
-
-        ConstraintModelVO tableControllerConstraintModelVO = getPrimaryModelConstraintModelVO();
-        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
-
-
-        //test Code 3 
-        String testCode3 = tableControllerConstraintModelVO.getConstraintKeyword();
-        System.out.println("testCode3: " + testCode3);
-        System.out.println("TableController : " + tableControllerConstraintModelVO.getConstraintKeyword());
-
-        // draw table start
+        
         ObservableList<TableModelVO> observableTableList = tableView.getItems();
 
-        for (int i = 0; i < tableModelVOS.size(); i++) {
-            TableModelVO data = tableModelVOS.get(i);
+        for (TableModelVO data : tableModelVOS) {
             observableTableList.add(data);
             tableView.setItems(observableTableList);
         }
