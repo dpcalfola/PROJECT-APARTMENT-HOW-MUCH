@@ -31,12 +31,26 @@ public class TableModelDAO extends ConnDB {
                 contract_year_month*100 + contract_date AS contract_date,
                 floor,
                 construction_year
-                FROM apartment_price
                 """;
 
         query += selectQuery;
 
+
+        // from query
         String fromQuery;
+        if (isOnBookmark) {
+            // bookmark search
+            fromQuery = """
+                    FROM bookmark
+                             left join users on bookmark.bookmark_user_key = users.user_primaryKey
+                             left join apartment_price on bookmark.bookmark_trade_id = apartment_price.trade_id
+                    """;
+
+        } else {
+            // whole data search
+            fromQuery = "FROM apartment_price\n";
+        }
+        query += fromQuery;
 
 
         //---- START - element of constraints area 
@@ -54,10 +68,10 @@ public class TableModelDAO extends ConnDB {
         //---- END - element of constraints area
 
 
-        // If all constraint TextField are empty 
-        // -> isConstraintEmpty = true
+        // If all constraint TextField are empty and boolean onBookmark is false
+        // -> isSkipWhereClause = true
         // -> Skip WHERE clause 
-        boolean isConstraintEmpty = keyword.isEmpty()
+        boolean isSkipWhereClause = keyword.isEmpty()
                 && minPrice.isEmpty()
                 && maxPrice.isEmpty()
                 && minArea.isEmpty()
@@ -67,13 +81,15 @@ public class TableModelDAO extends ConnDB {
                 && minConstructYear.isEmpty()
                 && maxConstructYear.isEmpty()
                 && minFloor.isEmpty()
-                && maxFloor.isEmpty();
+                && maxFloor.isEmpty()
+                // Bookmark search needs WHERE clause
+                && !isOnBookmark;
 
 
         //---- Start of the WHERE clause ----//
         //---- Start of the WHERE clause ----//
 
-        if (!isConstraintEmpty) {
+        if (!isSkipWhereClause) {
             query += " WHERE ";
         }
 
@@ -151,9 +167,15 @@ public class TableModelDAO extends ConnDB {
             query += maxFloorQuery;
         }
 
+        // Bookmark search -> add userKey condition
+        if (isOnBookmark) {
+            String userKeyQuery = String.format("bookmark.bookmark_user_key = %s\n" + "AND ", userKey);
+            query += userKeyQuery;
+        }
 
-        // remove suffix "AND " - if WHERE clause exsist 
-        if (!isConstraintEmpty) {
+
+        // remove suffix "AND " - if WHERE clause exist
+        if (!isSkipWhereClause) {
             query = query.substring(0, query.lastIndexOf("AND"));
         }
 
@@ -164,18 +186,20 @@ public class TableModelDAO extends ConnDB {
         // criteria for sorting
         String queryOrderBy = "ORDER BY apart_group ";
         // limit getting number of items at once
-        String queryLimit = "LIMIT 5000";
+        String queryLimit = "LIMIT 300";
 
         query += queryOrderBy;
         query += queryLimit;
 
         // test code 6 : whole query
-        System.out.println("test code 5 : query start \n " + query + "\n query end");
+        System.out.println("test code 5 : query start \n\n " + query + "\n\n query end");
 
 
         // We got whole query eventually
         // SO now, call database conn method (parameter : query)
         return getTableList(query);
+
+
     }
 
 

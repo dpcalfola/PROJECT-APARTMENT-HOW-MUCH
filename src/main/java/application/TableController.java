@@ -48,6 +48,7 @@ public class TableController extends PrimaryModel implements Initializable {
 
         TableModelDAO tableModelDAO = new TableModelDAO();
         List<TableModelVO> tableModelVOS;
+        int caseCounter = 0;
 
         ConstraintModelVO tableControllerConstraintModelVO = getStaticModelConstraintModelVO();
         int userKey = getLoggedInUserKey();
@@ -69,11 +70,21 @@ public class TableController extends PrimaryModel implements Initializable {
         for (TableModelVO data : tableModelVOS) {
             observableTableList.add(data);
             tableView.setItems(observableTableList);
+            caseCounter++;
         }
 
 
         // Search filter
         searchFilter(observableTableList);
+
+        // Set status display
+        String massage;
+        if (onBookmark) {
+            massage = String.format("북마크 검색: %d 건의 결과를 찾았습니다.", caseCounter);
+        } else {
+            massage = String.format("전체 검색: %d 건의 결과를 찾았습니다.", caseCounter);
+        }
+        setStatusDisplayText(massage);
 
 
     }

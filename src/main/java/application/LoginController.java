@@ -50,10 +50,12 @@ public class LoginController extends PrimaryModel implements Initializable {
             loginConsequenceTextLgSbView.setText("Hello " + getID + " !! You logged in Successfully");
             loginConsequenceTextLgSbView.setVisible(true);
 
+            //
             // setting after logged-in status
-
-            setButtonsAfterLogin(); // Change button status
-            setLoggedInUserKey(userInfo.getUserPrimaryKey()); // set static int LoggedInUserKey
+            // Change button status
+            setButtonsAfterLogin();
+            // set static int LoggedInUserKey
+            setLoggedInUserKey(userInfo.getUserPrimaryKey());
 
 
             // test code
@@ -74,7 +76,7 @@ public class LoginController extends PrimaryModel implements Initializable {
     private void handleSignUpButtonLgSbViewAction(ActionEvent event) throws IOException {
         System.out.println("login-subView sign up button clicked");
         changeBorderPaneCenter("signup-subView.fxml");
-        
+
     }
 
     @FXML
