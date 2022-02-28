@@ -43,20 +43,18 @@ public class TableController extends PrimaryModel implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        // 현재 로그인 된 유저의 정보를 가져와서
-        // TableModelDAO 애 던진다.
-
 
         // ----- START: Get data from MySQL -----
 
         TableModelDAO tableModelDAO = new TableModelDAO();
         List<TableModelVO> tableModelVOS;
 
-        int userKey = getLoggedInUserKey();
         ConstraintModelVO tableControllerConstraintModelVO = getStaticModelConstraintModelVO();
+        int userKey = getLoggedInUserKey();
+        boolean onBookmark = isOnBookmark();
 
-        // Throw constraint information and userKey to TableModelDAO
-        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO, userKey);
+        // Throw constraintModelVO, userKey, onBookmark  to TableModelDAO
+        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO, userKey, onBookmark);
 
 
         // ----- END: Get data from MySQL -----

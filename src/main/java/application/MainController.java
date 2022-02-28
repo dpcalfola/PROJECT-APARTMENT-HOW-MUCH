@@ -106,30 +106,37 @@ public class MainController extends PrimaryModel implements Initializable {
 
     // Buttons located top pane
 
-    // 전체 조회
+    // 전체 조회 버튼
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
 
-        // put data into ConstraintModelVO
-        mainControllerConstraintModelVO = getConstraintInfo();
+        // turn off boolean onBookmark
+        setOnBookmark(false);
 
-        //call primary changeBorderPaneCenterSearch method
+        // Draw table 
+        mainControllerConstraintModelVO = getConstraintInfo();
         drawDataTableOnCenter(mainControllerConstraintModelVO);
     }
 
-    // 북마크
+    // 북마크(조회) 버튼
     @FXML
     private void handleBookmarkButtonAction(ActionEvent event) throws IOException {
-        System.out.println("bookmark button clicked");
+
+        // turn on boolean onBookmark
+        setOnBookmark(true);
+
+        // Draw table
+        mainControllerConstraintModelVO = getConstraintInfo();
+        drawDataTableOnCenter(mainControllerConstraintModelVO);
     }
 
-    // 로그인
+    // 로그인 버튼
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
         changeBorderPaneCenter("login-subView.fxml");
     }
 
-    // 로그아웃
+    // 로그아웃 버튼
     @FXML
     private void handleLogoutButtonAction(ActionEvent event) throws IOException {
         changeBorderPaneCenter("logout-subView.fxml");
@@ -137,22 +144,20 @@ public class MainController extends PrimaryModel implements Initializable {
         setButtonsAfterLogout();
     }
 
-    // 회원 가입
+    // 회원 가입 버튼
     @FXML
     private void handleSignUpButtonAction(ActionEvent event) throws IOException {
         changeBorderPaneCenter("signup-subView.fxml");
     }
 
 
+    // 검색 버튼 ( draw table with current boolean onBookmark )
     // This button located bottom of constraints field
     @FXML
     private void handleSearchButtonAction(ActionEvent event) throws IOException {
 
-        // put data into ConstraintModelVO
+        // Draw table
         mainControllerConstraintModelVO = getConstraintInfo();
-
-        // Call method form primaryModel
-        // Throw ConstraintModelVO to PrimaryModel
         drawDataTableOnCenter(mainControllerConstraintModelVO);
 
     }

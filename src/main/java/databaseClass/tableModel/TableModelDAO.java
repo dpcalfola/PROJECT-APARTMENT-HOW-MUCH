@@ -15,10 +15,12 @@ import java.util.List;
 public class TableModelDAO extends ConnDB {
 
     // make TableModelVo list
-    public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey) {
+    public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey, boolean isOnBookmark) {
+
+        String query = "";
 
         // select query
-        String query = """ 
+        String selectQuery = """ 
                 SELECT
                 trade_id,
                 apart_group,
@@ -32,7 +34,10 @@ public class TableModelDAO extends ConnDB {
                 FROM apartment_price
                 """;
 
+        query += selectQuery;
+
         String fromQuery;
+
 
         //---- START - element of constraints area 
         String keyword = constraintModelVO.getConstraintKeyword();
@@ -118,15 +123,11 @@ public class TableModelDAO extends ConnDB {
 
         // ContractDate
         if (!minContractYearMonthDate.isEmpty()) {
-            String minContractYearMonthDateQuery =
-                    String.format("contract_year_month*100 + apartment_price.contract_date >= %s\n" + "AND ",
-                            minContractYearMonthDate);
+            String minContractYearMonthDateQuery = String.format("contract_year_month*100 + apartment_price.contract_date >= %s\n" + "AND ", minContractYearMonthDate);
             query += minContractYearMonthDateQuery;
         }
         if (!maxContractYearMonthDate.isEmpty()) {
-            String maxContractYearMonthDateQuery =
-                    String.format("contract_year_month*100 + apartment_price.contract_date <= %s\n" + "AND ",
-                            maxContractYearMonthDate);
+            String maxContractYearMonthDateQuery = String.format("contract_year_month*100 + apartment_price.contract_date <= %s\n" + "AND ", maxContractYearMonthDate);
             query += maxContractYearMonthDateQuery;
         }
 
