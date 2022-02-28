@@ -7,6 +7,7 @@ import databaseClass.userModel.UserLoginConfirmTest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -28,6 +29,19 @@ public class MainController extends PrimaryModel implements Initializable {
     private Text statusDisplayText;
     @FXML
     private TextField searchTextField;
+
+
+    // Button of top pane
+    @FXML
+    private Button tableButton;
+    @FXML
+    private Button bookmarkButton;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private Button signUpButton;
 
 
     // Constraints text fields
@@ -75,9 +89,18 @@ public class MainController extends PrimaryModel implements Initializable {
         // make constraints text field be gotten only numbers ( without keyword )
         restrictInputValueOnConstraintTextField();
 
+        // initialize: loggedInUserKey value
         // -1 means guest
         setLoggedInUserKey(-1);
 
+        // initialize: bookmark status
+        setOnBookmark(false);
+
+        // initialize: set button property
+        bookmarkButton.setOpacity(0.5);
+        bookmarkButton.setDisable(true);
+        logoutButton.setOpacity(0.5);
+        logoutButton.setDisable(true);
     }
 
 
@@ -109,7 +132,9 @@ public class MainController extends PrimaryModel implements Initializable {
     // 로그아웃
     @FXML
     private void handleLogoutButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Logout Button clicked !!");
+        changeBorderPaneCenter("logout-subView.fxml");
+        setLoggedInUserKey(-1);
+        setButtonsAfterLogout();
     }
 
     // 회원 가입
@@ -231,7 +256,7 @@ public class MainController extends PrimaryModel implements Initializable {
     }
 
 
-    // FXML getter
+    // FXML field getter
     public BorderPane getMainPane() {
         return mainPane;
     }
@@ -244,6 +269,28 @@ public class MainController extends PrimaryModel implements Initializable {
         return statusDisplayText;
     }
 
+    // FXML buttons getter
+    public Button getTableButton() {
+        return tableButton;
+    }
+
+    public Button getBookmarkButton() {
+        return bookmarkButton;
+    }
+
+    public Button getLoginButton() {
+        return loginButton;
+    }
+
+    public Button getLogoutButton() {
+        return logoutButton;
+    }
+
+    public Button getSignUpButton() {
+        return signUpButton;
+    }
+
+
     // DO NOT REMOVE THIS METHOD !!
     @Override
     public TextField getSearchTextField() {
@@ -254,4 +301,6 @@ public class MainController extends PrimaryModel implements Initializable {
     public ConstraintModelVO getMainControllerConstraintModelVO() {
         return mainControllerConstraintModelVO;
     }
+
+
 }

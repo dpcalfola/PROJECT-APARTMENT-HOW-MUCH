@@ -50,6 +50,15 @@ public class LoginController extends PrimaryModel implements Initializable {
             loginConsequenceTextLgSbView.setText("Hello " + getID + " !! You logged in Successfully");
             loginConsequenceTextLgSbView.setVisible(true);
 
+            // setting after logged-in status
+
+            setButtonsAfterLogin(); // Change button status
+            setLoggedInUserKey(userInfo.getUserPrimaryKey()); // set static int LoggedInUserKey
+
+
+            // test code
+            System.out.println("logged in user key : " + userInfo.getUserPrimaryKey() + "\n");
+
         } else if (!Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
             // this code doesn't execute getID or getPW is empty
             System.out.println("There is no matched user information");
@@ -62,8 +71,10 @@ public class LoginController extends PrimaryModel implements Initializable {
     }
 
     @FXML
-    private void handleSignUpButtonLgSbViewAction(ActionEvent event) {
+    private void handleSignUpButtonLgSbViewAction(ActionEvent event) throws IOException {
         System.out.println("login-subView sign up button clicked");
+        changeBorderPaneCenter("signup-subView.fxml");
+        
     }
 
     @FXML
