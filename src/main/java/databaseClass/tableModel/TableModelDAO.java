@@ -15,9 +15,9 @@ import java.util.List;
 public class TableModelDAO extends ConnDB {
 
     // make TableModelVo list
-    public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO) {
+    public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey) {
 
-        // base query
+        // select query
         String query = """ 
                 SELECT
                 trade_id,
@@ -32,6 +32,7 @@ public class TableModelDAO extends ConnDB {
                 FROM apartment_price
                 """;
 
+        String fromQuery;
 
         //---- START - element of constraints area 
         String keyword = constraintModelVO.getConstraintKeyword();
@@ -66,7 +67,7 @@ public class TableModelDAO extends ConnDB {
 
         //---- Start of the WHERE clause ----//
         //---- Start of the WHERE clause ----//
-        
+
         if (!isConstraintEmpty) {
             query += " WHERE ";
         }
@@ -167,10 +168,12 @@ public class TableModelDAO extends ConnDB {
         query += queryOrderBy;
         query += queryLimit;
 
-        // test code 6
+        // test code 6 : whole query
         System.out.println("test code 5 : query start \n " + query + "\n query end");
 
-        // call database conn method (parmeter : query)
+
+        // We got whole query eventually
+        // SO now, call database conn method (parameter : query)
         return getTableList(query);
     }
 

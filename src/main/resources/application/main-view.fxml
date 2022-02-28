@@ -52,27 +52,32 @@
                               <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="searchTextField" layoutX="14.0" layoutY="88.0" minHeight="30.0" minWidth="916.0" prefHeight="30.0" prefWidth="931.0" promptText="목록 내 재검색:" style="-fx-background-color: #f7ecde;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                        <TextField fx:id="searchTextField" layoutX="15.0" layoutY="86.0" minHeight="30.0" minWidth="916.0" prefHeight="30.0" prefWidth="931.0" promptText="목록 내 재검색:" style="-fx-background-color: #f7ecde;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="1307.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Sign Up" textFill="#2e4c6d" AnchorPane.rightAnchor="15.0">
+                        <Button layoutY="44.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="회원 가입" textFill="#2e4c6d" AnchorPane.rightAnchor="15.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="1223.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleLogoutButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Logout" textFill="#2e4c6d" AnchorPane.rightAnchor="105.0">
+                        <Button layoutY="44.0" mnemonicParsing="false" onAction="#handleLogoutButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="로그아웃" textFill="#2e4c6d" AnchorPane.rightAnchor="105.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="1127.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Login" textFill="#2e4c6d" AnchorPane.rightAnchor="195.0">
+                        <Button layoutY="44.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="로그인" textFill="#2e4c6d" AnchorPane.rightAnchor="195.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="1038.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleTableButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="Table" textFill="#2e4c6d" AnchorPane.rightAnchor="285.0">
+                        <Button layoutY="44.0" mnemonicParsing="false" onAction="#handleBookmarkButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="북마크" textFill="#2e4c6d" AnchorPane.rightAnchor="286.0">
+                           <font>
+                              <Font name="Arial Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button layoutY="44.0" mnemonicParsing="false" onAction="#handleTableButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="전체 조회" textFill="#2e4c6d" AnchorPane.rightAnchor="375.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -96,11 +101,15 @@
                               <Font name="Arial Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="33.0" prefWidth="126.0" text=" 키워드" textFill="#2e4c6d">
-                           <font>
-                              <Font name="Nadeem Regular" size="18.0" />
-                           </font>
-                        </Label>
+                        <HBox prefHeight="33.0" prefWidth="260.0">
+                           <children>
+                              <Label prefHeight="33.0" prefWidth="126.0" text=" 키워드" textFill="#2e4c6d">
+                                 <font>
+                                    <Font name="Nadeem Regular" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                         <HBox prefHeight="40.0" prefWidth="260.0">
                            <children>
                               <TextField fx:id="keywordTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />

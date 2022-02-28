@@ -82,6 +82,8 @@ public class MainController extends PrimaryModel implements Initializable {
 
 
     // Buttons located top pane
+
+    // 전체 조회
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
 
@@ -92,16 +94,25 @@ public class MainController extends PrimaryModel implements Initializable {
         drawDataTableOnCenter(mainControllerConstraintModelVO);
     }
 
+    // 북마크
+    @FXML
+    private void handleBookmarkButtonAction(ActionEvent event) throws IOException {
+        System.out.println("bookmark button clicked");
+    }
+
+    // 로그인
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
         changeBorderPaneCenter("login-subView.fxml");
     }
 
+    // 로그아웃
     @FXML
     private void handleLogoutButtonAction(ActionEvent event) throws IOException {
         System.out.println("Logout Button clicked !!");
     }
 
+    // 회원 가입
     @FXML
     private void handleSignUpButtonAction(ActionEvent event) throws IOException {
         changeBorderPaneCenter("signup-subView.fxml");

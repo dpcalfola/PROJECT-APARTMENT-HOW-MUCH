@@ -46,23 +46,26 @@ public class TableController extends PrimaryModel implements Initializable {
         // 현재 로그인 된 유저의 정보를 가져와서
         // TableModelDAO 애 던진다.
 
+
+        // ----- START: Get data from MySQL -----
+
         TableModelDAO tableModelDAO = new TableModelDAO();
         List<TableModelVO> tableModelVOS;
 
+        int userKey = getLoggedInUserKey();
         ConstraintModelVO tableControllerConstraintModelVO = getStaticModelConstraintModelVO();
-        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO);
+
+        // Throw constraint information and userKey to TableModelDAO
+        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO, userKey);
 
 
-        tradeId.setCellValueFactory(new PropertyValueFactory<TableModelVO, Integer>("tradeID"));
-        apartGroup.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("apartGroup"));
-        addressRoad.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("addressRoad"));
-        addressDetailed.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("addressDetailed"));
-        price.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("price"));
-        area.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("area"));
-        constructionYear.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("constructionYear"));
-        floor.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("floor"));
-        contractDate.setCellValueFactory(new PropertyValueFactory<TableModelVO, String>("contractDate"));
-        
+        // ----- END: Get data from MySQL -----
+
+
+        // .setCellValueFactory()
+        tableViewSetCellValueFactory();
+
+        // Show data on center pane
         ObservableList<TableModelVO> observableTableList = tableView.getItems();
 
         for (TableModelVO data : tableModelVOS) {
@@ -70,10 +73,34 @@ public class TableController extends PrimaryModel implements Initializable {
             tableView.setItems(observableTableList);
         }
 
-        // search filter
+
+        // Search filter
+        searchFilter(observableTableList);
+
+
+    }
+
+    private void tableViewSetCellValueFactory() {
+        tradeId.setCellValueFactory(new PropertyValueFactory<>("tradeID"));
+        apartGroup.setCellValueFactory(new PropertyValueFactory<>("apartGroup"));
+        addressRoad.setCellValueFactory(new PropertyValueFactory<>("addressRoad"));
+        addressDetailed.setCellValueFactory(new PropertyValueFactory<>("addressDetailed"));
+        price.setCellValueFactory(new PropertyValueFactory<>("price"));
+        area.setCellValueFactory(new PropertyValueFactory<>("area"));
+        constructionYear.setCellValueFactory(new PropertyValueFactory<>("constructionYear"));
+        floor.setCellValueFactory(new PropertyValueFactory<>("floor"));
+        contractDate.setCellValueFactory(new PropertyValueFactory<>("contractDate"));
+    }
+
+
+    // Copied code from YouTube :)
+    private void searchFilter(ObservableList<TableModelVO> observableTableList) {
+
         if (observableTableList != null) {
 
             FilteredList<TableModelVO> filteredData = new FilteredList<>(observableTableList, b -> true);
+
+            // get text from search text field on tap pane
             getSearchTextField().textProperty().addListener((observable, oldValue, newValue) -> {
 
                 filteredData.setPredicate(tableModelVO -> {
@@ -115,8 +142,6 @@ public class TableController extends PrimaryModel implements Initializable {
             sortedData.comparatorProperty().bind(tableView.comparatorProperty());
             tableView.setItems(sortedData);
         }
-
-
     }
 
     // TableColumn getter
