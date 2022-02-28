@@ -15,46 +15,54 @@ public class PrimaryModel {
 
     static ConstraintModelVO primaryModelConstraintModelVO;
 
+
+    // Method which changes center pane
     void changeBorderPaneCenter(String fxmlFile) throws IOException {
         Pane view;
         view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
         mainControllerHandle.getMainPane().setCenter(view);
     }
 
-    // change whole table
-    void changeBorderPaneCenterSearch(String fxmlFile, ConstraintModelVO ConstraintModelVo) throws IOException {
+    // set main view field property
+    void setGreetingTextField(String text) {
+        mainControllerHandle.getGreetingTextField().setText("Hello " + text + " !!");
+    }
+
+    void setStatusDisplayText(String text) {
+        mainControllerHandle.getStatusDisplayText().setText(text);
+    }
+
+
+    // static void
+    // get constraint values -> setting static field "primaryModelConstraintModelVO" and...
+    // 제약 조건의 데이터를 읽어서 static field 인 primaryModelConstraintModelVO 에 셋팅한다. 그리고
+    // Change center pane
+    static void changeBorderPaneCenterDataTable(String fxmlFile, ConstraintModelVO constraintModelVO) throws IOException {
 
         // put into static VO
-        primaryModelConstraintModelVO = ConstraintModelVo;
-
-
-        // testCode 2
-        String testCode2 = primaryModelConstraintModelVO.getConstraintKeyword();
-        System.out.println("testCode2: " + testCode2);
+        primaryModelConstraintModelVO = constraintModelVO;
 
         // draw center
         Pane view;
-        view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlFile)));
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource(fxmlFile)));
         mainControllerHandle.getMainPane().setCenter(view);
 
     }
 
-    void changeGreetingTextField(String text) {
-        mainControllerHandle.getGreetingTextField().setText("Hello " + text + " !!");
-    }
 
-    void changeStatusDisplayText(String text) {
-        mainControllerHandle.getStatusDisplayText().setText(text);
-    }
-
+    // TableController use this method
     @FXML
     TextField getSearchTextField() {
         return mainControllerHandle.getSearchTextField();
     }
 
+
+    // TableController use this method
     public ConstraintModelVO getPrimaryModelConstraintModelVO() {
         return primaryModelConstraintModelVO;
     }
+
+
 }
 
 

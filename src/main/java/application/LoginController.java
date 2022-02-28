@@ -45,8 +45,8 @@ public class LoginController extends PrimaryModel implements Initializable {
         if (userInfo.isCorrectUserInfo() && !Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
 
             System.out.println("Logged in Successfully");
-            changeGreetingTextField(getID);
-            changeStatusDisplayText(getID + " Logged in");
+            setGreetingTextField(getID);
+            setStatusDisplayText(getID + " Logged in");
 
             loginConsequenceTextLgSbView.setText("Hello " + getID + " !! You logged in Successfully");
             loginConsequenceTextLgSbView.setVisible(true);

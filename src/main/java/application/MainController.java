@@ -12,7 +12,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.lang.annotation.Retention;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -116,20 +115,19 @@ public class MainController extends PrimaryModel implements Initializable {
     }
 
 
-    //Button
+    // Buttons located top pane
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
-//        System.out.println("Table button clicked !!");
-//        String getKeywordTextField = keywordTextField.getText();
-//        mainControllerConstraintModelVO = new ConstraintModelVO(getKeywordTextField);
-//        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
 
+        // put data into ConstraintModelVO
+        mainControllerConstraintModelVO = getConstraintInfo();
+
+        //call primary changeBorderPaneCenterSearch method
+        changeBorderPaneCenterDataTable("table-subView.fxml", mainControllerConstraintModelVO);
     }
-
 
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Login Button clicked !!");
         changeBorderPaneCenter("login-subView.fxml");
     }
 
@@ -140,23 +138,19 @@ public class MainController extends PrimaryModel implements Initializable {
 
     @FXML
     private void handleSignUpButtonAction(ActionEvent event) throws IOException {
-        System.out.println("SignUp Button clicked !!");
         changeBorderPaneCenter("signup-subView.fxml");
     }
 
+
+    // This button located bottom of constraints field
     @FXML
     private void handleSearchButtonAction(ActionEvent event) throws IOException {
-        System.out.println("Search Button clicked !!");
 
-        // put data into ConstraingtModelVO
+        // put data into ConstraintModelVO
         mainControllerConstraintModelVO = getConstraintInfo();
 
-        // testCode
-        System.out.println("chaek num 1: " + mainControllerConstraintModelVO.getConstraintKeyword());
-        //
-
         //call primary changeBorderPaneCenterSearch method
-        changeBorderPaneCenterSearch("table-subView.fxml", mainControllerConstraintModelVO);
+        changeBorderPaneCenterDataTable("table-subView.fxml", mainControllerConstraintModelVO);
 
     }
 
@@ -194,10 +188,18 @@ public class MainController extends PrimaryModel implements Initializable {
         String getMaxFloorTextField = maxFloorTextField.getText();
 
 
-        ConstraintModelVO constraintInfo = new ConstraintModelVO(getKeywordTextField, getMinPriceTextField, getMaxPriceTextField, getMinAreaTextField, getMaxAreaTextField, getMinContractDateTextField, getMaxContractDateTextField, getMinConstructYearTextField, getMaxConstructYearTextField, getMinFloorTextField, getMaxFloorTextField);
-
-
-        return constraintInfo;
+        return new ConstraintModelVO(
+                getKeywordTextField,
+                getMinPriceTextField,
+                getMaxPriceTextField,
+                getMinAreaTextField,
+                getMaxAreaTextField,
+                getMinContractDateTextField,
+                getMaxContractDateTextField,
+                getMinConstructYearTextField,
+                getMaxConstructYearTextField,
+                getMinFloorTextField,
+                getMaxFloorTextField);
     }
 
 
@@ -219,6 +221,8 @@ public class MainController extends PrimaryModel implements Initializable {
         return statusDisplayText;
     }
 
+    // DO NOT REMOVE THIS METHOD !!
+    @Override
     public TextField getSearchTextField() {
         return searchTextField;
     }

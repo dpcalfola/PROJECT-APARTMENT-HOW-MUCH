@@ -60,7 +60,7 @@ public class SignUpController extends PrimaryModel implements Initializable {
             System.out.println(getID + " user created");
             signUpConsequenceTextSuSbView.setText(getID + " user created");
             signUpConsequenceTextSuSbView.setVisible(true);
-            changeStatusDisplayText("User created successfully (user: " + getID + ")");
+            setStatusDisplayText("User created successfully (user: " + getID + ")");
         } else {
             System.out.println("User create failed");
             signUpConsequenceTextSuSbView.setText("User create failed");
