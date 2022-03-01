@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableController">
    <children>
-      <TableView fx:id="tableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="550.0" prefWidth="1050.0" styleClass="table" stylesheets="@tableStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutY="500.0" prefHeight="50.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
+         <children>
+            <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;" text="북마크 넣기" textFill="#2e4c6d">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteBookmarkButton" layoutX="732.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDeleteBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;" text="북마크 삭제" textFill="#2e4c6d">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="1050.0" styleClass="table" stylesheets="@tableStyle.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn id="tableColumn" fx:id="tradeId" prefWidth="75.0" styleClass="tableStyle.css" text="거래번호" />
           <TableColumn fx:id="apartGroup" prefWidth="166.0" text="아파트명" />

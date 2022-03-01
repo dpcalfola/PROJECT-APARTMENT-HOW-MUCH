@@ -6,14 +6,17 @@ import databaseClass.tableModel.TableModelVO;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 
 import java.util.List;
@@ -22,6 +25,12 @@ import java.util.ResourceBundle;
 
 public class TableController extends PrimaryModel implements Initializable {
 
+
+    // static field
+    private static int bookmarkId;
+
+
+    // table column property
     @FXML
     private TableView<TableModelVO> tableView;
     @FXML
@@ -43,11 +52,55 @@ public class TableController extends PrimaryModel implements Initializable {
     @FXML
     private TableColumn<TableModelVO, String> contractDate;
 
-    private static int bookmarkId;
+
+    // hutton id
+    @FXML
+    private Button insertBookmarkButton;
+
+    @FXML
+    private Button deleteBookmarkButton;
+
+    // Handle button action
+    @FXML
+    private void handleInsertBookmarkButtonAction(ActionEvent event) throws IOException {
+        System.out.println("insert button clicked");
+    }
+
+    @FXML
+    private void handleDeleteBookmarkButtonAction(ActionEvent event) throws IOException {
+        System.out.println("delete button clicked");
+
+    }
+
 
     // table-subView initialize method
     @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        int userKey = getLoggedInUserKey();
+        boolean onBookmark = isOnBookmark();
+        
+
+        // Button activate/deactivate
+        if (onBookmark) {
+            // Bookmark search mode ->
+            // insertBookmarkButton deactivate,
+            insertBookmarkButton.setOpacity(0.5);
+            insertBookmarkButton.setDisable(true);
+            // deleteBookmarkButton activate
+            deleteBookmarkButton.setOpacity(1);
+            deleteBookmarkButton.setDisable(false);
+
+        } else {
+            // Whole search mode ->
+            // insertBookmarkButton activate,
+            insertBookmarkButton.setOpacity(1);
+            insertBookmarkButton.setDisable(false);
+            // deleteBookmarkButton deactivate
+            deleteBookmarkButton.setOpacity(0.5);
+            deleteBookmarkButton.setDisable(true);
+        }
 
 
         // ----- START: Get data from MySQL -----
@@ -57,8 +110,7 @@ public class TableController extends PrimaryModel implements Initializable {
         int caseCounter = 0;
 
         ConstraintModelVO tableControllerConstraintModelVO = getStaticModelConstraintModelVO();
-        int userKey = getLoggedInUserKey();
-        boolean onBookmark = isOnBookmark();
+
 
         // Throw constraintModelVO, userKey, onBookmark  to TableModelDAO
         tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO, userKey, onBookmark);
@@ -173,6 +225,11 @@ public class TableController extends PrimaryModel implements Initializable {
         }
     }
 
+    // static value getter
+    public static int getBookmarkId() {
+        return bookmarkId;
+    }
+
 
     // TableColumn getter
     public TableColumn<TableModelVO, Integer> getTradeId() {
@@ -211,4 +268,13 @@ public class TableController extends PrimaryModel implements Initializable {
         return contractDate;
     }
 
+
+    // Button Id getter
+    public Button getInsertBookmarkButton() {
+        return insertBookmarkButton;
+    }
+
+    public Button getDeleteBookmarkButton() {
+        return deleteBookmarkButton;
+    }
 }
