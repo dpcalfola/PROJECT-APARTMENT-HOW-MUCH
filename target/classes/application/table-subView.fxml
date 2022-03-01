@@ -10,7 +10,7 @@
    <children>
       <AnchorPane layoutY="500.0" prefHeight="50.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
          <children>
-            <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;" text="북마크 넣기" textFill="#2e4c6d">
+            <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;" text="북마크 추가" textFill="#2e4c6d">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>

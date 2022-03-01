@@ -1,9 +1,6 @@
 package application;
 
-import databaseClass.tableModel.ConstraintModelVO;
-import databaseClass.tableModel.InsertBookmarkDAO;
-import databaseClass.tableModel.TableModelDAO;
-import databaseClass.tableModel.TableModelVO;
+import databaseClass.tableModel.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -63,9 +60,10 @@ public class TableController extends PrimaryModel implements Initializable {
     private Button deleteBookmarkButton;
 
     // Handle button action
+
+    // 북마크 추가 버튼
     @FXML
     private void handleInsertBookmarkButtonAction(ActionEvent event) throws IOException {
-        System.out.println("insert button clicked");
 
         // If no select -> escape this method
         if (selectedBookmarkId == 0) {
@@ -89,9 +87,20 @@ public class TableController extends PrimaryModel implements Initializable {
 
     }
 
+
+    // 북마크 삭제 버튼
     @FXML
     private void handleDeleteBookmarkButtonAction(ActionEvent event) throws IOException {
         System.out.println("delete button clicked");
+
+        // If no select -> escape this method
+        if (selectedBookmarkId == 0) {
+            return;
+        }
+
+        DeleteBookmarkDAO deleteDAO = new DeleteBookmarkDAO();
+        boolean isDeleteSucceed = deleteDAO.deleteBookmark(isOnBookmark(), getLoggedInUserKey(), selectedBookmarkId);
+        
 
     }
 
