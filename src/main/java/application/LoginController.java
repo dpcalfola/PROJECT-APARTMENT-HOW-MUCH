@@ -47,15 +47,17 @@ public class LoginController extends PrimaryModel implements Initializable {
             setGreetingTextField(getID);
             setStatusDisplayText(getID + " Logged in");
 
-            loginConsequenceTextLgSbView.setText("Hello " + getID + " !! You logged in Successfully");
+            loginConsequenceTextLgSbView.setText(getID + "님의 계정에 로그인 되었습니다.");
             loginConsequenceTextLgSbView.setVisible(true);
 
             //
             // setting after logged-in status
             // Change button status
             setButtonsAfterLogin();
-            // set static int LoggedInUserKey
+
+            // set static user field
             setLoggedInUserKey(userInfo.getUserPrimaryKey());
+            setLoggedInUserID(userInfo.getUserID());
 
 
             // test code

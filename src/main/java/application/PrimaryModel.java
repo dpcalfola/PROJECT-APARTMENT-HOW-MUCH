@@ -18,6 +18,8 @@ public class PrimaryModel {
     // Static field
     private static ConstraintModelVO staticConstraintModelVO;
 
+    private static String loggedInUserID;
+
     // loggedInUserKey has some value always
     // -1 : guest
     // ect : userPrimaryKey from MySQL
@@ -106,6 +108,14 @@ public class PrimaryModel {
         return staticConstraintModelVO;
     }
 
+    // static String loggedInUserId getter and setter
+    public static String getLoggedInUserID() {
+        return loggedInUserID;
+    }
+
+    public static void setLoggedInUserID(String loggedInUserID) {
+        PrimaryModel.loggedInUserID = loggedInUserID;
+    }
 
     // static int loggedInUserKey getter and setter
     public static int getLoggedInUserKey() {

@@ -54,7 +54,7 @@ public class SignUpController extends PrimaryModel implements Initializable {
         }
 
         UserSignUpModelDAO signUpDAO = new UserSignUpModelDAO();
-        boolean isSignUpSucceed = signUpDAO.SignUpUser(getID, getPW1);
+        boolean isSignUpSucceed = signUpDAO.signUpUser(getID, getPW1);
 
         if (isSignUpSucceed) {
             System.out.println(getID + " user created");

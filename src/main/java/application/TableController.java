@@ -1,6 +1,7 @@
 package application;
 
 import databaseClass.tableModel.ConstraintModelVO;
+import databaseClass.tableModel.InsertBookmarkDAO;
 import databaseClass.tableModel.TableModelDAO;
 import databaseClass.tableModel.TableModelVO;
 import javafx.collections.ObservableList;
@@ -27,7 +28,8 @@ public class TableController extends PrimaryModel implements Initializable {
 
 
     // static field
-    private static int bookmarkId;
+    // if there is no select this field value is 0
+    private static int selectedBookmarkId;
 
 
     // table column property
@@ -53,7 +55,7 @@ public class TableController extends PrimaryModel implements Initializable {
     private TableColumn<TableModelVO, String> contractDate;
 
 
-    // hutton id
+    // Button id
     @FXML
     private Button insertBookmarkButton;
 
@@ -64,6 +66,27 @@ public class TableController extends PrimaryModel implements Initializable {
     @FXML
     private void handleInsertBookmarkButtonAction(ActionEvent event) throws IOException {
         System.out.println("insert button clicked");
+
+        // If no select -> escape this method
+        if (selectedBookmarkId == 0) {
+            return;
+        }
+
+        // Connect database start
+        InsertBookmarkDAO insertDAO = new InsertBookmarkDAO();
+        boolean isInsertSucceed = insertDAO.insertBookmark(isOnBookmark(), getLoggedInUserKey(), selectedBookmarkId);
+
+
+        // Set status display message
+        String message = "";
+        if (isInsertSucceed) {
+            message = getLoggedInUserID() + "님 계정에" + selectedBookmarkId + "번 거래가 북마크에 담겼습니다.";
+        } else {
+            message = "북마크 담기가 실패했습니다.";
+
+        }
+        setStatusDisplayText(message);
+
     }
 
     @FXML
@@ -75,12 +98,15 @@ public class TableController extends PrimaryModel implements Initializable {
 
     // table-subView initialize method
     @Override
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        // test code
+        System.out.println("selectedBookmark value: " + selectedBookmarkId);
 
         int userKey = getLoggedInUserKey();
         boolean onBookmark = isOnBookmark();
-        
+
 
         // Button activate/deactivate
         if (onBookmark) {
@@ -151,8 +177,8 @@ public class TableController extends PrimaryModel implements Initializable {
             public void handle(MouseEvent mouseEvent) {
 
                 TableModelVO selectedList = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
-                bookmarkId = selectedList.getTradeID();
-                System.out.println(bookmarkId);
+                selectedBookmarkId = selectedList.getTradeID();
+                System.out.println(selectedBookmarkId);
             }
         });
 
@@ -226,8 +252,8 @@ public class TableController extends PrimaryModel implements Initializable {
     }
 
     // static value getter
-    public static int getBookmarkId() {
-        return bookmarkId;
+    public static int getSelectedBookmarkId() {
+        return selectedBookmarkId;
     }
 
 

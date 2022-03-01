@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class UserSignUpModelDAO extends ConnDB {
 
-    public boolean SignUpUser(String userID, String userPW) {
+    public boolean signUpUser(String userID, String userPW) {
 
         PreparedStatement signUpQuery = null;
         boolean isSucceed = false;
@@ -15,7 +15,7 @@ public class UserSignUpModelDAO extends ConnDB {
             connDB();
 
             // make query
-            signUpQuery = conn.prepareStatement("INSERT INTO user (user_id, user_pw)" +
+            signUpQuery = conn.prepareStatement("INSERT INTO users (user_id, user_pw)" +
                     "VALUES (?,?)");
             signUpQuery.setString(1, userID);
             signUpQuery.setString(2, userPW);
