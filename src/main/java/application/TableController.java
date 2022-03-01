@@ -109,23 +109,43 @@ public class TableController extends PrimaryModel implements Initializable {
 
 
         // Button activate/deactivate
-        if (onBookmark) {
-            // Bookmark search mode ->
+
+        // Depends on logged-in
+        if (getLoggedInUserKey() == -1) {
+
+            // No user logged in
+            // -> all bookmark button deactivate
+
             // insertBookmarkButton deactivate,
             insertBookmarkButton.setOpacity(0.5);
             insertBookmarkButton.setDisable(true);
-            // deleteBookmarkButton activate
-            deleteBookmarkButton.setOpacity(1);
-            deleteBookmarkButton.setDisable(false);
-
-        } else {
-            // Whole search mode ->
-            // insertBookmarkButton activate,
-            insertBookmarkButton.setOpacity(1);
-            insertBookmarkButton.setDisable(false);
             // deleteBookmarkButton deactivate
             deleteBookmarkButton.setOpacity(0.5);
             deleteBookmarkButton.setDisable(true);
+
+        } else {
+
+            // If user logged in button activate status
+            // depends on search mode
+            if (onBookmark) {
+                // Bookmark search mode ->
+                // insertBookmarkButton deactivate,
+                insertBookmarkButton.setOpacity(0.5);
+                insertBookmarkButton.setDisable(true);
+                // deleteBookmarkButton activate
+                deleteBookmarkButton.setOpacity(1);
+                deleteBookmarkButton.setDisable(false);
+
+            } else {
+                // Whole search mode ->
+                // insertBookmarkButton activate,
+                insertBookmarkButton.setOpacity(1);
+                insertBookmarkButton.setDisable(false);
+                // deleteBookmarkButton deactivate
+                deleteBookmarkButton.setOpacity(0.5);
+                deleteBookmarkButton.setDisable(true);
+            }
+
         }
 
 
