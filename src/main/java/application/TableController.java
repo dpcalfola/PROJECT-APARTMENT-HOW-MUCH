@@ -6,16 +6,19 @@ import databaseClass.tableModel.TableModelVO;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 
 import java.util.List;
 import java.util.ResourceBundle;
+
 
 public class TableController extends PrimaryModel implements Initializable {
 
@@ -40,6 +43,9 @@ public class TableController extends PrimaryModel implements Initializable {
     @FXML
     private TableColumn<TableModelVO, String> contractDate;
 
+    private static int bookmarkId;
+
+    // table-subView initialize method
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -85,6 +91,18 @@ public class TableController extends PrimaryModel implements Initializable {
             massage = String.format("전체 검색: %d 건의 결과를 찾았습니다.", caseCounter);
         }
         setStatusDisplayText(massage);
+
+
+        // get selected row trade id and put into static field (bookmarkId)
+        tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                TableModelVO selectedList = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
+                bookmarkId = selectedList.getTradeID();
+                System.out.println(bookmarkId);
+            }
+        });
 
 
     }
@@ -150,8 +168,11 @@ public class TableController extends PrimaryModel implements Initializable {
             SortedList<TableModelVO> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(tableView.comparatorProperty());
             tableView.setItems(sortedData);
+
+
         }
     }
+
 
     // TableColumn getter
     public TableColumn<TableModelVO, Integer> getTradeId() {
