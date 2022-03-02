@@ -246,26 +246,26 @@ public class TableController extends PrimaryModel implements Initializable {
                         return true;
                     }
 
-                    String searchKeyword = newValue.toLowerCase();
+                    String searchKeyword = newValue.replaceAll(" ", "");
 
 
-                    if (tableModelVO.getApartGroup().toLowerCase().contains(searchKeyword)) {
+                    if (tableModelVO.getApartGroup().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getAddressDetailed().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getAddressDetailed().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getAddressRoad().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getAddressRoad().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getConstructionYear().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getConstructionYear().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getContractDate().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getContractDate().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getFloor().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getFloor().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getPrice().toLowerCase().replace(",", "").contains(searchKeyword)) {
+                    } else if (tableModelVO.getPrice().replace(",", "").contains(searchKeyword)) {
                         return true; // it helps find price without "," keyword
-                    } else if (tableModelVO.getPrice().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getPrice().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getArea().toLowerCase().contains(searchKeyword)) {
+                    } else if (tableModelVO.getArea().contains(searchKeyword)) {
                         return true;
                     } else {
                         // no match found

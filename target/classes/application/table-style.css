@@ -1,0 +1,47 @@
+* {
+    -fx-font-family: Arial;
+}
+
+
+/* Table CSS */
+.table-view {
+
+    -fx-background-color: e9dac1;
+
+    /* 테이블 뷰 보더 굵기 : 모두 0 */
+    -fx-border-width: 0 0.1 0.1 0.1;
+
+
+}
+
+.table-column {
+
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.table-row-cell {
+    -fx-background-color: -fx-table-cell-border-color, #f7ecde;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -fx-table-cell-border-color, #e9dac1;
+}
+
+.table-view .table-cell {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 0.1 0.1;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header {
+    -fx-alignment: CENTER_RIGHT;
+    -fx-background-color: e9dac1;
+    -fx-border-color: black;
+    -fx-border-width: 0 0 0.1 0.1;
+}
+
+.table-row-cell:selected {
+    -fx-border-width: 0 0 0 0;
+    -fx-background-color: #FC997C;
+    -fx-opacity: 80;
+}
