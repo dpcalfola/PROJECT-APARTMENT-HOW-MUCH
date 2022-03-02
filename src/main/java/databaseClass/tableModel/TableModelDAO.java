@@ -97,19 +97,27 @@ public class TableModelDAO extends ConnDB {
         // Keyword
         if (!keyword.isEmpty()) {
 
-            // %% mean % literal in String.format
-            String keywordQuery = String.format("""
-                    ( address_detailed LIKE '%%%s%%'
-                    OR apart_group LIKE '%%%s%%'
-                    OR trade_price_10000won LIKE '%%%s%%'
-                    OR construction_year LIKE '%%%s%%'
-                    OR address_road LIKE '%%%s%%'
-                    OR expire_date LIKE '%%%s%%'
-                    OR floor LIKE '%s'
-                    OR agency_region LIKE '%%%s%%' )
-                    AND
-                    """, keyword, keyword, keyword, keyword, keyword, keyword, keyword, keyword);
-            query += keywordQuery;
+            // keyword parsing: make array
+            // get keywords array from keyword
+            String[] arrKeywords = keyword.split(" ");
+
+            for (int i = 0; i < arrKeywords.length; i++) {
+                // %% mean % literal in String.format
+                String keywordQuery = String.format("""
+                        ( address_detailed LIKE '%%%s%%'
+                        OR apart_group LIKE '%%%s%%'
+                        OR trade_price_10000won LIKE '%%%s%%'
+                        OR construction_year LIKE '%%%s%%'
+                        OR address_road LIKE '%%%s%%'
+                        OR expire_date LIKE '%%%s%%'
+                        OR floor LIKE '%s'
+                        OR agency_region LIKE '%%%s%%' )
+                        AND
+                        """, arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i]);
+                query += keywordQuery;
+
+            }
+
 
         }
 
