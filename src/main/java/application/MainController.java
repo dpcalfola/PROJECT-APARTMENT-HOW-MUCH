@@ -16,8 +16,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static application.Application.mainControllerHandle;
-
 
 public class MainController extends PrimaryModel implements Initializable {
 
@@ -83,18 +81,24 @@ public class MainController extends PrimaryModel implements Initializable {
         // DB connection test
         TestConnection t1 = new TestConnection();
         t1.testConnect();
-
         // login confirm test
         UserLoginConfirmTest c1 = new UserLoginConfirmTest();
         c1.confirmUser();
 
+
         // make constraints text field be gotten only numbers ( without keyword )
         restrictInputValueOnConstraintTextField();
+
+        // initialize: getConstraintModelVO -> primaryModel get initial static VO
+        mainControllerConstraintModelVO = getConstraintInfo();
+        setInitialConstraintVO(getConstraintInfo());
+
 
         // initialize: loggedInUserKey value
         // -1 means guest
         setLoggedInUserKey(-1);
 
+        
         // initialize: bookmark status
         setOnBookmark(false);
 
@@ -111,6 +115,8 @@ public class MainController extends PrimaryModel implements Initializable {
     // 전체 조회 버튼
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
+
+        setStatusDisplayText("검색을 시작합니다: 전체조회");
 
         // Change button colour ( pressed )
         tableButton.getStyleClass().removeAll("pressed-button", "button1");
@@ -137,6 +143,8 @@ public class MainController extends PrimaryModel implements Initializable {
     // 북마크(조회) 버튼
     @FXML
     private void handleBookmarkButtonAction(ActionEvent event) throws IOException {
+
+        setStatusDisplayText("검색을 시작합니다: 북마크");
 
 
         // Change button colour ( pressed )
@@ -202,10 +210,13 @@ public class MainController extends PrimaryModel implements Initializable {
         signUpButton.getStyleClass().removeAll("pressed-button", "button1");
         signUpButton.getStyleClass().add("button1");
 
-
-        changeBorderPaneCenter("logout-subView.fxml");
+        // setup guest status
         setLoggedInUserKey(-1);
         setButtonsAfterLogout();
+        setGreetingTextField("아파트 실거래가 조회 시스템");
+
+        changeBorderPaneCenter("logout-subView.fxml");
+
     }
 
     // 회원 가입 버튼
@@ -275,18 +286,7 @@ public class MainController extends PrimaryModel implements Initializable {
         String getMaxFloorTextField = maxFloorTextField.getText();
 
 
-        return new ConstraintModelVO(
-                getKeywordTextField,
-                getMinPriceTextField,
-                getMaxPriceTextField,
-                getMinAreaTextField,
-                getMaxAreaTextField,
-                getMinContractDateTextField,
-                getMaxContractDateTextField,
-                getMinConstructYearTextField,
-                getMaxConstructYearTextField,
-                getMinFloorTextField,
-                getMaxFloorTextField);
+        return new ConstraintModelVO(getKeywordTextField, getMinPriceTextField, getMaxPriceTextField, getMinAreaTextField, getMaxAreaTextField, getMinContractDateTextField, getMaxContractDateTextField, getMinConstructYearTextField, getMaxConstructYearTextField, getMinFloorTextField, getMaxFloorTextField);
     }
 
 

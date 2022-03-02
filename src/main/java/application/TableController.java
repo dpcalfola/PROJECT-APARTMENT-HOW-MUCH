@@ -148,9 +148,9 @@ public class TableController extends PrimaryModel implements Initializable {
         // Set status display
         String massage;
         if (onBookmark) {
-            massage = String.format("북마크 검색: %d 건의 결과를 찾았습니다.", caseCounter);
+            massage = String.format("북마크 검색: %d 건의 결과를 찾았습니다", caseCounter);
         } else {
-            massage = String.format("전체 검색: %d 건의 결과를 찾았습니다.", caseCounter);
+            massage = String.format("전체 검색: %d 건의 결과를 찾았습니다", caseCounter);
         }
         setStatusDisplayText(massage);
 

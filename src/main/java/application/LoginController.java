@@ -29,11 +29,10 @@ public class LoginController extends PrimaryModel implements Initializable {
 
     @FXML
     private void handleLoginButtonLgSbViewAction(ActionEvent event) throws IOException {
-        System.out.println("login-subView login button clicked");
+
         String getID = idLgSbTextField.getText();
         String getPW = pwLgSbPasswordField.getText();
 
-        System.out.println("ID: " + getID + "\nPW: " + getPW);
 
         // try login
         UserLoginModelDAO dao = new UserLoginModelDAO();
@@ -43,8 +42,9 @@ public class LoginController extends PrimaryModel implements Initializable {
         // find userVO in database -> userInfo.isCorrectUserInfo == true
         if (userInfo.isCorrectUserInfo() && !Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
 
-            System.out.println("Logged in Successfully");
-            setGreetingTextField(getID);
+
+            // set message on top text
+            setGreetingTextField(getID + " 님 반갑습니다 !!");
             setStatusDisplayText(getID + " Logged in");
 
             loginConsequenceTextLgSbView.setText(getID + "님의 계정에 로그인 되었습니다.");
@@ -60,13 +60,9 @@ public class LoginController extends PrimaryModel implements Initializable {
             setLoggedInUserID(userInfo.getUserID());
 
 
-            // test code
-            System.out.println("logged in user key : " + userInfo.getUserPrimaryKey() + "\n");
-
         } else if (!Objects.equals(getID, "") && !Objects.equals(getPW, "")) {
             // this code doesn't execute getID or getPW is empty
-            System.out.println("There is no matched user information");
-            loginConsequenceTextLgSbView.setText("Couldn't find your information");
+            loginConsequenceTextLgSbView.setText("계정 정보를 찾을 수 없습니다.");
             loginConsequenceTextLgSbView.setVisible(true);
 
         }
@@ -81,11 +77,6 @@ public class LoginController extends PrimaryModel implements Initializable {
 
     }
 
-    @FXML
-    private void goToSearch(ActionEvent event) throws IOException {
-        System.out.println("Login-subView Go To Table clicked");
-        changeBorderPaneCenter("table-subView.fxml");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

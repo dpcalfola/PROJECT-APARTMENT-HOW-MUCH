@@ -47,7 +47,7 @@
                   </Text>
                   <AnchorPane layoutX="300.0" minHeight="130.0" minWidth="1050.0" prefHeight="130.0" prefWidth="1050.0" style="-fx-background-color: #e9dac1;">
                      <children>
-                        <Text fx:id="greetingTextField" fill="#2e4c6d" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Guest !!" wrappingWidth="904.818359375">
+                        <Text fx:id="greetingTextField" fill="#2e4c6d" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아파트 실거래가 조회 시스템" wrappingWidth="904.818359375">
                            <font>
                               <Font name="Arial Bold" size="30.0" />
                            </font>

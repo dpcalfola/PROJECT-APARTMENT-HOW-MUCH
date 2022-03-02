@@ -30,13 +30,24 @@ public class SignUpController extends PrimaryModel implements Initializable {
     @FXML
     private void handleSubmitButtonSuSbViewAction() {
 
-        System.out.println("Sign up subView : submit button clicked");
         String getID = idSuSbTextField.getText();
         String getPW1 = pwSuSbPasswordField.getText();
         String getPW2 = confirmPwSuSbPasswordField.getText();
 
+        if (getID.isEmpty() || getID.isBlank()) {
+            signUpConsequenceTextSuSbView.setText("ID 입력 값이 없습니다.");
+            signUpConsequenceTextSuSbView.setVisible(true);
+            return;
+        }
+
+        if (getPW1.isBlank() || getPW1.isBlank() || getPW2.isEmpty() || getPW2.isBlank()) {
+            signUpConsequenceTextSuSbView.setText("패스워드 입력 값이 없습니다.");
+            signUpConsequenceTextSuSbView.setVisible(true);
+            return;
+        }
+
         if (!getPW1.equals(getPW2)) {
-            signUpConsequenceTextSuSbView.setText("Those password didn't match");
+            signUpConsequenceTextSuSbView.setText("패스워드와 패스워드 확인이 일치하지 않습니다.");
             signUpConsequenceTextSuSbView.setVisible(true);
             return;
         }
@@ -48,7 +59,7 @@ public class SignUpController extends PrimaryModel implements Initializable {
         // check whether ID exists in the database
         // userInfo.getUserPrimaryKey() == -1 -> getID can be new user ID
         if (existUserInfo.getUserPrimaryKey() != -1) {
-            signUpConsequenceTextSuSbView.setText("ID already exists.");
+            signUpConsequenceTextSuSbView.setText("이미 존재하는 ID입니다");
             signUpConsequenceTextSuSbView.setVisible(true);
             return;
         }
@@ -57,13 +68,11 @@ public class SignUpController extends PrimaryModel implements Initializable {
         boolean isSignUpSucceed = signUpDAO.signUpUser(getID, getPW1);
 
         if (isSignUpSucceed) {
-            System.out.println(getID + " user created");
-            signUpConsequenceTextSuSbView.setText(getID + " user created");
+            signUpConsequenceTextSuSbView.setText(getID + "계정이 생성되었습니다.");
             signUpConsequenceTextSuSbView.setVisible(true);
-            setStatusDisplayText("User created successfully (user: " + getID + ")");
+            setStatusDisplayText("유저 생성 완료");
         } else {
-            System.out.println("User create failed");
-            signUpConsequenceTextSuSbView.setText("User create failed");
+            signUpConsequenceTextSuSbView.setText("계정 생성이 실패했습니다.");
             signUpConsequenceTextSuSbView.setVisible(true);
 
         }

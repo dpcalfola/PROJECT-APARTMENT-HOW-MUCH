@@ -9,7 +9,6 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.Objects;
 
-
 import static application.Application.mainControllerHandle;
 
 public class PrimaryModel {
@@ -28,13 +27,18 @@ public class PrimaryModel {
     // status bookmark or not
     private static boolean onBookmark;
 
+    // initialize static constraintVO
+    static void setInitialConstraintVO(ConstraintModelVO vo) {
+        staticConstraintModelVO = vo;
+    }
+
 
     // static void
     // get constraint values -> setting static field "primaryModelConstraintModelVO" and...
     // Draw data table on center pane
     static void drawDataTableOnCenter(ConstraintModelVO constraintModelVO) throws IOException {
 
-       
+
         // Set static property
         staticConstraintModelVO = constraintModelVO;
 
@@ -86,7 +90,7 @@ public class PrimaryModel {
 
     // set main view field property
     void setGreetingTextField(String text) {
-        mainControllerHandle.getGreetingTextField().setText("Hello " + text + " !!");
+        mainControllerHandle.getGreetingTextField().setText(text);
     }
 
     void setStatusDisplayText(String text) {
