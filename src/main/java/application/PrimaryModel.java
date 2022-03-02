@@ -4,6 +4,7 @@ import databaseClass.tableModel.ConstraintModelVO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -33,6 +34,11 @@ public class PrimaryModel {
     // get constraint values -> setting static field "primaryModelConstraintModelVO" and...
     // Draw data table on center pane
     static void drawDataTableOnCenter(ConstraintModelVO constraintModelVO) throws IOException {
+
+        // Change and reset button colour
+        // colour code : #FC997C
+        mainControllerHandle.getTableButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getTableButton().getStyleClass().add("pressed-button");
 
 
         // Set static property

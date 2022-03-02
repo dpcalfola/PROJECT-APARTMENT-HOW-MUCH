@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="750.0" minWidth="1350.0" prefHeight="750.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="750.0" minWidth="1350.0" prefHeight="750.0" prefWidth="1350.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <BorderPane fx:id="mainPane" minHeight="750.0" minWidth="1350.0" prefHeight="750.0" prefWidth="1350.0">
          <center>
@@ -57,27 +57,27 @@
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="signUpButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="회원 가입" textFill="#2e4c6d" AnchorPane.rightAnchor="15.0">
+                        <Button fx:id="signUpButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="30.0" prefWidth="80.0" styleClass="button1" text="회원 가입" textFill="#2e4c6d" AnchorPane.rightAnchor="15.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="logoutButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleLogoutButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="로그아웃" textFill="#2e4c6d" AnchorPane.rightAnchor="105.0">
+                        <Button fx:id="logoutButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleLogoutButtonAction" prefHeight="30.0" prefWidth="80.0" styleClass="button1" text="로그아웃" textFill="#2e4c6d" AnchorPane.rightAnchor="105.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="loginButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="로그인" textFill="#2e4c6d" AnchorPane.rightAnchor="195.0">
+                        <Button fx:id="loginButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="30.0" prefWidth="80.0" styleClass="button1" text="로그인" textFill="#2e4c6d" AnchorPane.rightAnchor="195.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="bookmarkButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleBookmarkButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="북마크" textFill="#2e4c6d" AnchorPane.rightAnchor="286.0">
+                        <Button fx:id="bookmarkButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleBookmarkButtonAction" prefHeight="30.0" prefWidth="80.0" styleClass="button1" text="북마크" textFill="#2e4c6d" AnchorPane.rightAnchor="286.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="tableButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleTableButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="전체 조회" textFill="#2e4c6d" AnchorPane.rightAnchor="375.0">
+                        <Button fx:id="tableButton" layoutY="44.0" mnemonicParsing="false" onAction="#handleTableButtonAction" prefHeight="30.0" prefWidth="80.0" styleClass="button1" text="전체 조회" textFill="#2e4c6d" AnchorPane.rightAnchor="375.0">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -181,7 +181,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Button layoutX="200.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F7ecde;" text="검색" textFill="#2e4c6d" AnchorPane.rightAnchor="20.0">
+                  <Button layoutX="200.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="30.0" prefWidth="80.0" styleClass="button1" text="검색" textFill="#2e4c6d" AnchorPane.rightAnchor="20.0">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>

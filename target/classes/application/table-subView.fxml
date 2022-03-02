@@ -6,34 +6,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableController">
-   <children>
-      <AnchorPane layoutY="500.0" prefHeight="50.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
-         <children>
-            <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;" text="북마크 추가" textFill="#2e4c6d">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-            </Button>
-            <Button fx:id="deleteBookmarkButton" layoutX="732.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDeleteBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;" text="북마크 삭제" textFill="#2e4c6d">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <TableView fx:id="tableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="1050.0" styleClass="table" stylesheets="@tableStyle.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn id="tableColumn" fx:id="tradeId" prefWidth="75.0" styleClass="tableStyle.css" text="거래번호" />
-          <TableColumn fx:id="apartGroup" prefWidth="166.0" text="아파트명" />
-            <TableColumn fx:id="addressRoad" prefWidth="154.0" text="도로명주소" />
-            <TableColumn fx:id="addressDetailed" prefWidth="167.0" text="동 / 면 / 읍" />
-            <TableColumn fx:id="price" prefWidth="111.0" text="거래가(만원)" />
-            <TableColumn fx:id="area" prefWidth="100.0" text="전용면적(㎡)" />
-            <TableColumn fx:id="constructionYear" prefWidth="113.0" text="건축년도" />
-            <TableColumn fx:id="floor" minWidth="0.0" prefWidth="52.0" text="층" />
-            <TableColumn fx:id="contractDate" prefWidth="82.0" text="거래일" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.TableController">
+    <children>
+        <AnchorPane layoutY="500.0" prefHeight="50.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
+            <children>
+                <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;"
+                        text="북마크 추가" textFill="#2e4c6d">
+                    <font>
+                        <Font name="Arial Bold" size="13.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="deleteBookmarkButton" layoutX="732.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDeleteBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #e9dac1;"
+                        text="북마크 삭제" textFill="#2e4c6d">
+                    <font>
+                        <Font name="Arial Bold" size="13.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <TableView fx:id="tableView" fixedCellSize="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="500.0" prefWidth="1050.0" styleClass="table" stylesheets="@style.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn id="tableColumn" fx:id="tradeId" prefWidth="75.0" styleClass="style.css" text="거래번호"/>
+                <TableColumn fx:id="apartGroup" prefWidth="166.0" text="아파트명"/>
+                <TableColumn fx:id="addressRoad" prefWidth="154.0" text="도로명주소"/>
+                <TableColumn fx:id="addressDetailed" prefWidth="167.0" text="동 / 면 / 읍"/>
+                <TableColumn fx:id="price" prefWidth="111.0" text="거래가(만원)"/>
+                <TableColumn fx:id="area" prefWidth="100.0" text="전용면적(㎡)"/>
+                <TableColumn fx:id="constructionYear" prefWidth="113.0" text="건축년도"/>
+                <TableColumn fx:id="floor" minWidth="0.0" prefWidth="52.0" text="층"/>
+                <TableColumn fx:id="contractDate" prefWidth="82.0" text="거래일"/>
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>
