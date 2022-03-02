@@ -48,6 +48,34 @@ public class PrimaryModel {
 
     }
 
+    // draw bookmark search
+    // reset constraint condition
+    // and throw to tableDAO
+    void drawBookmarkDataOnCenter() throws IOException {
+
+
+        // Reset constraint fields value on view
+        mainControllerHandle.getKeywordTextField().setText("");
+        mainControllerHandle.getMinPriceTextField().setText("");
+        mainControllerHandle.getMaxPriceTextField().setText("");
+        mainControllerHandle.getMinAreaTextField().setText("");
+        mainControllerHandle.getMaxAreaTextField().setText("");
+        mainControllerHandle.getMaxContractDateTextField().setText("");
+        mainControllerHandle.getMinContractDateTextField().setText("");
+        mainControllerHandle.getMinConstructYearTextField().setText("");
+        mainControllerHandle.getMaxConstructYearTextField().setText("");
+        mainControllerHandle.getMinFloorTextField().setText("");
+        mainControllerHandle.getMaxFloorTextField().setText("");
+
+        // draw center data table
+        Pane view;
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource("table-subView.fxml")));
+        mainControllerHandle.getMainPane().setCenter(view);
+
+
+    }
+
+
     // Method which changes center pane
     void changeBorderPaneCenter(String fxmlFile) throws IOException {
         Pane view;

@@ -186,7 +186,7 @@ public class TableModelDAO extends ConnDB {
         // criteria for sorting
         String queryOrderBy = "ORDER BY apart_group ";
         // limit getting number of items at once
-        String queryLimit = "LIMIT 300";
+        String queryLimit = "LIMIT 10000";
 
         query += queryOrderBy;
         query += queryLimit;

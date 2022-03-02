@@ -126,8 +126,11 @@ public class MainController extends PrimaryModel implements Initializable {
         setOnBookmark(true);
 
         // Draw table
-        mainControllerConstraintModelVO = getConstraintInfo();
-        drawDataTableOnCenter(mainControllerConstraintModelVO);
+//        mainControllerConstraintModelVO = getConstraintInfo();
+//        drawDataTableOnCenter(mainControllerConstraintModelVO);
+
+        // Draw bookmark table
+        drawBookmarkDataOnCenter();
     }
 
     // 로그인 버튼
@@ -255,7 +258,7 @@ public class MainController extends PrimaryModel implements Initializable {
         });
     }
 
-
+    // Digit number checker
     private String lengthChecker(String s, int digit) {
         return s.length() == digit ? s : "";
     }
@@ -308,4 +311,50 @@ public class MainController extends PrimaryModel implements Initializable {
     }
 
 
+    // Constraint text fields getter
+
+
+    public TextField getKeywordTextField() {
+        return keywordTextField;
+    }
+
+    public TextField getMinPriceTextField() {
+        return minPriceTextField;
+    }
+
+    public TextField getMaxPriceTextField() {
+        return maxPriceTextField;
+    }
+
+    public TextField getMinAreaTextField() {
+        return minAreaTextField;
+    }
+
+    public TextField getMaxAreaTextField() {
+        return maxAreaTextField;
+    }
+
+    public TextField getMinContractDateTextField() {
+        return minContractDateTextField;
+    }
+
+    public TextField getMaxContractDateTextField() {
+        return maxContractDateTextField;
+    }
+
+    public TextField getMinConstructYearTextField() {
+        return minConstructYearTextField;
+    }
+
+    public TextField getMaxConstructYearTextField() {
+        return maxConstructYearTextField;
+    }
+
+    public TextField getMinFloorTextField() {
+        return minFloorTextField;
+    }
+
+    public TextField getMaxFloorTextField() {
+        return maxFloorTextField;
+    }
 }

@@ -59,51 +59,6 @@ public class TableController extends PrimaryModel implements Initializable {
     @FXML
     private Button deleteBookmarkButton;
 
-    // Handle button action
-
-    // 북마크 추가 버튼
-    @FXML
-    private void handleInsertBookmarkButtonAction(ActionEvent event) throws IOException {
-
-        // If no select -> escape this method
-        if (selectedBookmarkId == 0) {
-            return;
-        }
-
-        // Connect database start
-        InsertBookmarkDAO insertDAO = new InsertBookmarkDAO();
-        boolean isInsertSucceed = insertDAO.insertBookmark(isOnBookmark(), getLoggedInUserKey(), selectedBookmarkId);
-
-
-        // Set status display message
-        String message = "";
-        if (isInsertSucceed) {
-            message = getLoggedInUserID() + "님 계정에" + selectedBookmarkId + "번 거래가 북마크에 담겼습니다.";
-        } else {
-            message = "북마크 담기가 실패했습니다.";
-
-        }
-        setStatusDisplayText(message);
-
-    }
-
-
-    // 북마크 삭제 버튼
-    @FXML
-    private void handleDeleteBookmarkButtonAction(ActionEvent event) throws IOException {
-        System.out.println("delete button clicked");
-
-        // If no select -> escape this method
-        if (selectedBookmarkId == 0) {
-            return;
-        }
-
-        DeleteBookmarkDAO deleteDAO = new DeleteBookmarkDAO();
-        boolean isDeleteSucceed = deleteDAO.deleteBookmark(isOnBookmark(), getLoggedInUserKey(), selectedBookmarkId);
-        
-
-    }
-
 
     // table-subView initialize method
     @Override
@@ -212,7 +167,54 @@ public class TableController extends PrimaryModel implements Initializable {
         });
 
 
+    } // Initializing method end
+
+
+    // Handle button action
+    // 북마크 추가 버튼
+    @FXML
+    private void handleInsertBookmarkButtonAction(ActionEvent event) throws IOException {
+
+        // If no select -> escape this method
+        if (selectedBookmarkId == 0) {
+            return;
+        }
+
+        // Connect database start
+        InsertBookmarkDAO insertDAO = new InsertBookmarkDAO();
+        boolean isInsertSucceed = insertDAO.insertBookmark(isOnBookmark(), getLoggedInUserKey(), selectedBookmarkId);
+
+
+        // Set status display message
+        String message = "";
+        if (isInsertSucceed) {
+            message = getLoggedInUserID() + "님 계정에" + selectedBookmarkId + "번 거래가 북마크에 담겼습니다.";
+        } else {
+            message = "북마크 담기가 실패했습니다.";
+
+        }
+        setStatusDisplayText(message);
+
     }
+
+
+    // 북마크 삭제 버튼
+    @FXML
+    private void handleDeleteBookmarkButtonAction(ActionEvent event) throws IOException {
+        System.out.println("delete button clicked");
+
+        // If no select -> escape this method
+        if (selectedBookmarkId == 0) {
+            return;
+        }
+        // Delete data from database
+        DeleteBookmarkDAO deleteDAO = new DeleteBookmarkDAO();
+        boolean isDeleteSucceed = deleteDAO.deleteBookmark(isOnBookmark(), getLoggedInUserKey(), selectedBookmarkId);
+
+        // refresh bookmark table
+        drawBookmarkDataOnCenter();
+    }
+
 
     private void tableViewSetCellValueFactory() {
         tradeId.setCellValueFactory(new PropertyValueFactory<>("tradeID"));
