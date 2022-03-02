@@ -9,28 +9,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpController">
    <children>
       <AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
          <children>
             <VBox layoutX="66.0" layoutY="143.0" prefHeight="282.0" prefWidth="486.0">
                <children>
-                  <TextField fx:id="idSuSbTextField" prefHeight="40.0" prefWidth="479.0" promptText="ID" style="-fx-background-color: #e9dac1;">
+                  <TextField fx:id="idSuSbTextField" prefHeight="40.0" prefWidth="479.0" promptText="계정" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
                         <Insets bottom="25.0" top="11.0" />
                      </VBox.margin>
                   </TextField>
-                  <PasswordField fx:id="pwSuSbPasswordField" minHeight="40.0" prefHeight="30.0" promptText="password" style="-fx-background-color: #e9dac1;">
+                  <PasswordField fx:id="pwSuSbPasswordField" minHeight="40.0" prefHeight="30.0" promptText="패스워드" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
                         <Insets bottom="25.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <PasswordField fx:id="confirmPwSuSbPasswordField" minHeight="40.0" prefHeight="30.0" promptText="confirm password" style="-fx-background-color: #e9dac1;">
+                  <PasswordField fx:id="confirmPwSuSbPasswordField" minHeight="40.0" prefHeight="30.0" promptText="패스워드 확인" style="-fx-background-color: #e9dac1;">
                      <VBox.margin>
                         <Insets bottom="25.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#handleSubmitButtonSuSbViewAction" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #e9dac1;" text="Submit" textFill="#2e4c6d">
+                  <Button mnemonicParsing="false" onAction="#handleSubmitButtonSuSbViewAction" prefHeight="25.0" prefWidth="100.0" styleClass="button2" text="제출" textFill="#2e4c6d">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -42,7 +42,7 @@
             </VBox>
             <AnchorPane layoutX="66.0" layoutY="23.0" prefHeight="81.0" prefWidth="253.0">
                <children>
-                  <Text fill="#2e4c6d" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up">
+                  <Text fill="#2e4c6d" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="계정 생성">
                      <font>
                         <Font name="Arial Bold" size="30.0" />
                      </font>

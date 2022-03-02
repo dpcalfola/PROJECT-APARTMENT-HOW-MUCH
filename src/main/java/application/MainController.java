@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static application.Application.mainControllerHandle;
+
 
 public class MainController extends PrimaryModel implements Initializable {
 
@@ -110,6 +112,20 @@ public class MainController extends PrimaryModel implements Initializable {
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
 
+        // Change button colour ( pressed )
+        tableButton.getStyleClass().removeAll("pressed-button", "button1");
+        tableButton.getStyleClass().add("pressed-button");
+        // Reset button color ( button1 )
+        bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
+        bookmarkButton.getStyleClass().add("button1");
+        loginButton.getStyleClass().removeAll("pressed-button", "button1");
+        loginButton.getStyleClass().add("button1");
+        logoutButton.getStyleClass().removeAll("pressed-button", "button1");
+        logoutButton.getStyleClass().add("button1");
+        signUpButton.getStyleClass().removeAll("pressed-button", "button1");
+        signUpButton.getStyleClass().add("button1");
+
+
         // turn off boolean onBookmark
         setOnBookmark(false);
 
@@ -121,6 +137,20 @@ public class MainController extends PrimaryModel implements Initializable {
     // 북마크(조회) 버튼
     @FXML
     private void handleBookmarkButtonAction(ActionEvent event) throws IOException {
+
+
+        // Change button colour ( pressed )
+        bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
+        bookmarkButton.getStyleClass().add("pressed-button");
+        // Reset button color ( button1 )
+        tableButton.getStyleClass().removeAll("pressed-button", "button1");
+        tableButton.getStyleClass().add("button1");
+        loginButton.getStyleClass().removeAll("pressed-button", "button1");
+        loginButton.getStyleClass().add("button1");
+        logoutButton.getStyleClass().removeAll("pressed-button", "button1");
+        logoutButton.getStyleClass().add("button1");
+        signUpButton.getStyleClass().removeAll("pressed-button", "button1");
+        signUpButton.getStyleClass().add("button1");
 
         // turn on boolean onBookmark
         setOnBookmark(true);
@@ -136,12 +166,43 @@ public class MainController extends PrimaryModel implements Initializable {
     // 로그인 버튼
     @FXML
     private void handleLoginButtonAction(ActionEvent event) throws IOException {
+
+        // Change button colour ( pressed )
+        loginButton.getStyleClass().removeAll("pressed-button", "button1");
+        loginButton.getStyleClass().add("pressed-button");
+        // Reset button color ( button1 )
+        tableButton.getStyleClass().removeAll("pressed-button", "button1");
+        tableButton.getStyleClass().add("button1");
+        bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
+        bookmarkButton.getStyleClass().add("button1");
+        logoutButton.getStyleClass().removeAll("pressed-button", "button1");
+        logoutButton.getStyleClass().add("button1");
+        signUpButton.getStyleClass().removeAll("pressed-button", "button1");
+        signUpButton.getStyleClass().add("button1");
+
+
         changeBorderPaneCenter("login-subView.fxml");
     }
 
     // 로그아웃 버튼
     @FXML
     private void handleLogoutButtonAction(ActionEvent event) throws IOException {
+
+
+        // Change button colour ( pressed )
+        logoutButton.getStyleClass().removeAll("pressed-button", "button1");
+        logoutButton.getStyleClass().add("pressed-button");
+        // Reset button color ( button1 )
+        tableButton.getStyleClass().removeAll("pressed-button", "button1");
+        tableButton.getStyleClass().add("button1");
+        bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
+        bookmarkButton.getStyleClass().add("button1");
+        loginButton.getStyleClass().removeAll("pressed-button", "button1");
+        loginButton.getStyleClass().add("button1");
+        signUpButton.getStyleClass().removeAll("pressed-button", "button1");
+        signUpButton.getStyleClass().add("button1");
+
+
         changeBorderPaneCenter("logout-subView.fxml");
         setLoggedInUserKey(-1);
         setButtonsAfterLogout();
@@ -150,6 +211,21 @@ public class MainController extends PrimaryModel implements Initializable {
     // 회원 가입 버튼
     @FXML
     private void handleSignUpButtonAction(ActionEvent event) throws IOException {
+
+        // Change button colour ( pressed )
+        signUpButton.getStyleClass().removeAll("pressed-button", "button1");
+        signUpButton.getStyleClass().add("pressed-button");
+        // Reset button color ( button1 )
+        logoutButton.getStyleClass().removeAll("pressed-button", "button1");
+        logoutButton.getStyleClass().add("button1");
+        tableButton.getStyleClass().removeAll("pressed-button", "button1");
+        tableButton.getStyleClass().add("button1");
+        bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
+        bookmarkButton.getStyleClass().add("button1");
+        loginButton.getStyleClass().removeAll("pressed-button", "button1");
+        loginButton.getStyleClass().add("button1");
+
+
         changeBorderPaneCenter("signup-subView.fxml");
     }
 

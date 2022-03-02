@@ -4,13 +4,12 @@ import databaseClass.tableModel.ConstraintModelVO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.Objects;
 
-import static application.Application.main;
+
 import static application.Application.mainControllerHandle;
 
 public class PrimaryModel {
@@ -35,12 +34,7 @@ public class PrimaryModel {
     // Draw data table on center pane
     static void drawDataTableOnCenter(ConstraintModelVO constraintModelVO) throws IOException {
 
-        // Change and reset button colour
-        // colour code : #FC997C
-        mainControllerHandle.getTableButton().getStyleClass().removeAll("pressed-button", "button1");
-        mainControllerHandle.getTableButton().getStyleClass().add("pressed-button");
-
-
+       
         // Set static property
         staticConstraintModelVO = constraintModelVO;
 
@@ -72,6 +66,7 @@ public class PrimaryModel {
         mainControllerHandle.getMaxConstructYearTextField().setText("");
         mainControllerHandle.getMinFloorTextField().setText("");
         mainControllerHandle.getMaxFloorTextField().setText("");
+
 
         // draw center data table
         Pane view;
@@ -168,8 +163,9 @@ public class PrimaryModel {
     public static void setOnBookmark(boolean onBookmark) {
         PrimaryModel.onBookmark = onBookmark;
     }
-}
 
+
+}
 
 
 
