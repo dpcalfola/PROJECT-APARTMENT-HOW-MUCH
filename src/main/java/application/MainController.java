@@ -98,7 +98,7 @@ public class MainController extends PrimaryModel implements Initializable {
         // -1 means guest
         setLoggedInUserKey(-1);
 
-        
+
         // initialize: bookmark status
         setOnBookmark(false);
 
@@ -257,11 +257,11 @@ public class MainController extends PrimaryModel implements Initializable {
     private ConstraintModelVO getConstraintInfo() throws NumberFormatException {
 
         // don't need length checker
-        String getKeywordTextField = keywordTextField.getText();
-        String getMinPriceTextField = minPriceTextField.getText();
-        String getMaxPriceTextField = maxPriceTextField.getText();
-        String getMinAreaTextField = minAreaTextField.getText();
-        String getMaxAreaTextField = maxAreaTextField.getText();
+        String getKeywordTextField = keywordTextField.getText().trim();
+        String getMinPriceTextField = minPriceTextField.getText().trim();
+        String getMaxPriceTextField = maxPriceTextField.getText().trim();
+        String getMinAreaTextField = minAreaTextField.getText().trim();
+        String getMaxAreaTextField = maxAreaTextField.getText().trim();
         //
 
 
@@ -272,18 +272,18 @@ public class MainController extends PrimaryModel implements Initializable {
         // *and set warning message (개발 예정)
 
         // ContractDateTextField should be 8 digit
-        String getMinContractDateTextField = lengthChecker(minContractDateTextField.getText(), 8);
-        String getMaxContractDateTextField = lengthChecker(maxContractDateTextField.getText(), 8);
+        String getMinContractDateTextField = lengthChecker(minContractDateTextField.getText().trim(), 8);
+        String getMaxContractDateTextField = lengthChecker(maxContractDateTextField.getText().trim(), 8);
 
 
         // ConstructYearTextField should be 4 digit
-        String getMinConstructYearTextField = lengthChecker(minConstructYearTextField.getText(), 4);
-        String getMaxConstructYearTextField = lengthChecker(maxConstructYearTextField.getText(), 4);
+        String getMinConstructYearTextField = lengthChecker(minConstructYearTextField.getText().trim(), 4);
+        String getMaxConstructYearTextField = lengthChecker(maxConstructYearTextField.getText().trim(), 4);
 
 
         // Floor doesn't need lengthChecker
-        String getMinFloorTextField = minFloorTextField.getText();
-        String getMaxFloorTextField = maxFloorTextField.getText();
+        String getMinFloorTextField = minFloorTextField.getText().trim();
+        String getMaxFloorTextField = maxFloorTextField.getText().trim();
 
 
         return new ConstraintModelVO(getKeywordTextField, getMinPriceTextField, getMaxPriceTextField, getMinAreaTextField, getMaxAreaTextField, getMinContractDateTextField, getMaxContractDateTextField, getMinConstructYearTextField, getMaxConstructYearTextField, getMinFloorTextField, getMaxFloorTextField);

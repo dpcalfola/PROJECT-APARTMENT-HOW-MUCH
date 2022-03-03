@@ -246,7 +246,7 @@ public class TableController extends PrimaryModel implements Initializable {
                         return true;
                     }
 
-                    String searchKeyword = newValue.replaceAll(" ", "");
+                    String searchKeyword = newValue.trim();
 
 
                     if (tableModelVO.getApartGroup().contains(searchKeyword)) {
