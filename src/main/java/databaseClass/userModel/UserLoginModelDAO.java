@@ -22,7 +22,9 @@ public class UserLoginModelDAO extends ConnDB {
             checkUpUser = conn.prepareStatement("SELECT * FROM users WHERE user_id = ?");
             checkUpUser.setString(1, userID);
 
-            System.out.println(checkUpUser.toString());
+
+            // Print sql on console for checkup
+            System.out.println("Login Model DAO sql\n: " + checkUpUser.toString());
 
             resultSet = checkUpUser.executeQuery();
 

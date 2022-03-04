@@ -1,15 +1,15 @@
-package databaseClass.testConnection;
+package databaseClass.databaseTest;
 
 import java.util.List;
 
-public class TestConnection {
+public class Test1 {
 
     public void testConnect() {
-        TestConnectionDAO dao = new TestConnectionDAO();
-        List<TestConnectionVO> list = dao.testConnectionList();
+        Test1DAO dao = new Test1DAO();
+        List<Test1VO> list = dao.testConnectionList();
 
         for (int i = 0; i < list.size(); i++) {
-            TestConnectionVO data = list.get(i);
+            Test1VO data = list.get(i);
             int userPrimaryKey = data.getUserPrimaryKey();
             String userID = data.getUserID();
             String userPW = data.getUserPW();

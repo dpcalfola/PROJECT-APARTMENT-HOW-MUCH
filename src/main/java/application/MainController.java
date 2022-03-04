@@ -1,9 +1,8 @@
 package application;
 
 import databaseClass.tableModel.ConstraintModelVO;
-import databaseClass.testConnection.TestConnection;
-import databaseClass.userModel.UserLoginConfirmTest;
 
+import databaseClass.testConnection2.TestConnectionDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -78,15 +77,19 @@ public class MainController extends PrimaryModel implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        // DB connection test
-        TestConnection t1 = new TestConnection();
-        t1.testConnect();
-        // login confirm test
-        UserLoginConfirmTest c1 = new UserLoginConfirmTest();
-        c1.confirmUser();
+        // Connect test
+        TestConnectionDAO testDao = new TestConnectionDAO();
+
+        int testConnectResult = testDao.testConnect(777);
+
+        if (testConnectResult == 486486) {
+            System.out.println("Connect successfully");
+        } else {
+            System.out.println("connection failed");
+        }
 
 
-        // make constraints text field be gotten only numbers ( without keyword )
+        // Make constraints text field be gotten only int input ( without keyword field )
         restrictInputValueOnConstraintTextField();
 
         // initialize: getConstraintModelVO -> primaryModel get initial static VO
@@ -146,6 +149,12 @@ public class MainController extends PrimaryModel implements Initializable {
 
         setStatusDisplayText("검색을 시작합니다: 북마크");
 
+        // Clear constraint field
+        clearConstraintField();
+
+
+        // get
+
 
         // Change button colour ( pressed )
         bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
@@ -163,12 +172,12 @@ public class MainController extends PrimaryModel implements Initializable {
         // turn on boolean onBookmark
         setOnBookmark(true);
 
-        // Draw table
-//        mainControllerConstraintModelVO = getConstraintInfo();
-//        drawDataTableOnCenter(mainControllerConstraintModelVO);
+        // Draw bookmark table
+        mainControllerConstraintModelVO = getConstraintInfo();
+        drawBookmarkDataOnCenter(mainControllerConstraintModelVO);
 
         // Draw bookmark table
-        drawBookmarkDataOnCenter();
+//        drawBookmarkDataOnCenter();
     }
 
     // 로그인 버튼

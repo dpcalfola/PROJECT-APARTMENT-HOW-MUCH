@@ -1,4 +1,4 @@
-package databaseClass.testConnection;
+package databaseClass.databaseTest;
 
 import databaseClass.ConnDB;
 
@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestConnectionDAO extends ConnDB {
+public class Test1DAO extends ConnDB {
 
     private ResultSet resultSet;
 
-    public List<TestConnectionVO> testConnectionList() {
-        ArrayList<TestConnectionVO> list = new ArrayList<>();
+    public List<Test1VO> testConnectionList() {
+        ArrayList<Test1VO> list = new ArrayList<>();
         PreparedStatement getAllUserInfo = null;
 
         try {
@@ -29,7 +29,7 @@ public class TestConnectionDAO extends ConnDB {
                 String userID = resultSet.getString("user_id");
                 String userPW = resultSet.getString("user_pw");
 
-                TestConnectionVO data = new TestConnectionVO(userPrimaryKey, userID, userPW);
+                Test1VO data = new Test1VO(userPrimaryKey, userID, userPW);
                 list.add(data);
             }
 

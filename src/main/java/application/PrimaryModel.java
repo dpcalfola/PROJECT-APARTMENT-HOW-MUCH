@@ -52,24 +52,32 @@ public class PrimaryModel {
 
     }
 
-    // draw bookmark search
+    /// Draw bookmark search
     // reset constraint condition
-    // and throw to tableDAO
     void drawBookmarkDataOnCenter() throws IOException {
 
 
         // Reset constraint fields value on view
-        mainControllerHandle.getKeywordTextField().setText("");
-        mainControllerHandle.getMinPriceTextField().setText("");
-        mainControllerHandle.getMaxPriceTextField().setText("");
-        mainControllerHandle.getMinAreaTextField().setText("");
-        mainControllerHandle.getMaxAreaTextField().setText("");
-        mainControllerHandle.getMaxContractDateTextField().setText("");
-        mainControllerHandle.getMinContractDateTextField().setText("");
-        mainControllerHandle.getMinConstructYearTextField().setText("");
-        mainControllerHandle.getMaxConstructYearTextField().setText("");
-        mainControllerHandle.getMinFloorTextField().setText("");
-        mainControllerHandle.getMaxFloorTextField().setText("");
+        clearConstraintField();
+
+
+        // draw center data table
+        Pane view;
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource("table-subView.fxml")));
+        mainControllerHandle.getMainPane().setCenter(view);
+
+
+    }
+
+    // overloading
+    void drawBookmarkDataOnCenter(ConstraintModelVO constraintModelVO) throws IOException {
+
+
+        // Reset constraint fields value on view
+        clearConstraintField();
+
+        //
+        staticConstraintModelVO = constraintModelVO;
 
 
         // draw center data table
@@ -96,6 +104,25 @@ public class PrimaryModel {
     void setStatusDisplayText(String text) {
         mainControllerHandle.getStatusDisplayText().setText(text);
     }
+
+
+    // Clear constraint field
+    void clearConstraintField() {
+
+        mainControllerHandle.getKeywordTextField().setText("");
+        mainControllerHandle.getMinPriceTextField().setText("");
+        mainControllerHandle.getMaxPriceTextField().setText("");
+        mainControllerHandle.getMinAreaTextField().setText("");
+        mainControllerHandle.getMaxAreaTextField().setText("");
+        mainControllerHandle.getMaxContractDateTextField().setText("");
+        mainControllerHandle.getMinContractDateTextField().setText("");
+        mainControllerHandle.getMinConstructYearTextField().setText("");
+        mainControllerHandle.getMaxConstructYearTextField().setText("");
+        mainControllerHandle.getMinFloorTextField().setText("");
+        mainControllerHandle.getMaxFloorTextField().setText("");
+
+    }
+
 
     // after login
     void setButtonsAfterLogin() {

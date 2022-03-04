@@ -1,13 +1,13 @@
-package databaseClass.testConnection;
+package databaseClass.databaseTest;
 
-public class TestConnectionVO {
+public class Test1VO {
 
     private int userPrimaryKey;
     private String userID;
     private String userPW;
 
 
-    public TestConnectionVO(int userPrimaryKey, String userID, String userPW) {
+    public Test1VO(int userPrimaryKey, String userID, String userPW) {
         this.userPrimaryKey = userPrimaryKey;
         this.userID = userID;
         this.userPW = userPW;

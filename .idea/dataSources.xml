@@ -8,5 +8,13 @@
       <jdbc-url>jdbc:mysql://localhost:3306/real_estate_kor</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="fola1_docker_ide" uuid="40693e86-cdc5-4911-8d40-f1e79cacfaa2">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>nas docker mysql</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://folaflor.site:61923/real_estate_kor_docker</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
