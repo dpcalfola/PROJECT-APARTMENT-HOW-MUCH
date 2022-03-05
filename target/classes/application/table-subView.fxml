@@ -10,12 +10,12 @@
     <children>
         <AnchorPane layoutY="500.0" prefHeight="50.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;">
             <children>
-                <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" styleClass="button2" stylesheets="@style.css" text="북마크 추가" textFill="#2e4c6d">
+                <Button fx:id="insertBookmarkButton" layoutX="887.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleInsertBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-font-family: GangwonEduPower;" styleClass="button2" stylesheets="@style.css" text="북마크 추가" textFill="#2e4c6d">
                     <font>
                         <Font name="Arial Bold" size="13.0" />
                     </font>
                 </Button>
-                <Button fx:id="deleteBookmarkButton" layoutX="732.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDeleteBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" styleClass="button2" stylesheets="@style.css" text="북마크 삭제" textFill="#2e4c6d">
+                <Button fx:id="deleteBookmarkButton" layoutX="732.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDeleteBookmarkButtonAction" prefHeight="30.0" prefWidth="130.0" style="-fx-font-family: GangwonEduPower;" styleClass="button2" stylesheets="@style.css" text="북마크 삭제" textFill="#2e4c6d">
                     <font>
                         <Font name="Arial Bold" size="13.0" />
                     </font>

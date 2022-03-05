@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -76,6 +77,9 @@ public class MainController extends PrimaryModel implements Initializable {
     // and this initializing method run only once
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //
+//        Font.loadFont(getClass().getResourceAsStream("font/GangwonEduPower ExtraBold.ttf"), 10);
 
         // Connect test
         TestConnectionDAO testDao = new TestConnectionDAO();
