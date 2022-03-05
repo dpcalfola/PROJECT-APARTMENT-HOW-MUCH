@@ -1,10 +1,10 @@
 package databaseClass.userModel;
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.*;
 
-public class UserSignUpModelDAO extends ConnDB {
+public class UserSignUpModelDAO extends ConnectDB {
 
     public boolean signUpUser(String userID, String userPW) {
 

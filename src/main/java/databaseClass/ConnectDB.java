@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 
-public class ConnDB {
+public class ConnectDB {
 
+    Env env = new Env();
+    EnvVO envVO = env.getEnvData(2);
 
-    String url = externalUrl;
-    String user = externalUser;
-    String password = externalPassword;
+    String url = envVO.url;
+    String user = envVO.user;
+    String password = envVO.password;
 
     public Connection conn;
 

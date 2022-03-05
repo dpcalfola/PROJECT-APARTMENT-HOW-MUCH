@@ -1,6 +1,6 @@
 package databaseClass.tableModel;
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import java.util.List;
 // DAO == Data Access Object
 // VO == Value Object
 
-public class TableModelDAO extends ConnDB {
+public class TableModelDAO extends ConnectDB {
 
     // make TableModelVo list
     public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey, boolean isOnBookmark) {

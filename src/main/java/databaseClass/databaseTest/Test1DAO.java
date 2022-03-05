@@ -1,6 +1,6 @@
 package databaseClass.databaseTest;
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test1DAO extends ConnDB {
+public class Test1DAO extends ConnectDB {
 
     private ResultSet resultSet;
 

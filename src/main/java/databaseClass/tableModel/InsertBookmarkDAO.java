@@ -1,12 +1,12 @@
 package databaseClass.tableModel;
 
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertBookmarkDAO extends ConnDB {
+public class InsertBookmarkDAO extends ConnectDB {
 
     public boolean insertBookmark(boolean onBookmark, int loggedInUserKey, int tradeId) {
 

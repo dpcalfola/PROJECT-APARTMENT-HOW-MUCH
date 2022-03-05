@@ -1,11 +1,11 @@
 package databaseClass.tableModel;
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DeleteBookmarkDAO extends ConnDB {
+public class DeleteBookmarkDAO extends ConnectDB {
 
     public boolean deleteBookmark(boolean onBookmark, int loggedInUserKey, int tradeId) {
 

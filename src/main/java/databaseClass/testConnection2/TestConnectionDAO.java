@@ -1,12 +1,12 @@
 package databaseClass.testConnection2;
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TestConnectionDAO extends ConnDB {
+public class TestConnectionDAO extends ConnectDB {
 
     private ResultSet resultSet;
 

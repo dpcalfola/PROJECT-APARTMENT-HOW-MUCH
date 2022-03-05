@@ -1,12 +1,12 @@
 package databaseClass.userModel;
 
-import databaseClass.ConnDB;
+import databaseClass.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserLoginModelDAO extends ConnDB {
+public class UserLoginModelDAO extends ConnectDB {
 
     public UserModelVO loginUser(String userID, String userPW) {
         ResultSet resultSet = null;
