@@ -7,17 +7,6 @@ import java.sql.DriverManager;
 public class ConnDB {
 
 
-    // Inner database
-    final String localUrl = "jdbc:mysql://localhost:3306/real_estate_kor";
-    final String localUser = "fola";
-    final String localPassword = "123456789";
-
-    // External NAS sever docker database
-    final String externalUrl = "jdbc:mysql://folaflor.site:61923/real_estate_kor_docker";
-    final String externalUser = "fola1";
-    final String externalPassword = "fola4321";
-
-
     String url = externalUrl;
     String user = externalUser;
     String password = externalPassword;
