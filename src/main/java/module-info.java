@@ -1,4 +1,3 @@
-//module com.folaSmile.apartSearch
 module app.project_apartment_how_much {
 
 
@@ -6,6 +5,7 @@ module app.project_apartment_how_much {
     requires javafx.fxml;
     requires javafx.graphics;
     requires java.sql;
+//    requires mysql.connector.java;
 
 
     opens com.folaSmile.apartSearch to javafx.fxml;

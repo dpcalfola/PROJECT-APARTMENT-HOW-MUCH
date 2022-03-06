@@ -34,3 +34,6 @@ Env*.*
 
 # build files
 *.MF
+
+# maven target files
+/target
