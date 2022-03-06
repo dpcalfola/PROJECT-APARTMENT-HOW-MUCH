@@ -1,4 +1,5 @@
-module com.folaSmile.apartSearch {
+//module com.folaSmile.apartSearch
+module app.project_apartment_how_much {
 
 
     requires javafx.controls;
