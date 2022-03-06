@@ -60,7 +60,8 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>app.project_apartment_how_much/application.Application</mainClass>
+                            <executable>/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home/bin/java</executable>
+                            <mainClass>app.project_apartment_how_much/com.folaSmile.apartSearch.Application</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
