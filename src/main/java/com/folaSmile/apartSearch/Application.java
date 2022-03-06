@@ -15,8 +15,9 @@ public class Application extends javafx.application.Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException, ClassNotFoundException {
 
+        
         // load font 강원교육튼튼체
         Font.loadFont(getClass().getResourceAsStream("font/GangwonEduPower ExtraBold.ttf"), 10);
 
