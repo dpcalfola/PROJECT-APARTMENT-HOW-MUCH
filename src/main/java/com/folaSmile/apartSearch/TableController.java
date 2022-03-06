@@ -161,6 +161,13 @@ public class TableController extends PrimaryModel implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
+                // This code make avoid Exception:
+                // Exception: (ArrayIndexOutOfBoundsException: Index -1 out of bounds for length... )
+                if (tableView.getSelectionModel().getSelectedIndex() == -1) {
+                    System.out.println("System : black low clicked");
+                    return;
+                }
+
                 TableModelVO selectedList = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
                 selectedBookmarkId = selectedList.getTradeID();
                 System.out.println(selectedBookmarkId);
