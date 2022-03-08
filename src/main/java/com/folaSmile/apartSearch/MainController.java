@@ -41,6 +41,8 @@ public class MainController extends PrimaryModel implements Initializable {
     private Button logoutButton;
     @FXML
     private Button signUpButton;
+    @FXML
+    private Button informationButton;
 
 
     // Constraints text fields
@@ -77,20 +79,6 @@ public class MainController extends PrimaryModel implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //
-//        Font.loadFont(getClass().getResourceAsStream("font/GangwonEduPower ExtraBold.ttf"), 10);
-
-        // Connect test
-        TestConnectionDAO testDao = new TestConnectionDAO();
-
-        int testConnectResult = testDao.testConnect(777);
-
-        if (testConnectResult == 486486) {
-            System.out.println("Connect successfully");
-        } else {
-            System.out.println("connection failed");
-        }
-
 
         // Make constraints text field be gotten only int input ( without keyword field )
         restrictInputValueOnConstraintTextField();
@@ -117,6 +105,15 @@ public class MainController extends PrimaryModel implements Initializable {
 
 
     // Buttons located top pane
+
+    // 정보 버튼
+    @FXML
+    private void handleInformationButtonAction(ActionEvent event) throws IOException {
+        System.out.println("information button clicked");
+
+        changeBorderPaneCenter("information-subView.fxml");
+
+    }
 
     // 전체 조회 버튼
     @FXML
