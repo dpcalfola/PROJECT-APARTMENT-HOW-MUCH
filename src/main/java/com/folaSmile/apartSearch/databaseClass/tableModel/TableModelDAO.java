@@ -17,7 +17,7 @@ public class TableModelDAO extends ConnectDB {
     // make TableModelVo list
     public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey, boolean isOnBookmark) {
 
-        String query = "";
+        StringBuilder query = new StringBuilder();
 
         // select query
         String selectQuery = """ 
@@ -33,7 +33,7 @@ public class TableModelDAO extends ConnectDB {
                 construction_year
                 """;
 
-        query += selectQuery;
+        query.append(selectQuery);
 
 
         // from query
@@ -50,7 +50,7 @@ public class TableModelDAO extends ConnectDB {
             // whole data search
             fromQuery = "FROM apartment_price\n";
         }
-        query += fromQuery;
+        query.append(fromQuery);
 
 
         //---- START - element of constraints area 
@@ -90,7 +90,7 @@ public class TableModelDAO extends ConnectDB {
         //---- Start of the WHERE clause ----//
 
         if (!isSkipWhereClause) {
-            query += " WHERE ";
+            query.append(" WHERE ");
         }
 
         //
@@ -104,17 +104,14 @@ public class TableModelDAO extends ConnectDB {
             for (int i = 0; i < arrKeywords.length; i++) {
                 // %% mean % literal in String.format
                 String keywordQuery = String.format("""
-                        ( address_detailed LIKE '%%%s%%'
+                        (
+                        address_detailed LIKE '%%%s%%'
                         OR apart_group LIKE '%%%s%%'
-                        OR trade_price_10000won LIKE '%%%s%%'
-                        OR construction_year LIKE '%%%s%%'
                         OR address_road LIKE '%%%s%%'
-                        OR expire_date LIKE '%%%s%%'
-                        OR floor LIKE '%s'
-                        OR agency_region LIKE '%%%s%%' )
+                        )
                         AND
-                        """, arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i], arrKeywords[i]);
-                query += keywordQuery;
+                        """, arrKeywords[i], arrKeywords[i], arrKeywords[i]);
+                query.append(keywordQuery);
 
             }
 
@@ -124,21 +121,21 @@ public class TableModelDAO extends ConnectDB {
         // Price
         if (!minPrice.isEmpty()) {
             String minPriceQuery = String.format("trade_price_10000won >= %s\n" + "AND ", minPrice);
-            query += minPriceQuery;
+            query.append(minPriceQuery);
         }
         if (!maxPrice.isEmpty()) {
             String maxPriceQuery = String.format("trade_price_10000won <= %s\n" + "AND ", maxPrice);
-            query += maxPriceQuery;
+            query.append(maxPriceQuery);
         }
 
         // Area
         if (!minArea.isEmpty()) {
             String minAreaQuery = String.format("area_mSquare >= %s\n" + "AND ", minArea);
-            query += minAreaQuery;
+            query.append(minAreaQuery);
         }
         if (!maxArea.isEmpty()) {
             String maxAreaQuery = String.format("area_mSquare <= %s\n" + "AND ", maxArea);
-            query += maxAreaQuery;
+            query.append(maxAreaQuery);
         }
 
 
@@ -148,43 +145,43 @@ public class TableModelDAO extends ConnectDB {
         // ContractDate
         if (!minContractYearMonthDate.isEmpty()) {
             String minContractYearMonthDateQuery = String.format("contract_year_month*100 + apartment_price.contract_date >= %s\n" + "AND ", minContractYearMonthDate);
-            query += minContractYearMonthDateQuery;
+            query.append(minContractYearMonthDateQuery);
         }
         if (!maxContractYearMonthDate.isEmpty()) {
             String maxContractYearMonthDateQuery = String.format("contract_year_month*100 + apartment_price.contract_date <= %s\n" + "AND ", maxContractYearMonthDate);
-            query += maxContractYearMonthDateQuery;
+            query.append(maxContractYearMonthDateQuery);
         }
 
         // ConstructYear
         if (!minConstructYear.isEmpty()) {
             String minConstructYearQuery = String.format("construction_year >= %s\n" + "AND ", minConstructYear);
-            query += minConstructYearQuery;
+            query.append(minConstructYearQuery);
         }
         if (!maxConstructYear.isEmpty()) {
             String maxConstructYearQuery = String.format("construction_year <= %s\n" + "AND ", maxConstructYear);
-            query += maxConstructYearQuery;
+            query.append(maxConstructYearQuery);
         }
 
         // Floor
         if (!minFloor.isEmpty()) {
             String minFloorQuery = String.format("floor >= %s\n" + "AND ", minFloor);
-            query += minFloorQuery;
+            query.append(minFloorQuery);
         }
         if (!maxFloor.isEmpty()) {
             String maxFloorQuery = String.format("floor <= %s\n" + "AND ", maxFloor);
-            query += maxFloorQuery;
+            query.append(maxFloorQuery);
         }
 
         // Bookmark search -> add userKey condition
         if (isOnBookmark) {
             String userKeyQuery = String.format("bookmark.bookmark_user_key = %s\n" + "AND ", userKey);
-            query += userKeyQuery;
+            query.append(userKeyQuery);
         }
 
 
         // remove suffix "AND " - if WHERE clause exist
         if (!isSkipWhereClause) {
-            query = query.substring(0, query.lastIndexOf("AND"));
+            query = new StringBuilder(query.substring(0, query.lastIndexOf("AND")));
         }
 
         //---- End of the WHERE clause ----//
@@ -192,12 +189,12 @@ public class TableModelDAO extends ConnectDB {
 
 
         // criteria for sorting
-        String queryOrderBy = "ORDER BY apart_group ";
+        String queryOrderBy = "ORDER BY contract_date ";
         // limit getting number of items at once
-        String queryLimit = "LIMIT 10000";
+        String queryLimit = "LIMIT 1000";
 
-        query += queryOrderBy;
-        query += queryLimit;
+        query.append(queryOrderBy);
+        query.append(queryLimit);
 
         // test code 6 : whole query
         System.out.println("test code 5 : query start \n\n " + query + "\n\n query end");
@@ -205,7 +202,7 @@ public class TableModelDAO extends ConnectDB {
 
         // We got whole query eventually
         // SO now, call database conn method (parameter : query)
-        return getTableList(query);
+        return getTableList(query.toString());
 
 
     }
