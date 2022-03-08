@@ -133,6 +133,8 @@ public class MainController extends PrimaryModel implements Initializable {
         logoutButton.getStyleClass().add("button1");
         signUpButton.getStyleClass().removeAll("pressed-button", "button1");
         signUpButton.getStyleClass().add("button1");
+        informationButton.getStyleClass().removeAll("pressed-button", "button1");
+        informationButton.getStyleClass().add("button1");
 
 
         // turn off boolean onBookmark
@@ -168,6 +170,8 @@ public class MainController extends PrimaryModel implements Initializable {
         logoutButton.getStyleClass().add("button1");
         signUpButton.getStyleClass().removeAll("pressed-button", "button1");
         signUpButton.getStyleClass().add("button1");
+        informationButton.getStyleClass().removeAll("pressed-button", "button1");
+        informationButton.getStyleClass().add("button1");
 
         // turn on boolean onBookmark
         setOnBookmark(true);
@@ -196,6 +200,8 @@ public class MainController extends PrimaryModel implements Initializable {
         logoutButton.getStyleClass().add("button1");
         signUpButton.getStyleClass().removeAll("pressed-button", "button1");
         signUpButton.getStyleClass().add("button1");
+        informationButton.getStyleClass().removeAll("pressed-button", "button1");
+        informationButton.getStyleClass().add("button1");
 
 
         changeBorderPaneCenter("login-subView.fxml");
@@ -218,6 +224,8 @@ public class MainController extends PrimaryModel implements Initializable {
         loginButton.getStyleClass().add("button1");
         signUpButton.getStyleClass().removeAll("pressed-button", "button1");
         signUpButton.getStyleClass().add("button1");
+        informationButton.getStyleClass().removeAll("pressed-button", "button1");
+        informationButton.getStyleClass().add("button1");
 
         // setup guest status
         setLoggedInUserKey(-1);
@@ -244,6 +252,8 @@ public class MainController extends PrimaryModel implements Initializable {
         bookmarkButton.getStyleClass().add("button1");
         loginButton.getStyleClass().removeAll("pressed-button", "button1");
         loginButton.getStyleClass().add("button1");
+        informationButton.getStyleClass().removeAll("pressed-button", "button1");
+        informationButton.getStyleClass().add("button1");
 
 
         changeBorderPaneCenter("signup-subView.fxml");

@@ -82,19 +82,19 @@
                   </VBox>
                     </children>
                 </AnchorPane>
-            <VBox layoutX="66.0" layoutY="116.0" prefHeight="200.0" prefWidth="100.0">
+            <VBox layoutX="66.0" layoutY="116.0" prefHeight="253.0" prefWidth="536.0">
                <children>
                   <Text fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="아파트 실거래가를 조회하는 프로그램입니다. " wrappingWidth="462.0">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Text>
-                  <Text fill="#2e4c6d" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="국토교통부 실거래가 공개 시스템의 공개 자료에 기반하여 제작되었습니다." wrappingWidth="462.0">
+                  <Text fill="#2e4c6d" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="국토교통부 실거래가 공개 시스템의 공개 자료에 기반하여 제작되었습니다." wrappingWidth="466.0">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -102,16 +102,27 @@
                   </Text>
                   <Text fill="#2e4c6d" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="( http://rtdown.molit.go.kr/ )" wrappingWidth="462.0">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Text>
-                  <Text fill="#2e4c6d" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="강원도교육청에서 제작한 강원교육튼튼체가 사용되었습니다. " wrappingWidth="462.0">
+                  <Text fill="#2e4c6d" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="제공하는 데이터는 법적 효력이 없으므로 단순 참고용으로만 이용 바랍니다." wrappingWidth="496.0">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fill="#2e4c6d" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="강원도교육청에서 제작한 강원교육튼튼체가 사용되었습니다. " wrappingWidth="530.0">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </Text>
                </children>
             </VBox>
