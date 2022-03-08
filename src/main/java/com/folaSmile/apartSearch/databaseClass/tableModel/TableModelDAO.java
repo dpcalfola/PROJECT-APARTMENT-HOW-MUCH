@@ -53,7 +53,7 @@ public class TableModelDAO extends ConnectDB {
         query.append(fromQuery);
 
 
-        //---- START - element of constraints area 
+        //---- START - element of constraints area
         String keyword = constraintModelVO.getConstraintKeyword();
         String minPrice = constraintModelVO.getConstraintMinPrice();
         String maxPrice = constraintModelVO.getConstraintMaxPrice();
@@ -70,7 +70,7 @@ public class TableModelDAO extends ConnectDB {
 
         // If all constraint TextField are empty and boolean onBookmark is false
         // -> isSkipWhereClause = true
-        // -> Skip WHERE clause 
+        // -> Skip WHERE clause
         boolean isSkipWhereClause = keyword.isEmpty()
                 && minPrice.isEmpty()
                 && maxPrice.isEmpty()
@@ -109,7 +109,7 @@ public class TableModelDAO extends ConnectDB {
                         OR apart_group LIKE '%%%s%%'
                         OR address_road LIKE '%%%s%%'
                         )
-                                      
+                        AND
                         """, arrKeywords[i], arrKeywords[i], arrKeywords[i]);
                 query.append(keywordQuery);
 
