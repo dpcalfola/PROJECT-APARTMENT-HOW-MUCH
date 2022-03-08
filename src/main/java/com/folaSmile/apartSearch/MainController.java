@@ -109,7 +109,23 @@ public class MainController extends PrimaryModel implements Initializable {
     // 정보 버튼
     @FXML
     private void handleInformationButtonAction(ActionEvent event) throws IOException {
-        System.out.println("information button clicked");
+
+        // Change button colour ( pressed )
+        informationButton.getStyleClass().removeAll("pressed-button", "button1");
+        informationButton.getStyleClass().add("pressed-button");
+
+        // Reset button color ( button1 )
+        bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
+        bookmarkButton.getStyleClass().add("button1");
+        loginButton.getStyleClass().removeAll("pressed-button", "button1");
+        loginButton.getStyleClass().add("button1");
+        logoutButton.getStyleClass().removeAll("pressed-button", "button1");
+        logoutButton.getStyleClass().add("button1");
+        signUpButton.getStyleClass().removeAll("pressed-button", "button1");
+        signUpButton.getStyleClass().add("button1");
+        tableButton.getStyleClass().removeAll("pressed-button", "button1");
+        tableButton.getStyleClass().add("button1");
+
 
         changeBorderPaneCenter("information-subView.fxml");
 
@@ -119,6 +135,7 @@ public class MainController extends PrimaryModel implements Initializable {
     @FXML
     private void handleTableButtonAction(ActionEvent event) throws IOException {
 
+        // I don't know why it doesn't work when the button is pressed. WHY???
         setStatusDisplayText("검색을 시작합니다: 전체조회");
 
         // Change button colour ( pressed )
