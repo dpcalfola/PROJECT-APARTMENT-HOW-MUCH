@@ -2,10 +2,10 @@ package com.folaSmile.apartSearch.databaseClass.userModel;
 
 public class UserModelVO {
 
-    final int userPrimaryKey;
-    final String userID;
-    final String userPW;
-    final boolean isCorrectUserInfo;
+    final private int userPrimaryKey;
+    final private String userID;
+    final private String userPW;
+    final private boolean isCorrectUserInfo;
 
     public UserModelVO(int userPrimaryKey, String userID, String userPW, boolean isCorrectUserInfo) {
         this.userPrimaryKey = userPrimaryKey;

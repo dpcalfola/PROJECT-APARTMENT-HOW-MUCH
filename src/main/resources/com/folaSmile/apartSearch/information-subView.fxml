@@ -23,7 +23,7 @@
                 </AnchorPane>
                 <AnchorPane layoutX="639.0" layoutY="76.0" prefHeight="381.0" prefWidth="249.0">
                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7ecde" height="400.0" layoutY="-1.0" stroke="#2e4c6d" strokeType="INSIDE" strokeWidth="2.0" width="320.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7ecde" height="400.0" stroke="#2e4c6d" strokeType="INSIDE" strokeWidth="2.0" width="320.0" />
                         <Text fx:id="noticeText" fill="#2e4c6d" layoutX="22.0" layoutY="108.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="notice text area" wrappingWidth="279.0">
                             <font>
                                 <Font name="Arial Bold" size="20.0" />
@@ -34,7 +34,7 @@
                         <Font name="Arial Bold" size="30.0" />
                      </font>
                   </Text>
-                  <VBox layoutX="11.0" layoutY="330.0" prefHeight="62.0" prefWidth="299.0">
+                  <VBox layoutX="26.0" layoutY="304.0" prefHeight="64.0" prefWidth="267.0">
                      <children>
                         <HBox prefHeight="24.0" prefWidth="298.0">
                            <children>
@@ -42,8 +42,11 @@
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
                               </Text>
-                              <Text fx:id="clientVerText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="client version" wrappingWidth="148.341796875">
+                              <Text fx:id="clientVerText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="client version" wrappingWidth="117.341796875">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
@@ -56,8 +59,11 @@
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
                               </Text>
-                              <Text fx:id="databaseVerText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="database version" wrappingWidth="148.341796875">
+                              <Text fx:id="databaseVerText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="database version" wrappingWidth="113.341796875">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
@@ -66,12 +72,12 @@
                         </HBox>
                         <HBox prefHeight="24.0" prefWidth="298.0">
                            <children>
-                                  <Text fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="데이터 범위 : " wrappingWidth="150.0">
+                                  <Text fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="데이터 범위 " wrappingWidth="150.0">
                                       <font>
                                           <Font name="Arial Bold" size="15.0" />
                                       </font>
                                   </Text>
-                              <Text fx:id="dataRangeText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="data range" wrappingWidth="148.341796875">
+                              <Text fx:id="databaseRangeText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="data range" wrappingWidth="103.341796875">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>

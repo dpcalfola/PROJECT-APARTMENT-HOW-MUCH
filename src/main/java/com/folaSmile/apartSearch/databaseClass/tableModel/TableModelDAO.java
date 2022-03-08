@@ -109,7 +109,7 @@ public class TableModelDAO extends ConnectDB {
                         OR apart_group LIKE '%%%s%%'
                         OR address_road LIKE '%%%s%%'
                         )
-                        AND
+                                      
                         """, arrKeywords[i], arrKeywords[i], arrKeywords[i]);
                 query.append(keywordQuery);
 
