@@ -46,16 +46,3 @@
     -fx-opacity: 80;
 }
 
-
-/*.button2 {*/
-/*    -fx-font-family: GangwonEduPower;*/
-/*    -fx-background-color: #e9dac1;*/
-/*    -fx-background-radius: 5, 5, 4;*/
-/*    -fx-background-insets: 0 0 -1 0, 0, 1;*/
-/*    !*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0.0, 0, 1);*!*/
-/*}*/
-
-/*.button2:hover {*/
-/*    -fx-background-color: #FFBBBB;*/
-/*    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0.0, 0, 1);*/
-/*}*/

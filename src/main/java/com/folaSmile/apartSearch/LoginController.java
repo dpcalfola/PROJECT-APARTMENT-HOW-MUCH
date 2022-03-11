@@ -5,6 +5,7 @@ import com.folaSmile.apartSearch.databaseClass.userModel.UserModelVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -23,6 +24,8 @@ public class LoginController extends PrimaryModel implements Initializable {
     PasswordField pwLgSbPasswordField;
     @FXML
     Text loginConsequenceTextLgSbView;
+    @FXML
+    Button signupButton;
 
 
     // *LgSbView == Login-subView
@@ -45,10 +48,14 @@ public class LoginController extends PrimaryModel implements Initializable {
 
             // set message on top text
             setGreetingTextField(getID + " 님 반갑습니다 !!");
-            setStatusDisplayText(getID + " Logged in");
+            setStatusDisplayText("로그인 (" + getID + ")");
 
             loginConsequenceTextLgSbView.setText(getID + "님의 계정에 로그인 되었습니다.");
             loginConsequenceTextLgSbView.setVisible(true);
+
+
+            // deactivate signup button on login view
+            signupButton.setVisible(false);
 
             //
             // setting after logged-in status
@@ -72,7 +79,16 @@ public class LoginController extends PrimaryModel implements Initializable {
 
     @FXML
     private void handleSignUpButtonLgSbViewAction(ActionEvent event) throws IOException {
-        System.out.println("login-subView sign up button clicked");
+
+
+        // Reset status message
+        setStatusDisplayText("");
+
+        // set button color
+        setSignUpButtonColor();
+
+
+        // Change center pane
         changeBorderPaneCenter("signup-subView.fxml");
 
     }

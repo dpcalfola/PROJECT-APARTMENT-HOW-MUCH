@@ -1,5 +1,6 @@
 package com.folaSmile.apartSearch;
 
+import com.folaSmile.apartSearch.PrimaryModel;
 import com.folaSmile.apartSearch.databaseClass.systemInformation.SystemInformationDAO;
 import com.folaSmile.apartSearch.databaseClass.systemInformation.SystemInformationVO;
 import javafx.fxml.FXML;

@@ -96,6 +96,27 @@ public class PrimaryModel {
         mainControllerHandle.getMainPane().setCenter(view);
     }
 
+
+    // This method is going to be called when signup button clicked in Login-subView
+    void setSignUpButtonColor() {
+
+        // Change button colour ( pressed )
+        mainControllerHandle.getSignUpButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getSignUpButton().getStyleClass().add("pressed-button");
+        // Reset button color ( button1 )
+        mainControllerHandle.getLogoutButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getLogoutButton().getStyleClass().add("button1");
+        mainControllerHandle.getTableButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getTableButton().getStyleClass().add("button1");
+        mainControllerHandle.getBookmarkButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getBookmarkButton().getStyleClass().add("button1");
+        mainControllerHandle.getLoginButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getLoginButton().getStyleClass().add("button1");
+        mainControllerHandle.getInformationButton().getStyleClass().removeAll("pressed-button", "button1");
+        mainControllerHandle.getInformationButton().getStyleClass().add("button1");
+    }
+
+
     // set main view field property
     void setGreetingTextField(String text) {
         mainControllerHandle.getGreetingTextField().setText(text);

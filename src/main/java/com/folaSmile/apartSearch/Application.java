@@ -1,13 +1,12 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.testConnection2.TestConnectionDAO;
+import com.folaSmile.apartSearch.databaseClass.initialConnectionTest.TestConnectionDAO;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;

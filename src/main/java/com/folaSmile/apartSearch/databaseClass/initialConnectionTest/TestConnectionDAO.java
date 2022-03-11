@@ -1,4 +1,4 @@
-package com.folaSmile.apartSearch.databaseClass.testConnection2;
+package com.folaSmile.apartSearch.databaseClass.initialConnectionTest;
 
 import com.folaSmile.apartSearch.databaseClass.ConnectDB;
 

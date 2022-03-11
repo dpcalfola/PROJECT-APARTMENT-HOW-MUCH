@@ -20,10 +20,7 @@ public class ConnectDB {
     // 사용하는 클래스에서 닫을 것
     public void connDB() {
         try {
-
             conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected with MySQL database successfully");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

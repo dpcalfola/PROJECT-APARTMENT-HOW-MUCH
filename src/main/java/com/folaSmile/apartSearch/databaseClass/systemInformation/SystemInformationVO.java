@@ -11,7 +11,7 @@ public class SystemInformationVO {
 
     public SystemInformationVO(String databaseVer, String databaseRange, int dataCase, String noticeKey,
                                String notice) {
-        this.clientVer = "1.03t";
+        this.clientVer = "1.04t";
         this.databaseVer = databaseVer;
         this.databaseRange = databaseRange;
         this.dataCase = dataCase;

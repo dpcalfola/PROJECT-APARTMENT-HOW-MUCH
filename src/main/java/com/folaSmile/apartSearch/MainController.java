@@ -2,7 +2,6 @@ package com.folaSmile.apartSearch;
 
 import com.folaSmile.apartSearch.databaseClass.tableModel.ConstraintModelVO;
 
-import com.folaSmile.apartSearch.databaseClass.testConnection2.TestConnectionDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -126,7 +125,10 @@ public class MainController extends PrimaryModel implements Initializable {
         tableButton.getStyleClass().removeAll("pressed-button", "button1");
         tableButton.getStyleClass().add("button1");
 
+        // Reset status message
+        setStatusDisplayText("");
 
+        // Change center pane
         changeBorderPaneCenter("information-subView.fxml");
 
     }
@@ -197,8 +199,6 @@ public class MainController extends PrimaryModel implements Initializable {
         mainControllerConstraintModelVO = getConstraintInfo();
         drawBookmarkDataOnCenter(mainControllerConstraintModelVO);
 
-        // Draw bookmark table
-//        drawBookmarkDataOnCenter();
     }
 
     // 로그인 버튼
@@ -220,7 +220,10 @@ public class MainController extends PrimaryModel implements Initializable {
         informationButton.getStyleClass().removeAll("pressed-button", "button1");
         informationButton.getStyleClass().add("button1");
 
+        // Reset status message
+        setStatusDisplayText("");
 
+        // Change center pane
         changeBorderPaneCenter("login-subView.fxml");
     }
 
@@ -249,9 +252,15 @@ public class MainController extends PrimaryModel implements Initializable {
         setButtonsAfterLogout();
         setGreetingTextField("아파트 실거래가 조회 시스템");
 
+
+        // Reset status message
+        setStatusDisplayText("");
+
+        // Change center pane
         changeBorderPaneCenter("logout-subView.fxml");
 
     }
+
 
     // 회원 가입 버튼
     @FXML
@@ -273,6 +282,10 @@ public class MainController extends PrimaryModel implements Initializable {
         informationButton.getStyleClass().add("button1");
 
 
+        // Reset status message
+        setStatusDisplayText("");
+
+        // Change center pane
         changeBorderPaneCenter("signup-subView.fxml");
     }
 
@@ -408,6 +421,10 @@ public class MainController extends PrimaryModel implements Initializable {
 
     public Button getSignUpButton() {
         return signUpButton;
+    }
+
+    public Button getInformationButton() {
+        return informationButton;
     }
 
 
