@@ -22,7 +22,7 @@ public class SystemInformationDAO extends ConnectDB {
 
             systemInfoStatement = conn.prepareStatement("""
                                         
-                    select sys_info_key, database_ver, database_range, sys_notice_pk, system_notice.notice
+                    select sys_info_key, database_ver, database_range, sys_notice_pk, system_notice.notice, database_case
                     from system_information
                     left join system_notice on sys_notice_pk = system_information.sys_notice_fk
                     ORDER BY sys_info_key DESC
@@ -40,10 +40,14 @@ public class SystemInformationDAO extends ConnectDB {
                 String sysInfoKey = resultSet.getString("sys_info_key");
                 String getDatabaseVer = resultSet.getString("database_ver");
                 String getDatabaseRange = resultSet.getString("database_range");
+                // sysNoticePK == 1 -> use inner notice text
+                // sysNoticePK != 1 -> use database notice
                 String getSysNoticePK = resultSet.getString("sys_notice_pk");
                 String getNotice = resultSet.getString("system_notice.notice");
+                int getDataCase = resultSet.getInt("database_case");
 
-                systemInfo = new SystemInformationVO(getDatabaseVer, getDatabaseRange, getSysNoticePK, getNotice);
+                systemInfo = new SystemInformationVO(getDatabaseVer, getDatabaseRange, getDataCase, getSysNoticePK,
+                        getNotice);
             }
 
 

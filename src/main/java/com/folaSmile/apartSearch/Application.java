@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -53,6 +54,7 @@ public class Application extends javafx.application.Application {
         primaryStage.setTitle("Apartment How Much");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+        
         primaryStage.show();
 
 

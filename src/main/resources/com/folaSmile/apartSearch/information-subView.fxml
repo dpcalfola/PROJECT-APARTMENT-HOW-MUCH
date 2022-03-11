@@ -34,7 +34,7 @@
                         <Font name="Arial Bold" size="30.0" />
                      </font>
                   </Text>
-                  <VBox layoutX="26.0" layoutY="304.0" prefHeight="64.0" prefWidth="267.0">
+                  <VBox layoutX="27.0" layoutY="289.0" prefHeight="64.0" prefWidth="267.0">
                      <children>
                         <HBox prefHeight="24.0" prefWidth="298.0">
                            <children>
@@ -63,7 +63,7 @@
                                     <Insets bottom="5.0" />
                                  </HBox.margin>
                               </Text>
-                              <Text fx:id="databaseVerText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="database version" wrappingWidth="113.341796875">
+                              <Text fx:id="databaseVerText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="no connection" wrappingWidth="113.341796875">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
@@ -76,8 +76,31 @@
                                       <font>
                                           <Font name="Arial Bold" size="15.0" />
                                       </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
                                   </Text>
-                              <Text fx:id="databaseRangeText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="data range" wrappingWidth="103.341796875">
+                              <Text fx:id="databaseRangeText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="no connection" wrappingWidth="118.341796875">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="24.0" prefWidth="298.0">
+                           <children>
+                              <Text fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="총 거래 데이터" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fx:id="databaseCaseText" fill="#2e4c6d" strokeType="OUTSIDE" strokeWidth="0.0" text="no connection" wrappingWidth="113.341796875">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>

@@ -19,6 +19,8 @@ public class InformationController extends PrimaryModel implements Initializable
     @FXML
     private Text databaseRangeText;
     @FXML
+    private Text databaseCaseText;
+    @FXML
     private Text noticeText;
 
 
@@ -34,10 +36,11 @@ public class InformationController extends PrimaryModel implements Initializable
         String databaseVer = sysInfoVO.getDatabaseVer();
         String databaseRange = sysInfoVO.getDatabaseRange();
         String notice = sysInfoVO.getNotice();
-
+        int databaseCase = sysInfoVO.getDataCase();
         clientVerText.setText(clientVer);
         databaseVerText.setText(databaseVer);
         databaseRangeText.setText(databaseRange);
+        databaseCaseText.setText(databaseCase + " 개");
         noticeText.setText(notice);
 
 
