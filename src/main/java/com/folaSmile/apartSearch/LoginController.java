@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 
-public class LoginController extends PrimaryModel implements Initializable {
+public class LoginController extends PrimaryController implements Initializable {
 
     @FXML
     TextField idLgSbTextField;

@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class MainController extends PrimaryModel implements Initializable {
+public class MainController extends PrimaryController implements Initializable {
 
 
     //Field

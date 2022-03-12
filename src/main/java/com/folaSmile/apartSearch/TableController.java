@@ -1,7 +1,6 @@
 package com.folaSmile.apartSearch;
 
 import com.folaSmile.apartSearch.databaseClass.tableModel.*;
-import com.folaSmile.apartSearch.databaseClass.tableModel.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class TableController extends PrimaryModel implements Initializable {
+public class TableController extends PrimaryController implements Initializable {
 
 
     // static field

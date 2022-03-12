@@ -11,7 +11,7 @@ import java.util.Objects;
 
 import static com.folaSmile.apartSearch.Application.mainControllerHandle;
 
-public class PrimaryModel {
+public class PrimaryController {
 
 
     // Static field
@@ -44,7 +44,7 @@ public class PrimaryModel {
 
         // draw center data table
         Pane view;
-        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource("table-subView.fxml")));
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryController.class.getResource("table-subView.fxml")));
         mainControllerHandle.getMainPane().setCenter(view);
 
         // After center pane is loaded by this method,
@@ -63,7 +63,7 @@ public class PrimaryModel {
 
         // draw center data table
         Pane view;
-        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource("table-subView.fxml")));
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryController.class.getResource("table-subView.fxml")));
         mainControllerHandle.getMainPane().setCenter(view);
 
 
@@ -82,7 +82,7 @@ public class PrimaryModel {
 
         // draw center data table
         Pane view;
-        view = FXMLLoader.load(Objects.requireNonNull(PrimaryModel.class.getResource("table-subView.fxml")));
+        view = FXMLLoader.load(Objects.requireNonNull(PrimaryController.class.getResource("table-subView.fxml")));
         mainControllerHandle.getMainPane().setCenter(view);
 
 
@@ -195,7 +195,7 @@ public class PrimaryModel {
     }
 
     public static void setLoggedInUserID(String loggedInUserID) {
-        PrimaryModel.loggedInUserID = loggedInUserID;
+        PrimaryController.loggedInUserID = loggedInUserID;
     }
 
     // static int loggedInUserKey getter and setter
@@ -204,7 +204,7 @@ public class PrimaryModel {
     }
 
     public static void setLoggedInUserKey(int loggedInUserKey) {
-        PrimaryModel.loggedInUserKey = loggedInUserKey;
+        PrimaryController.loggedInUserKey = loggedInUserKey;
     }
 
     // static boolean onBookmark getter and setter
@@ -213,7 +213,7 @@ public class PrimaryModel {
     }
 
     public static void setOnBookmark(boolean onBookmark) {
-        PrimaryModel.onBookmark = onBookmark;
+        PrimaryController.onBookmark = onBookmark;
     }
 
 

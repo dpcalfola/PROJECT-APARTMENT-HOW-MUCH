@@ -1,6 +1,5 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.PrimaryModel;
 import com.folaSmile.apartSearch.databaseClass.systemInformation.SystemInformationDAO;
 import com.folaSmile.apartSearch.databaseClass.systemInformation.SystemInformationVO;
 import javafx.fxml.FXML;
@@ -10,7 +9,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InformationController extends PrimaryModel implements Initializable {
+public class InformationController extends PrimaryController implements Initializable {
 
 
     @FXML

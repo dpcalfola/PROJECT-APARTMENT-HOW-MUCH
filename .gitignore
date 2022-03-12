@@ -1,3 +1,8 @@
+
+
+# Env
+Env*.*
+
 # Compiled class file
 *.class
 
@@ -28,9 +33,6 @@ hs_err_pid*
 
 # test code
 src/main/java/testCode
-
-# Env
-Env*.*
 
 # build files
 *.MF

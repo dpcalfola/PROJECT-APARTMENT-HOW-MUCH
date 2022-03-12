@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignUpController extends PrimaryModel implements Initializable {
+public class SignUpController extends PrimaryController implements Initializable {
 
 
     // field
