@@ -1,6 +1,6 @@
-package com.folaSmile.apartSearch.databaseClass.userModel;
+package com.folaSmile.apartSearch.databaseModel.userModel;
 
-import com.folaSmile.apartSearch.databaseClass.ConnectDB;
+import com.folaSmile.apartSearch.databaseModel.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,10 +21,7 @@ public class UserLoginModelDAO extends ConnectDB {
 
             checkUpUser = conn.prepareStatement("SELECT * FROM users WHERE user_id = ?");
             checkUpUser.setString(1, userID);
-
-
-            // Print sql on console for checkup
-            System.out.println("Login Model DAO sql\n: " + checkUpUser.toString());
+            
 
             resultSet = checkUpUser.executeQuery();
 

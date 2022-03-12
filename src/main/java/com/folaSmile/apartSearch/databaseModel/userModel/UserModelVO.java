@@ -1,4 +1,4 @@
-package com.folaSmile.apartSearch.databaseClass.userModel;
+package com.folaSmile.apartSearch.databaseModel.userModel;
 
 public class UserModelVO {
 

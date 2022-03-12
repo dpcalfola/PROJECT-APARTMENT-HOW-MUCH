@@ -1,4 +1,4 @@
-package com.folaSmile.apartSearch.databaseClass;
+package com.folaSmile.apartSearch.databaseModel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

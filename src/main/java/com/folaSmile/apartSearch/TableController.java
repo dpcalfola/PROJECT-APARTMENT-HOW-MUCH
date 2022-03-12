@@ -1,6 +1,6 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.tableModel.*;
+import com.folaSmile.apartSearch.databaseModel.tableModel.*;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -31,25 +31,25 @@ public class TableController extends PrimaryController implements Initializable 
 
     // table column property
     @FXML
-    private TableView<TableModelVO> tableView;
+    private TableView<TableSearchVO> tableView;
     @FXML
-    private TableColumn<TableModelVO, Integer> tradeId;
+    private TableColumn<TableSearchVO, Integer> tradeId;
     @FXML
-    private TableColumn<TableModelVO, String> apartGroup;
+    private TableColumn<TableSearchVO, String> apartGroup;
     @FXML
-    private TableColumn<TableModelVO, String> addressRoad;
+    private TableColumn<TableSearchVO, String> addressRoad;
     @FXML
-    private TableColumn<TableModelVO, String> addressDetailed;
+    private TableColumn<TableSearchVO, String> addressDetailed;
     @FXML
-    private TableColumn<TableModelVO, String> price;
+    private TableColumn<TableSearchVO, String> price;
     @FXML
-    private TableColumn<TableModelVO, String> area;
+    private TableColumn<TableSearchVO, String> area;
     @FXML
-    private TableColumn<TableModelVO, String> constructionYear;
+    private TableColumn<TableSearchVO, String> constructionYear;
     @FXML
-    private TableColumn<TableModelVO, String> floor;
+    private TableColumn<TableSearchVO, String> floor;
     @FXML
-    private TableColumn<TableModelVO, String> contractDate;
+    private TableColumn<TableSearchVO, String> contractDate;
 
 
     // Button id
@@ -115,15 +115,15 @@ public class TableController extends PrimaryController implements Initializable 
 
         // ----- START: Get data from MySQL -----
 
-        TableModelDAO tableModelDAO = new TableModelDAO();
-        List<TableModelVO> tableModelVOS;
+        TableSearchDAO tableSearchDAO = new TableSearchDAO();
+        List<TableSearchVO> tableSearchVOS;
         int caseCounter = 0;
 
         ConstraintModelVO tableControllerConstraintModelVO = getStaticModelConstraintModelVO();
 
 
         // Throw constraintModelVO, userKey, onBookmark  to TableModelDAO
-        tableModelVOS = tableModelDAO.initialTableList(tableControllerConstraintModelVO, userKey, onBookmark);
+        tableSearchVOS = tableSearchDAO.initialTableList(tableControllerConstraintModelVO, userKey, onBookmark);
 
 
         // ----- END: Get data from MySQL -----
@@ -133,9 +133,9 @@ public class TableController extends PrimaryController implements Initializable 
         tableViewSetCellValueFactory();
 
         // Show data on center pane
-        ObservableList<TableModelVO> observableTableList = tableView.getItems();
+        ObservableList<TableSearchVO> observableTableList = tableView.getItems();
 
-        for (TableModelVO data : tableModelVOS) {
+        for (TableSearchVO data : tableSearchVOS) {
             observableTableList.add(data);
             tableView.setItems(observableTableList);
             caseCounter++;
@@ -167,7 +167,7 @@ public class TableController extends PrimaryController implements Initializable 
                     return;
                 }
 
-                TableModelVO selectedList = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
+                TableSearchVO selectedList = tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex());
                 selectedBookmarkId = selectedList.getTradeID();
                 System.out.println(selectedBookmarkId);
             }
@@ -237,16 +237,16 @@ public class TableController extends PrimaryController implements Initializable 
 
 
     // Copied code from YouTube :)
-    private void searchFilter(ObservableList<TableModelVO> observableTableList) {
+    private void searchFilter(ObservableList<TableSearchVO> observableTableList) {
 
         if (observableTableList != null) {
 
-            FilteredList<TableModelVO> filteredData = new FilteredList<>(observableTableList, b -> true);
+            FilteredList<TableSearchVO> filteredData = new FilteredList<>(observableTableList, b -> true);
 
             // get text from search text field on tap pane
             getSearchTextField().textProperty().addListener((observable, oldValue, newValue) -> {
 
-                filteredData.setPredicate(tableModelVO -> {
+                filteredData.setPredicate(tableSearchVO -> {
 
                     // if no value on searchTextField, no changes
                     if (newValue.isEmpty() || newValue.isBlank()) {
@@ -256,23 +256,23 @@ public class TableController extends PrimaryController implements Initializable 
                     String searchKeyword = newValue.trim();
 
 
-                    if (tableModelVO.getApartGroup().contains(searchKeyword)) {
+                    if (tableSearchVO.getApartGroup().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getAddressDetailed().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getAddressDetailed().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getAddressRoad().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getAddressRoad().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getConstructionYear().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getConstructionYear().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getContractDate().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getContractDate().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getFloor().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getFloor().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getPrice().replace(",", "").contains(searchKeyword)) {
+                    } else if (tableSearchVO.getPrice().replace(",", "").contains(searchKeyword)) {
                         return true; // it helps find price without "," keyword
-                    } else if (tableModelVO.getPrice().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getPrice().contains(searchKeyword)) {
                         return true;
-                    } else if (tableModelVO.getArea().contains(searchKeyword)) {
+                    } else if (tableSearchVO.getArea().contains(searchKeyword)) {
                         return true;
                     } else {
                         // no match found
@@ -281,7 +281,7 @@ public class TableController extends PrimaryController implements Initializable 
                 });
             });
 
-            SortedList<TableModelVO> sortedData = new SortedList<>(filteredData);
+            SortedList<TableSearchVO> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(tableView.comparatorProperty());
             tableView.setItems(sortedData);
 
@@ -296,39 +296,39 @@ public class TableController extends PrimaryController implements Initializable 
 
 
     // TableColumn getter
-    public TableColumn<TableModelVO, Integer> getTradeId() {
+    public TableColumn<TableSearchVO, Integer> getTradeId() {
         return tradeId;
     }
 
-    public TableColumn<TableModelVO, String> getApartGroup() {
+    public TableColumn<TableSearchVO, String> getApartGroup() {
         return apartGroup;
     }
 
-    public TableColumn<TableModelVO, String> getAddressRoad() {
+    public TableColumn<TableSearchVO, String> getAddressRoad() {
         return addressRoad;
     }
 
-    public TableColumn<TableModelVO, String> getAddressDetailed() {
+    public TableColumn<TableSearchVO, String> getAddressDetailed() {
         return addressDetailed;
     }
 
-    public TableColumn<TableModelVO, String> getPrice() {
+    public TableColumn<TableSearchVO, String> getPrice() {
         return price;
     }
 
-    public TableColumn<TableModelVO, String> getArea() {
+    public TableColumn<TableSearchVO, String> getArea() {
         return area;
     }
 
-    public TableColumn<TableModelVO, String> getConstructionYear() {
+    public TableColumn<TableSearchVO, String> getConstructionYear() {
         return constructionYear;
     }
 
-    public TableColumn<TableModelVO, String> getFloor() {
+    public TableColumn<TableSearchVO, String> getFloor() {
         return floor;
     }
 
-    public TableColumn<TableModelVO, String> getContractDate() {
+    public TableColumn<TableSearchVO, String> getContractDate() {
         return contractDate;
     }
 

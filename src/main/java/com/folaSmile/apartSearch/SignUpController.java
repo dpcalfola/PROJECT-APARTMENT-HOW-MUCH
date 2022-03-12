@@ -1,8 +1,8 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.userModel.UserLoginModelDAO;
-import com.folaSmile.apartSearch.databaseClass.userModel.UserSignUpModelDAO;
-import com.folaSmile.apartSearch.databaseClass.userModel.UserModelVO;
+import com.folaSmile.apartSearch.databaseModel.userModel.UserLoginModelDAO;
+import com.folaSmile.apartSearch.databaseModel.userModel.UserSignUpModelDAO;
+import com.folaSmile.apartSearch.databaseModel.userModel.UserModelVO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;

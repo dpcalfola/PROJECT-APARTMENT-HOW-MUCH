@@ -1,7 +1,7 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.userModel.UserLoginModelDAO;
-import com.folaSmile.apartSearch.databaseClass.userModel.UserModelVO;
+import com.folaSmile.apartSearch.databaseModel.userModel.UserLoginModelDAO;
+import com.folaSmile.apartSearch.databaseModel.userModel.UserModelVO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

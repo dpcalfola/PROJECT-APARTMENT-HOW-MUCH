@@ -1,6 +1,6 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.initialConnectionTest.TestConnectionDAO;
+import com.folaSmile.apartSearch.databaseModel.initialConnectionTest.TestConnectionDAO;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -53,7 +53,7 @@ public class Application extends javafx.application.Application {
         primaryStage.setTitle("Apartment How Much");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        
+
         primaryStage.show();
 
 

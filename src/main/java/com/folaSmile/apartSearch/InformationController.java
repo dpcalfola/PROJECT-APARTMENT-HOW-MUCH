@@ -1,7 +1,7 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.systemInformation.SystemInformationDAO;
-import com.folaSmile.apartSearch.databaseClass.systemInformation.SystemInformationVO;
+import com.folaSmile.apartSearch.databaseModel.systemInformation.SystemInformationDAO;
+import com.folaSmile.apartSearch.databaseModel.systemInformation.SystemInformationVO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;

@@ -1,4 +1,4 @@
-package com.folaSmile.apartSearch.databaseClass.tableModel;
+package com.folaSmile.apartSearch.databaseModel.tableModel;
 
 public class ConstraintModelVO {
 

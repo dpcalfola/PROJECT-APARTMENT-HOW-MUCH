@@ -1,6 +1,6 @@
-package com.folaSmile.apartSearch.databaseClass.userModel;
+package com.folaSmile.apartSearch.databaseModel.userModel;
 
-import com.folaSmile.apartSearch.databaseClass.ConnectDB;
+import com.folaSmile.apartSearch.databaseModel.ConnectDB;
 
 import java.sql.*;
 

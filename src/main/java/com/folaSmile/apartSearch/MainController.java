@@ -1,6 +1,6 @@
 package com.folaSmile.apartSearch;
 
-import com.folaSmile.apartSearch.databaseClass.tableModel.ConstraintModelVO;
+import com.folaSmile.apartSearch.databaseModel.tableModel.ConstraintModelVO;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

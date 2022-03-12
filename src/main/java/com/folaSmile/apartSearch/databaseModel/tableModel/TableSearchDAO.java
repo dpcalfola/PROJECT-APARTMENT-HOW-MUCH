@@ -1,6 +1,6 @@
-package com.folaSmile.apartSearch.databaseClass.tableModel;
+package com.folaSmile.apartSearch.databaseModel.tableModel;
 
-import com.folaSmile.apartSearch.databaseClass.ConnectDB;
+import com.folaSmile.apartSearch.databaseModel.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,10 +12,10 @@ import java.util.List;
 // DAO == Data Access Object
 // VO == Value Object
 
-public class TableModelDAO extends ConnectDB {
+public class TableSearchDAO extends ConnectDB {
 
     // make TableModelVo list
-    public List<TableModelVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey, boolean isOnBookmark) {
+    public List<TableSearchVO> initialTableList(ConstraintModelVO constraintModelVO, int userKey, boolean isOnBookmark) {
 
         StringBuilder query = new StringBuilder();
 
@@ -209,9 +209,9 @@ public class TableModelDAO extends ConnectDB {
 
 
     // get items from database
-    private ArrayList<TableModelVO> getTableList(String query) {
+    private ArrayList<TableSearchVO> getTableList(String query) {
 
-        ArrayList<TableModelVO> list = new ArrayList<>();
+        ArrayList<TableSearchVO> list = new ArrayList<>();
         ResultSet resultSet = null;
         PreparedStatement getTableStmt = null;
 
@@ -232,7 +232,7 @@ public class TableModelDAO extends ConnectDB {
                 String constructionYear = resultSet.getString("construction_year");
                 String floor = resultSet.getString("floor");
                 String contractDate = resultSet.getString("contract_date");
-                TableModelVO data = new TableModelVO(tradeID, apartGroup, addressRoad, addressDetailed, price, area, constructionYear, floor, contractDate);
+                TableSearchVO data = new TableSearchVO(tradeID, apartGroup, addressRoad, addressDetailed, price, area, constructionYear, floor, contractDate);
 
                 list.add(data);
 

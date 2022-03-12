@@ -1,6 +1,6 @@
-package com.folaSmile.apartSearch.databaseClass.tableModel;
+package com.folaSmile.apartSearch.databaseModel.tableModel;
 
-public class TableModelVO {
+public class TableSearchVO {
 
     // need refactoring : change type String to Integer : constructionYear, floor, contractDate
     // need refactoring : change type String to double : area
@@ -9,8 +9,8 @@ public class TableModelVO {
     private String apartGroup, addressRoad, addressDetailed, price, area, constructionYear, floor, contractDate;
 
     //constructor
-    public TableModelVO(Integer tradeID, String apartGroup, String addressRoad, String addressDetailed, String price,
-                        String area, String constructionYear, String floor, String contractDate) {
+    public TableSearchVO(Integer tradeID, String apartGroup, String addressRoad, String addressDetailed, String price,
+                         String area, String constructionYear, String floor, String contractDate) {
         this.tradeID = tradeID;
         this.apartGroup = apartGroup;
         this.addressRoad = addressRoad;

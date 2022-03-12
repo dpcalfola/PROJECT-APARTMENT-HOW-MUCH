@@ -1,6 +1,6 @@
-package com.folaSmile.apartSearch.databaseClass.initialConnectionTest;
+package com.folaSmile.apartSearch.databaseModel.initialConnectionTest;
 
-import com.folaSmile.apartSearch.databaseClass.ConnectDB;
+import com.folaSmile.apartSearch.databaseModel.ConnectDB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
