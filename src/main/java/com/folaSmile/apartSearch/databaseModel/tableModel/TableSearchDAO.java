@@ -89,9 +89,9 @@ public class TableSearchDAO extends ConnectDB {
         //---- Start of the WHERE clause ----//
         //---- Start of the WHERE clause ----//
 
-        query.append(" WHERE ");
-        if (isSkipWhereClause) {
-            keyword = "서울특별시";
+
+        if (!isSkipWhereClause) {
+            query.append(" WHERE ");
         }
 
         //
@@ -181,7 +181,9 @@ public class TableSearchDAO extends ConnectDB {
 
 
         // remove suffix "AND "
-        query = new StringBuilder(query.substring(0, query.lastIndexOf("AND")));
+        if (!isSkipWhereClause) {
+            query = new StringBuilder(query.substring(0, query.lastIndexOf("AND")));
+        }
 
 
         //---- End of the WHERE clause ----//
