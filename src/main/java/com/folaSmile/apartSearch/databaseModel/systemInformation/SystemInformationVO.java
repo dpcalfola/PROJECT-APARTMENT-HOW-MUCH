@@ -11,6 +11,8 @@ public class SystemInformationVO {
 
     public SystemInformationVO(String databaseVer, String databaseRange, int dataCase, String noticeKey,
                                String notice) {
+        
+
         this.clientVer = "1.070.t";
         this.databaseVer = databaseVer;
         this.databaseRange = databaseRange;
@@ -19,7 +21,7 @@ public class SystemInformationVO {
         // test code
         System.out.println(notice);
         //
-        
+
 
         // make new line from db text literal "-newline"
         notice = notice.replace("-newline", "\n");

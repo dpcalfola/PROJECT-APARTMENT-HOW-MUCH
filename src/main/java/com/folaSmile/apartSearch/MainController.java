@@ -107,15 +107,19 @@ public class MainController extends PrimaryController implements Initializable {
 
         // Remain connection time and client ver information to cloud DB server
         // Connection time is going to be recorded as cloud DB server time
-        SystemInformationDAO sysDAO = new SystemInformationDAO();
-        SystemInformationVO sysVO = sysDAO.getSystemInfo();
-        String clientVer = sysVO.getClientVer();
+        try {
+            SystemInformationDAO sysDAO = new SystemInformationDAO();
+            SystemInformationVO sysVO = sysDAO.getSystemInfo();
+            String clientVer = sysVO.getClientVer();
 
-        InsertLogDAO logDAO = new InsertLogDAO();
-        if (logDAO.insertLog(clientVer)) {
-            System.out.println("클라이언트 정보와 접속 시간이 데이터베이스에 기록됩니다. \nSent client ver : " + clientVer);
-        } else {
-            System.out.println("접속 로그 기록 실패");
+            InsertLogDAO logDAO = new InsertLogDAO();
+            if (logDAO.insertLog(clientVer)) {
+                System.out.println("클라이언트 정보와 접속 시간이 데이터베이스에 기록됩니다. \nSent client ver : " + clientVer);
+            } else {
+                System.out.println("접속 로그 기록 실패");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 

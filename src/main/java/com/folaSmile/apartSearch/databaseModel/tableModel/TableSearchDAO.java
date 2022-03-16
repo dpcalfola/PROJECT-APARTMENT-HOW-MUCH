@@ -189,7 +189,7 @@ public class TableSearchDAO extends ConnectDB {
 
 
         // criteria for sorting
-        String queryOrderBy = "ORDER BY contract_date ";
+        String queryOrderBy = "ORDER BY contract_date, trade_price_10000won ";
         // limit getting number of items at once
         String queryLimit = "LIMIT 1000";
 

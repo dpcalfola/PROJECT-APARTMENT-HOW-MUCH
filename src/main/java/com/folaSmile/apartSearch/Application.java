@@ -33,17 +33,23 @@ public class Application extends javafx.application.Application {
 
 
         // check up database connection
-        TestConnectionDAO testDao = new TestConnectionDAO();
-        int testConnectResult = testDao.testConnect(777);
-        if (testConnectResult == 486486) {
-            System.out.println("Connect successfully");
-            mainControllerHandle.setStatusDisplayText("데이터베이스 연결에 성공했습니다.");
-        } else {
-            System.out.println("connection failed");
-            mainControllerHandle.setStatusDisplayText("데이터베이스 연결에 실패했습니다.");
+        try {
+            TestConnectionDAO testDao = new TestConnectionDAO();
+            int testConnectResult = testDao.testConnect(777);
+            if (testConnectResult == 486486) {
+                System.out.println("Connect successfully");
+                mainControllerHandle.setStatusDisplayText("데이터베이스 연결에 성공했습니다.");
+            } else {
+                System.out.println("Connection failed");
+                mainControllerHandle.setStatusDisplayText("데이터베이스 연결에 실패했습니다.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        // set information page
+
+        // set information page for initial center view
         Pane view;
         view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("information-subView.fxml")));
         mainControllerHandle.getMainPane().setCenter(view);

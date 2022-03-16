@@ -29,21 +29,34 @@ public class InformationController extends PrimaryController implements Initiali
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SystemInformationDAO sysInfoDAO = new SystemInformationDAO();
-        SystemInformationVO sysInfoVO = sysInfoDAO.getSystemInfo();
 
-        String clientVer = sysInfoVO.getClientVer();
-        String databaseVer = sysInfoVO.getDatabaseVer();
-        String databaseRange = sysInfoVO.getDatabaseRange();
-        String notice = sysInfoVO.getNotice();
-        int databaseCase = sysInfoVO.getDataCase();
+        EnvClientVer envClientVer = new EnvClientVer();
+        String clientVer = envClientVer.getEnvClientVer();
         clientVerText.setText(clientVer);
-        databaseVerText.setText(databaseVer);
-        databaseRangeText.setText(databaseRange);
-        databaseCaseText.setText(databaseCase + " 개");
-        noticeText.setText(notice);
+
+        try {
+            SystemInformationDAO sysInfoDAO = new SystemInformationDAO();
+            SystemInformationVO sysInfoVO = sysInfoDAO.getSystemInfo();
+
+
+//            String clientVer = sysInfoVO.getClientVer();
+
+            String databaseVer = sysInfoVO.getDatabaseVer();
+            String databaseRange = sysInfoVO.getDatabaseRange();
+            String notice = sysInfoVO.getNotice();
+            int databaseCase = sysInfoVO.getDataCase();
+
+            databaseVerText.setText(databaseVer);
+            databaseRangeText.setText(databaseRange);
+            databaseCaseText.setText(databaseCase + " 개");
+            noticeText.setText(notice);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 
-    
+
 }
