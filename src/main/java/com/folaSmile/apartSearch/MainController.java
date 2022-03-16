@@ -80,7 +80,7 @@ public class MainController extends PrimaryController implements Initializable {
     // and this initializing method run only once
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        
 
         // Make constraints text field be gotten only int input ( without keyword field )
         restrictInputValueOnConstraintTextField();

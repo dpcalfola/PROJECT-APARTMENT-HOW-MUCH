@@ -64,15 +64,8 @@ public class TableController extends PrimaryController implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
-        // test code
-        System.out.println("selectedBookmark value: " + selectedBookmarkId);
-
         int userKey = getLoggedInUserKey();
         boolean onBookmark = isOnBookmark();
-
-
-        // Button activate/deactivate
 
         // Depends on logged-in
         if (getLoggedInUserKey() == -1) {

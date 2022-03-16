@@ -37,10 +37,10 @@ public class Application extends javafx.application.Application {
             TestConnectionDAO testDao = new TestConnectionDAO();
             int testConnectResult = testDao.testConnect(777);
             if (testConnectResult == 486486) {
-                System.out.println("Connect successfully");
+                System.out.println("Application Class: Connect successfully");
                 mainControllerHandle.setStatusDisplayText("데이터베이스 연결에 성공했습니다.");
             } else {
-                System.out.println("Connection failed");
+                System.out.println("Application Class: Connection failed");
                 mainControllerHandle.setStatusDisplayText("데이터베이스 연결에 실패했습니다.");
             }
 

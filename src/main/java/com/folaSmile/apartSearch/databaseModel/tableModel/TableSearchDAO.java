@@ -20,7 +20,7 @@ public class TableSearchDAO extends ConnectDB {
         StringBuilder query = new StringBuilder();
 
         // select query
-        String selectQuery = """ 
+        String selectQuery = """
                 SELECT
                 trade_id,
                 apart_group,
@@ -197,7 +197,8 @@ public class TableSearchDAO extends ConnectDB {
         query.append(queryLimit);
 
         // test code 6 : whole query
-        System.out.println("test code 5 : query start \n\n " + query + "\n\n query end");
+        System.out.println("\n\nquery start------------------------------------------ \n\n" + query + "\n\nquery " +
+                "end--------------------------------------------");
 
 
         // We got whole query eventually
