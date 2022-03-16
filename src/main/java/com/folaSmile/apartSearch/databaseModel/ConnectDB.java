@@ -1,5 +1,9 @@
 package com.folaSmile.apartSearch.databaseModel;
 
+
+import com.folaSmile.apartSearch.env.Env;
+import com.folaSmile.apartSearch.env.EnvVO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -9,9 +13,9 @@ public class ConnectDB {
     Env env = new Env();
     EnvVO envVO = env.getEnvData(2);
 
-    String url = envVO.url;
-    String user = envVO.user;
-    String password = envVO.password;
+    String url = envVO.getUrl();
+    String user = envVO.getUser();
+    String password = envVO.getPassword();
 
     public Connection conn;
 

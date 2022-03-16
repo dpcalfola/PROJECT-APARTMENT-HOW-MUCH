@@ -31,6 +31,9 @@ hs_err_pid*
 # sonarlint plugin data file
 .idea/sonarlint
 
+# idea data
+.idea
+
 # test code
 src/main/java/testCode
 

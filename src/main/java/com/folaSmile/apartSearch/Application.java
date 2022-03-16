@@ -22,6 +22,7 @@ public class Application extends javafx.application.Application {
 
         // load font 강원교육튼튼체
         Font.loadFont(getClass().getResourceAsStream("font/GangwonEduPower ExtraBold.ttf"), 10);
+        Font.loadFont(getClass().getResourceAsStream("font/NanumGothicBold.ttf"), 10);
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main-view.fxml"));
