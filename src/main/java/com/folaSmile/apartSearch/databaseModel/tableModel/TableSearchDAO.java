@@ -91,7 +91,7 @@ public class TableSearchDAO extends ConnectDB {
 
         query.append(" WHERE ");
         if (isSkipWhereClause) {
-            minContractYearMonthDate = "20200101";
+            keyword = "서울특별시";
         }
 
         //
@@ -189,7 +189,7 @@ public class TableSearchDAO extends ConnectDB {
 
 
         // criteria for sorting
-        String queryOrderBy = "ORDER BY contract_date, trade_price_10000won ";
+        String queryOrderBy = "ORDER BY trade_id ";
         // limit getting number of items at once
         String queryLimit = "LIMIT 1000";
 
