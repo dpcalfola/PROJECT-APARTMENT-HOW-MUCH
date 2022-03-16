@@ -1,6 +1,7 @@
 package com.folaSmile.apartSearch.databaseModel.systemInformation;
 
 import com.folaSmile.apartSearch.databaseModel.ConnectDB;
+import com.folaSmile.apartSearch.env.EnvClientVer;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +11,9 @@ public class SystemInformationDAO extends ConnectDB {
 
 
     public SystemInformationVO getSystemInfo() {
+
+        EnvClientVer clientVer = new EnvClientVer();
+
 
         ResultSet resultSet = null;
         PreparedStatement systemInfoStatement = null;
@@ -44,7 +48,8 @@ public class SystemInformationDAO extends ConnectDB {
                 String getNotice = resultSet.getString("system_notice.notice");
                 int getDataCase = resultSet.getInt("database_case");
 
-                systemInfo = new SystemInformationVO(getDatabaseVer, getDatabaseRange, getDataCase, getSysNoticePK,
+                systemInfo = new SystemInformationVO(clientVer.getEnvClientVer(), getDatabaseVer, getDatabaseRange, getDataCase,
+                        getSysNoticePK,
                         getNotice);
             }
 

@@ -9,16 +9,17 @@ public class SystemInformationVO {
     final private String notice;
 
 
-    public SystemInformationVO(String databaseVer, String databaseRange, int dataCase, String noticeKey,
+    public SystemInformationVO(String clientVer, String databaseVer, String databaseRange, int dataCase,
+                               String noticeKey,
                                String notice) {
 
 
-        this.clientVer = "1.070.t";
+        this.clientVer = clientVer;
         this.databaseVer = databaseVer;
         this.databaseRange = databaseRange;
         this.dataCase = dataCase;
 
-        
+
         // make new line from db text literal "-newline"
         notice = notice.replace("-newline", "\n");
 
