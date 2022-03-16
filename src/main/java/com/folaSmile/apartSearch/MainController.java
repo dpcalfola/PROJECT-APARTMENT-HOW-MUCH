@@ -1,5 +1,8 @@
 package com.folaSmile.apartSearch;
 
+import com.folaSmile.apartSearch.databaseModel.connectionLog.InsertLogDAO;
+import com.folaSmile.apartSearch.databaseModel.systemInformation.SystemInformationDAO;
+import com.folaSmile.apartSearch.databaseModel.systemInformation.SystemInformationVO;
 import com.folaSmile.apartSearch.databaseModel.tableModel.ConstraintModelVO;
 
 import javafx.event.ActionEvent;
@@ -100,6 +103,22 @@ public class MainController extends PrimaryController implements Initializable {
         bookmarkButton.setDisable(true);
         logoutButton.setOpacity(0.5);
         logoutButton.setDisable(true);
+
+
+        // Remain connection time and client ver information to cloud DB server
+        // Connection time is going to be recorded as cloud DB server time
+        SystemInformationDAO sysDAO = new SystemInformationDAO();
+        SystemInformationVO sysVO = sysDAO.getSystemInfo();
+        String clientVer = sysVO.getClientVer();
+
+        InsertLogDAO logDAO = new InsertLogDAO();
+        if (logDAO.insertLog(clientVer)) {
+            System.out.println("클라이언트 정보와 접속 시간이 데이터베이스에 기록됩니다. \nSent client ver : " + clientVer);
+        } else {
+            System.out.println("접속 로그 기록 실패");
+        }
+
+
     }
 
 
@@ -174,10 +193,7 @@ public class MainController extends PrimaryController implements Initializable {
         clearConstraintField();
 
 
-        // get
-
-
-        // Change button colour ( pressed )
+        // Change button color ( pressed )
         bookmarkButton.getStyleClass().removeAll("pressed-button", "button1");
         bookmarkButton.getStyleClass().add("pressed-button");
         // Reset button color ( button1 )
@@ -191,6 +207,7 @@ public class MainController extends PrimaryController implements Initializable {
         signUpButton.getStyleClass().add("button1");
         informationButton.getStyleClass().removeAll("pressed-button", "button1");
         informationButton.getStyleClass().add("button1");
+
 
         // turn on boolean onBookmark
         setOnBookmark(true);
@@ -441,7 +458,6 @@ public class MainController extends PrimaryController implements Initializable {
 
 
     // Constraint text fields getter
-
 
     public TextField getKeywordTextField() {
         return keywordTextField;

@@ -43,6 +43,7 @@ public class InformationController extends PrimaryController implements Initiali
         databaseCaseText.setText(databaseCase + " 개");
         noticeText.setText(notice);
 
-
     }
+
+    
 }

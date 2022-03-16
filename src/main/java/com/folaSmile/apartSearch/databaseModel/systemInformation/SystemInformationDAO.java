@@ -28,8 +28,6 @@ public class SystemInformationDAO extends ConnectDB {
                     ORDER BY sys_info_key DESC
                     LIMIT 1;
                                         
-                    ;
-
                     """);
 
 

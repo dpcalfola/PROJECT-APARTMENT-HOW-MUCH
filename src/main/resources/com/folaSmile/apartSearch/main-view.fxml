@@ -157,9 +157,9 @@
                                 </Label>
                                 <HBox prefHeight="40.0" prefWidth="200.0">
                                     <children>
-                                        <TextField fx:id="minContractDateTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
+                                        <TextField fx:id="minContractDateTextField" prefHeight="25.0" prefWidth="110.0" promptText="YYYYMMDD" style="-fx-background-color: #F7ecde;" />
                                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="48.0" text="~" textAlignment="CENTER" />
-                                        <TextField fx:id="maxContractDateTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
+                                        <TextField fx:id="maxContractDateTextField" prefHeight="25.0" prefWidth="110.0" promptText="YYYYMMDD" style="-fx-background-color: #F7ecde;" />
                                     </children>
                                 </HBox>
                                 <Label prefHeight="33.0" prefWidth="261.0" text=" 건축년도" textFill="#2e4c6d">
@@ -169,9 +169,9 @@
                                 </Label>
                                 <HBox prefHeight="40.0" prefWidth="200.0">
                                     <children>
-                                        <TextField fx:id="minConstructYearTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
+                                        <TextField fx:id="minConstructYearTextField" prefHeight="25.0" prefWidth="110.0" promptText="YYYY" style="-fx-background-color: #F7ecde;" />
                                         <Label alignment="CENTER" prefHeight="17.0" prefWidth="48.0" text="~" textAlignment="CENTER" />
-                                        <TextField fx:id="maxConstructYearTextField" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F7ecde;" />
+                                        <TextField fx:id="maxConstructYearTextField" prefHeight="25.0" prefWidth="110.0" promptText="YYYY" style="-fx-background-color: #F7ecde;" />
                                     </children>
                                 </HBox>
                                 <Label prefHeight="33.0" prefWidth="126.0" text=" 층" textFill="#2e4c6d">

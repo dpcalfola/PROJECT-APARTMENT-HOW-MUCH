@@ -28,7 +28,7 @@ public class Application extends javafx.application.Application {
         Parent root = loader.load();
 
 
-        // make controller static
+        // Throw controller to static field
         mainControllerHandle = (MainController) loader.getController();
 
 

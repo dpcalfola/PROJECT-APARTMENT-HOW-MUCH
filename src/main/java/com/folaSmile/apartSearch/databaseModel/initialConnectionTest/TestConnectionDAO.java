@@ -8,9 +8,11 @@ import java.sql.SQLException;
 
 public class TestConnectionDAO extends ConnectDB {
 
-    private ResultSet resultSet;
-
+    // This method is called by Application.start method
     public int testConnect(int callCode) {
+
+
+        ResultSet resultSet = null;
 
         int resultCode = 0;
         PreparedStatement connectTestQuery = null;
