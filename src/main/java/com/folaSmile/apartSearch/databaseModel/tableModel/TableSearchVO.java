@@ -11,6 +11,12 @@ public class TableSearchVO {
     //constructor
     public TableSearchVO(Integer tradeID, String apartGroup, String addressRoad, String addressDetailed, String price,
                          String area, String constructionYear, String floor, String contractDate) {
+
+        // insert '-' into contract date
+        if (contractDate.length() == 8) {
+            contractDate = contractDate.substring(0, 4) + "-" + contractDate.substring(4, 6) + "-" + contractDate.substring(6);
+        }
+
         this.tradeID = tradeID;
         this.apartGroup = apartGroup;
         this.addressRoad = addressRoad;

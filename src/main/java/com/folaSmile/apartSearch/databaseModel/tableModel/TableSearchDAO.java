@@ -193,7 +193,7 @@ public class TableSearchDAO extends ConnectDB {
         // criteria for sorting
         String queryOrderBy = "ORDER BY trade_id ";
         // limit getting number of items at once
-        String queryLimit = "LIMIT 1000";
+        String queryLimit = "LIMIT 20000";
 
         query.append(queryOrderBy);
         query.append(queryLimit);
