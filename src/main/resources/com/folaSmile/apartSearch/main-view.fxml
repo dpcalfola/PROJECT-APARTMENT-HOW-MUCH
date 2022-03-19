@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="750.0" minWidth="1350.0" prefHeight="750.0" prefWidth="1350.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.folaSmile.apartSearch.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="750.0" prefWidth="1350.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.folaSmile.apartSearch.MainController">
     <children>
-        <BorderPane fx:id="mainPane" minHeight="750.0" minWidth="1350.0" prefHeight="750.0" prefWidth="1350.0">
+        <BorderPane fx:id="mainPane" prefHeight="750.0" prefWidth="1350.0">
             <center>
-                <AnchorPane minHeight="550.0" minWidth="1050.0" prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER" />
+                <AnchorPane prefHeight="550.0" prefWidth="1050.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER" />
             </center>
             <bottom>
                 <AnchorPane prefHeight="70.0" prefWidth="1350.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER">
@@ -34,7 +34,7 @@
                 </AnchorPane>
             </bottom>
             <top>
-                <AnchorPane minHeight="130.0" minWidth="1350.0" prefHeight="130.0" prefWidth="1350.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="130.0" prefWidth="1350.0" style="-fx-background-color: #f7ecde;" BorderPane.alignment="CENTER">
                     <children>
                         <Text fill="#2e4c6d" layoutX="14.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APARTMENT" textAlignment="CENTER" wrappingWidth="200.818359375">
                             <font>
@@ -46,14 +46,14 @@
                                 <Font name="Arial Bold" size="30.0" />
                             </font>
                         </Text>
-                        <AnchorPane layoutX="300.0" minHeight="130.0" minWidth="1050.0" prefHeight="130.0" prefWidth="1050.0" style="-fx-background-color: #e9dac1;">
+                        <AnchorPane layoutX="300.0" prefHeight="130.0" prefWidth="1050.0" style="-fx-background-color: #e9dac1;">
                             <children>
                                 <Text fx:id="greetingTextField" fill="#2e4c6d" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아파트 실거래가 조회 시스템" wrappingWidth="904.818359375">
                                     <font>
                                         <Font name="Arial Bold" size="30.0" />
                                     </font>
                                 </Text>
-                                <TextField fx:id="searchTextField" layoutX="15.0" layoutY="86.0" minHeight="30.0" minWidth="916.0" prefHeight="30.0" prefWidth="931.0" promptText="목록 내 재검색:" style="-fx-background-color: #f7ecde;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                <TextField fx:id="searchTextField" layoutX="15.0" layoutY="86.0" prefHeight="30.0" prefWidth="931.0" promptText="목록 내 재검색:" style="-fx-background-color: #f7ecde;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -99,7 +99,7 @@
                 </AnchorPane>
             </top>
             <left>
-                <AnchorPane minHeight="550.0" minWidth="300.0" prefHeight="550.0" prefWidth="300.0" style="-fx-background-color: #e9dac1;" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="550.0" prefWidth="300.0" style="-fx-background-color: #e9dac1;" BorderPane.alignment="CENTER">
                     <children>
                         <VBox layoutX="20.0" layoutY="14.0" prefHeight="480.0" prefWidth="260.0">
                             <children>
