@@ -28,12 +28,14 @@ public class SystemInformationVO {
         // otherwise get notice message from database
         if (noticeKey.equals("1")) {
             this.notice = String.format("""
-                    본 버전(%s)은 임시 배포용입니다. 데이터베이스 서버가 한시적으로 운영됩니다.
-                                        
+                    본 버전(%s)은
+                    22년 9월 14일 배포판입니다.
+                    
                     """, this.clientVer);
         } else {
             this.notice = String.format("""
-                    본 버전(%s)은 임시 배포용입니다. 데이터베이스 서버가 한시적으로 운영됩니다
+                    본 버전(%s)은
+                    22년 9월 14일 배포판입니다.
                                         
                     """, this.clientVer) + notice;
         }
