@@ -43,6 +43,7 @@
 >     * MVC 디자인 패턴
 >       
 
+<br>
 
 ### 5. 프로젝트를 진행하며 배운점, 문제와 해결
 >  * 객제치향 프로그래밍의 본질에 대한 이해와 적용
@@ -62,6 +63,9 @@
 >  * Query 최적화
 >    * 16만개가 넘는 레코드를 검색하는 과정에서 발생하는 지연 시간 최적화 노력 
 
-### 6. 프로젝트 진행 당시 개발 과정을 기록하고 정리하던 노션 페이지.
+
+<br> 
+
+### 6. 프로젝트 진행 당시 개발 과정을 기록하고 정리하던 노션 페이지
 
 [![Notion Badge](https://img.shields.io/badge/APARTMENT_HOW_MUCH-808080?style=for-the-badge&logo=NOTION&logoColor=white&link=https://twitter.com/dpcalFola)](https://www.notion.so/PROJECT-APARTMENT-HOW-MUCH-c5e2a8a7cdff4c07ab3452ad95005020)
