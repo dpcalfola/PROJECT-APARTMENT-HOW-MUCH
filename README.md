@@ -61,12 +61,12 @@
 >  * 최적화 고민 - 검색 SQL Query
 >    * 16만개가 넘는 레코드를 검색하는 과정에서 Query를 어떻게 작성하는지에 따라 발생하는 지연 시간이 극명하게 차이남을 인식
 >    * 수많은 쿼리를 테스트하고 적용해본 결과 Primary Key 기반 검색의 속도가 보다 빠름을 이해
->    * 검색 SQL Query 를 만드는 알고리즘 코드 링크
+>    * 검색 Query 를 만드는 알고리즘 코드 링크
 >      * [TableSearchDAO.java](https://github.com/dpcalfola/apartment_howmuch/blob/main/src/main/java/com/folaSmile/apartSearch/databaseModel/tableModel/TableSearchDAO.java)
 >    * 적용하지 못한 최적화 아이디어
 >      1. 조인이 발생하지 않는 단순 검색이 많으므로 전통적인 RDBMS 대신 NoSQL 사용
 >      2. 검색 기준에 따라 서로 다른 Primary Key 혹은 Index 를 갖는, 별도의 물리적인 테이블을 여러개 만들어 운영
->    * 이후 DB의 이해도를 제고하기 위해 SQLD 자격증 취득(2022년 7월)
+>    * 이후 RDBMS 이해도를 제고하기 위해 SQLD 자격증 취득(2022년 7월)
 
 <br> 
 
