@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 public class ConnectDB {
 
     Env env = new Env();
-    EnvVO envVO = env.getEnvData(2);
+    EnvVO envVO = env.getEnvData(3);
 
     String url = envVO.getUrl();
     String user = envVO.getUser();

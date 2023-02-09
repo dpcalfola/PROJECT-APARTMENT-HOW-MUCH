@@ -1,17 +1,9 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="PROJECT_APARTMENT_HOW_MUCH:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/PROJECT_APARTMENT_HOW_MUCH_jar</output-path>
-    <root id="archive" name="PROJECT_APARTMENT_HOW_MUCH.jar">
+    <root id="archive" name="PROJECT_APARTMENT_HOW_MUCH_jar.jar">
       <element id="module-output" name="PROJECT_APARTMENT_HOW_MUCH" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.2/javafx-base-17.0.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx-swt.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.web.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.base.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.fxml.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.media.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.swing.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.controls.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.graphics.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.2/javafx-controls-17.0.2-mac-aarch64.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.2/javafx-base-17.0.2-mac-aarch64.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.2/javafx-controls-17.0.2.jar" path-in-jar="/" />
@@ -21,20 +13,28 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.2/javafx-fxml-17.0.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.2/javafx-graphics-17.0.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PATH_TO_FX$/javafx-swt.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PATH_TO_FX$/libjfxmedia_avf.dylib" />
       <element id="file-copy" path="$PATH_TO_FX$/libdecora_sse.dylib" />
       <element id="file-copy" path="$PATH_TO_FX$/libfxplugins.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libglass.dylib" />
+      <element id="file-copy" path="$PATH_TO_FX$/javafx.properties" />
+      <element id="file-copy" path="$PATH_TO_FX$/libjfxwebkit.dylib" />
+      <element id="file-copy" path="$PATH_TO_FX$/libjavafx_font.dylib" />
+      <element id="file-copy" path="$PATH_TO_FX$/libprism_es2.dylib" />
       <element id="file-copy" path="$PATH_TO_FX$/libglib-lite.dylib" />
       <element id="file-copy" path="$PATH_TO_FX$/libgstreamer-lite.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libjavafx_font.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libjavafx_iio.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libjfxmedia_avf.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libjfxmedia.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libjfxwebkit.dylib" />
       <element id="file-copy" path="$PATH_TO_FX$/libprism_common.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/libprism_es2.dylib" />
       <element id="file-copy" path="$PATH_TO_FX$/libprism_sw.dylib" />
-      <element id="file-copy" path="$PATH_TO_FX$/javafx.properties" />
+      <element id="file-copy" path="$PATH_TO_FX$/libjavafx_iio.dylib" />
+      <element id="file-copy" path="$PATH_TO_FX$/libglass.dylib" />
+      <element id="file-copy" path="$PATH_TO_FX$/libjfxmedia.dylib" />
     </root>
   </artifact>
 </component>

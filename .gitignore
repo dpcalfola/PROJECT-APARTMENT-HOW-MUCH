@@ -2,6 +2,9 @@
 
 # Env
 Env*.*
+.env
+env
+
 
 # Compiled class file
 *.class
@@ -52,3 +55,7 @@ src/main/java/test_code
 
 # external library
 external_library
+
+
+# personal use
+/pesonal_use
