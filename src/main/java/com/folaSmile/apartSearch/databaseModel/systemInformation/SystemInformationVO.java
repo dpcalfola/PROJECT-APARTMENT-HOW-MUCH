@@ -19,6 +19,7 @@ public class SystemInformationVO {
         this.databaseRange = databaseRange;
         this.dataCase = dataCase;
 
+        // THIS PART NEED REFACTORING - Data text should be moved to envClientVer class
 
         // make new line from db text literal "-newline"
         notice = notice.replace("-newline", "\n");
@@ -29,14 +30,12 @@ public class SystemInformationVO {
         if (noticeKey.equals("1")) {
             this.notice = String.format("""
                     본 버전(%s)은
-                    22년 9월 14일 배포판입니다.
-                    
+                    23년 2월 9일 배포판입니다.                              
                     """, this.clientVer);
         } else {
             this.notice = String.format("""
                     본 버전(%s)은
-                    22년 9월 14일 배포판입니다.
-                                        
+                    23년 2월 9일 배포판입니다.                              
                     """, this.clientVer) + notice;
         }
 

@@ -75,7 +75,7 @@
                                 <Font name="Arial Bold" size="30.0"/>
                             </font>
                         </Text>
-                        <Text fill="#2e4c6d" layoutX="40.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID : ezen" wrappingWidth="109.236328125">
+                        <Text fill="#2e4c6d" layoutX="40.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID : fola" wrappingWidth="109.236328125">
                             <font>
                                 <Font name="Arial Bold" size="20.0"/>
                             </font>
