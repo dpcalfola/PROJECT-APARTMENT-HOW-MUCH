@@ -13,8 +13,12 @@
 <br>
 
 ### 2. 다운로드 
-> * 프로그램 다운로드 링크 (windows 전용)
->   * (준비중)
+> * 프로그램 다운로드 링크
+>   * For macOS
+>     * [프로젝트 Executable jar file download](https://drive.google.com/file/d/1K1PfX7-yN-BBPBzlVH1mjxQsK3dtnXr0/view?usp=share_link)
+>     * JDK 17 이하 환경에서 동작을 보장하지 않습니다.
+>   * For Windows
+>     * (준비중)
 > * 개발문서
 >   * [download - dev_document(pdf)](https://drive.google.com/file/d/1uSMxHxRhqIvmre2-DTt-DxtbuGUoBxku/view?usp=sharing)
 >   * 프로젝트를 마치며 국비교육과정 강의실에서 진행한 최종 발표 프레젠테이션 자료입니다.
@@ -33,13 +37,14 @@
 ### 4. 프로젝트에 대하여
 > * 국비교육과정에서 진행한 개인 프로젝트
 >   * 교육 커리큘럼에서 제시한 목표
->     * Java 와 Database를 연동
+>     * Java 와 Database 연동
 >     * Graphic User Interface
 > * 스스로 공부하고 적용한 추가 기술
 >     * JavaFX
 >     * Docker
 >     * MVC 디자인 패턴
->       
+>     * Git
+>  
 
 <br>
 
@@ -55,6 +60,7 @@
 >    * 국비교육과정에서 교육한 Oracle DB는 MacOS를 지원하지 않아 DB 대응책으로 Docker 의 전반적인 사용법을 독학(강사님께서 Docker 사용 경험 x)
 >    * Oracle 대신 Docker 를 공식 지원하는 MySQL 을 습득하여 사용
 >    * 개인 NAS 위에 MySQL Container 을 생성하고 특정 주소와 포트를 개방하여 프로젝트 프로그램이 DB에 접근하는 방법으로 해결  
+>    * 호스팅 서비스가 아닌 홈 네트워크를 개방하여 서비스하는 과정에서 기초적인 네트워크 지식과 보안의 중요성에 대한 인식 획득
 >  * 보안에 대한 인식 - DB 접속 정보 숨기기
 >    * 코드 전체를 github 공개 저장소에 업로드시 DB 접속 정보가 노출이 되고 이는 악의적 접근 가능성이 발생함을 인식
 >    * 트위터의 다른 현업 개발자분께서 .gitignore 목록에 포함된 env 파일로 서버 정보를 관리하는 아이디어 조언을 받아 해결
@@ -65,7 +71,7 @@
 >      * [TableSearchDAO.java](https://github.com/dpcalfola/apartment_howmuch/blob/main/src/main/java/com/folaSmile/apartSearch/databaseModel/tableModel/TableSearchDAO.java)
 >    * 적용하지 못한 최적화 아이디어
 >      1. 조인이 발생하지 않는 단순 검색이 많으므로 전통적인 RDBMS 대신 NoSQL 사용
->      2. 검색 기준에 따라 서로 다른 Primary Key 혹은 Index 를 갖는, 별도의 물리적인 테이블을 여러개 만들어 운영
+>      2. 검색 기준에 따라 서로 다른 Primary Key 혹은 Index 를 갖는, 별도의 테이블을 여러개 만들어 운영
 >    * 이후 RDBMS 이해도를 제고하기 위해 SQLD 자격증 취득(2022년 7월)
 
 <br> 
