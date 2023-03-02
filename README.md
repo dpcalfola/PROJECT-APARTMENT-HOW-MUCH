@@ -2,6 +2,7 @@
 
 ## 아파트 매매 실거래가 조회 프로그램 (개인 프로젝트)
 <br><br>
+![img.png](assets%2Fimg.png)
 
 ### 1. 이 프로그램에 대하여
 > 아파트의 사양과 매매 실거래가 정보를 쉽고 빠르게 조회할 수 있는 프로그램입니다.
@@ -23,9 +24,13 @@
 >     * [프로젝트 Executable jar file download](https://drive.google.com/file/d/1K1PfX7-yN-BBPBzlVH1mjxQsK3dtnXr0/view?usp=share_link)
 >     * JDK 17 이하 환경에서 동작을 보장하지 않습니다.
 >   * For Windows
->     * [윈도우용 .exe 실행파일 download](https://drive.google.com/file/d/1ufpRbkMK4sxXT5i-YzP2TDq0ImPdut-r/view?usp=share_link)
->     * 윈도우 64bit 환경에서 실행 가능하며 JRE를 포함하고 있어 JDK 환경과 무관하게 실행 가능합니다.
->     * 실행파일에 인증서가 없어 실행시 경고 메세지가 출력됩니다. 악성 코드는 없으니 강제 실행하셔도 됩니다(악성 코드를 만들 능력이 없습니다). 
+>     * (준비중)
+
+[//]: # (>     * [윈도우용 .exe 실행파일 download]&#40;https://drive.google.com/file/d/1ufpRbkMK4sxXT5i-YzP2TDq0ImPdut-r/view?usp=share_link&#41;)
+
+[//]: # (>     * 윈도우 64bit 환경에서 실행 가능하며 JRE를 포함하고 있어 JDK 환경과 무관하게 실행 가능합니다.)
+
+[//]: # (>     * 실행파일에 인증서가 없어 실행시 경고 메세지가 출력됩니다. 악성 코드는 없으니 강제 실행하셔도 됩니다&#40;악성 코드를 만들 능력이 없습니다&#41;. )
 > * 개발문서
 >   * [download - dev_document(pdf)](https://drive.google.com/file/d/1uSMxHxRhqIvmre2-DTt-DxtbuGUoBxku/view?usp=sharing)
 >   * 프로젝트를 마치며 국비교육과정 강의실에서 진행한 최종 발표 프레젠테이션 자료입니다.
